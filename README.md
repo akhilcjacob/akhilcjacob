@@ -26,5 +26,5 @@
 - [🔗 More on LinkedIn](https://www.linkedin.com/in/akhilcjacob)
 
 #### 📱 **Follow Me**
-- [📸 Instagram](https://instagram.com/akhilcjacob)
+- [📸 Instagram](https://www.instagram.com/akhil.cjacob/)
 - [💼 LinkedIn](https://www.linkedin.com/in/akhilcjacob)
