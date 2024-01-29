@@ -1,6 +1,10 @@
-##  **Akhil Jacob** 
+<p align="center">
+  <img src="https://avatars.githubusercontent.com/u/7051918?v=4" width="150" height="150"  style="border-radius:50%;">
+  <br>
+  <h1 align="center">Akhil Jacob</h1>
+</p>
 
-#### 📝 **Short Description**
+
 👋 Hi! I'm Akhil, focused on solving intricate challenges, diving into novel technologies, and embracing extraordinary experiences.
 
 #### 🔗 **[My Personal Website](https://www.akhiljacob.com)**
