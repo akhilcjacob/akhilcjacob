@@ -2,12 +2,16 @@
   <img src="https://avatars.githubusercontent.com/u/7051918?v=4" width="150" height="150"  style="border-radius:50%;">
   <br>
   <h1 align="center">Akhil Jacob</h1>
+<p style="text-align: center; max-width: 800px; margin: auto;">
+    👋 Hi! I'm Akhil, focused on solving intricate challenges, diving into novel technologies, and embracing extraordinary experiences.
+</p>
+
 </p>
 
 
-👋 Hi! I'm Akhil, focused on solving intricate challenges, diving into novel technologies, and embracing extraordinary experiences.
 
-#### 🔗 **[My Personal Website](https://www.akhiljacob.com)**
+#### 🔗 **My Personal Website**
+- [https://akhilcjacob.com/](https://www.akhilcjacob.com)
 
 #### 💼 **Current Companies**
 - **The Quorum**: Innovating audio content in the age of AI. [🔍 Explore The Quorum](https://thequorum.app)
@@ -20,7 +24,7 @@
 - **MITRE**: Constructed a sophisticated classification system for document redaction, implementing complex rule-based algorithms.
 - **Our.News (Co-founder)**: Led as a Full-Stack Developer, driving initiatives to identify and mitigate the spread of fake news.
 
-#### 🛠 **Technology Badges**
+#### 🛠 **Technologies**
 - 🧠 Generative AI
 - 📱 Flutter
 - 🔐 OAuth
