@@ -3,6 +3,7 @@
 
 <head>
     <title>Akhil Jacob Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport meta tag -->
     <style>
         /* Basic Reset */
         * {
@@ -15,14 +16,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            /* Stack elements vertically on small screens */
             position: relative;
             min-height: 100vh;
             background-color: #30638E;
-            /* Calm blue for the background */
             color: #003D5B;
-            /* Deep navy blue for the text, providing good contrast */
             font-family: 'Playfair Display', serif;
             line-height: 1.6;
+            padding: 20px;
+            /* Add padding for mobile devices */
         }
 
         /* Particle Effect */
@@ -37,21 +40,46 @@
 
         /* Markdown Content Styling */
         zero-md {
-    z-index: 1;
-    position: relative;
-    padding: 40px;
-    background-color: rgba(255, 255, 255, 0.283); /* Semi-transparent white */
-    border-radius: 15px;
-    max-width: 800px;
-    margin: auto;
-    backdrop-filter: blur(10px); /* Increase the px value for a more frosted effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #FFFFFF;
-    font-size: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Optional: subtle border can enhance the effect */
-}
+            z-index: 1;
+            position: relative;
+            padding: 20px;
+            /* Smaller padding on mobile */
+            background-color: rgba(255, 255, 255, 0.283);
+            border-radius: 15px;
+            max-width: 90%;
+            /* Use percentage for maximum width */
+            margin: 20px;
+            /* Margin on all sides */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            /* For Safari */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #FFFFFF;
+            font-size: 1rem;
+            /* Use rem for font sizes */
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
 
+        /* Responsive Design */
+        @media (min-width: 768px) {
+
+            /* Adjust breakpoint as needed */
+            body {
+                flex-direction: row;
+                /* Original layout for larger screens */
+                padding: 0;
+                /* Remove padding for larger devices */
+            }
+
+            zero-md {
+                padding: 40px;
+                /* Larger padding for larger screens */
+                max-width: 800px;
+                /* Fixed max width for larger screens */
+                margin: auto;
+                /* Center zero-md on larger screens */
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -61,17 +89,20 @@
 
 <body>
     <div id="particles-js"></div>
-    <zero-md src="README.md">
-
-    </zero-md>
+    <zero-md src="README.md"></zero-md>
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script>
-
-        particlesJS.load('particles-js', 'particles.json', function () {
-            console.log('callback - particles.js config loaded');
-        });
+        if (window.innerWidth > 768) { // pJS_desktop and pJS_mobile = my settings functions
+            particlesJS.load('particles-js', 'particles.json', function () {
+                console.log('callback - particles.js config loaded');
+            });
+        } else {
+            particlesJS.load('particles-js', 'particles-mobile.json', function () {
+                console.log('callback - particles.js config loaded');
+            });
+        }
     </script>
 </body>
 
