@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/7051918?v=4" width="150" height="150"  style="border-radius:50%;">
+  <img src="headshot.png"  height="150"  style="border-radius:50%;">
   <br>
   <h1 align="center">Akhil Jacob</h1>
 </p>
