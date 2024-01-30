@@ -14,8 +14,10 @@
 - [https://akhilcjacob.com/](https://www.akhilcjacob.com)
 
 #### 💼 **Current Companies**
-- **The Quorum**: Innovating audio content in the age of AI. [🔍 Explore The Quorum](https://thequorum.app)
-- **Modrn Magic**: Crafting an eclectic mix of mobile apps. [✨ Discover Modrn Magic](https://modrnmagic.app)
+- **The Quorum**: Innovating audio content in the age of AI. 
+  🔍 [Explore The Quorum](https://thequorum.app)
+- **Modrn Magic**: Crafting an eclectic mix of mobile apps.
+  ✨ [Discover Modrn Magic](https://modrnmagic.app)
 
 #### 🏢 **Professional Experience**
 - **Microsoft**: Focused on enhancing the Azure Identity platform, contributing to its robustness and scalability.
