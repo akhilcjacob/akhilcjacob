@@ -12,6 +12,7 @@
 
 #### 🔗 **My Personal Website**
 - [https://akhilcjacob.com/](https://www.akhilcjacob.com)
+- [Github](https://github.com/akhilcjacob)
 
 #### 💼 **Current Companies**
 - **The Quorum**: Innovating audio content in the age of AI. 
