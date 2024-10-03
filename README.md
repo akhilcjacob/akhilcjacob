@@ -14,9 +14,7 @@
 - [https://akhilcjacob.com/](https://www.akhilcjacob.com)
 - [Github](https://github.com/akhilcjacob)
 
-#### 💼 **Current Companies**
-- **The Quorum**: Innovating audio content in the age of AI. 
-  🔍 [Explore The Quorum](https://thequorum.app)
+#### 💼 **Current Company**
 - **Modrn Magic**: Crafting an eclectic mix of mobile apps.
   ✨ [Discover Modrn Magic](https://modrnmagic.app)
 
