@@ -10,9 +10,12 @@
 
 
 
-#### 🔗 **My Personal Website**
-- [https://akhilcjacob.com/](https://www.akhilcjacob.com)
-- [Github](https://github.com/akhilcjacob)
+#### 🔗 **Personal Links**
+- [🏠 https://akhilcjacob.com/](https://www.akhilcjacob.com)
+- [🔗 Github](https://github.com/akhilcjacob)
+- [📄 PDF Resume](./Akhil%20Jacob%20Resume%20Public.pdf)
+- [💼 LinkedIn](https://www.linkedin.com/in/akhilcjacob)
+- [📸 Instagram](https://www.instagram.com/akhil.cjacob/)
 
 #### 💼 **Current Company**
 - **Modrn Magic**: Crafting an eclectic mix of mobile apps.
@@ -34,6 +37,4 @@
 - 💻 Full-Stack Development
 - [🔗 More on LinkedIn](https://www.linkedin.com/in/akhilcjacob)
 
-#### 📱 **Follow Me**
-- [📸 Instagram](https://www.instagram.com/akhil.cjacob/)
-- [💼 LinkedIn](https://www.linkedin.com/in/akhilcjacob)
+
