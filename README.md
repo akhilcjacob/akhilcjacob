@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="headshot.png"  height="150"  style="border-radius:50%;">
+  <img src="headshot.jpeg"  height="150"  style="border-radius:50%;">
   <br>
   <h1 align="center">Akhil Jacob</h1>
 <p style="text-align: center; max-width: 800px; margin: auto;">
