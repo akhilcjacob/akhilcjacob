@@ -1,0 +1,31 @@
+:root {
+  --background-color: #30638E;
+  --card-background: rgba(255, 255, 255, 0.25);
+  --text-color: #ffffff;
+  --link-color: #003D5B;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.card {
+  background-color: var(--card-background) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif !important;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}

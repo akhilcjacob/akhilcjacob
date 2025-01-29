@@ -1,0 +1,53 @@
+---
+import Card from "./Card/index.astro";
+import { Icon } from "astro-icon/components";
+
+const experiences = [
+  {
+    title: "Senior Software Engineer",
+    company: "Codeium",
+    date: "2023 - Present",
+    description: "Leading development of AI-powered developer tools and infrastructure.",
+    icon: "ri:code-line"
+  },
+  {
+    title: "Software Engineer",
+    company: "Uber",
+    date: "2021 - 2023",
+    description: "Built scalable backend systems for Uber's core ride-sharing platform.",
+    icon: "ri:car-line"
+  },
+  {
+    title: "Software Engineer",
+    company: "Microsoft",
+    date: "2019 - 2021",
+    description: "Developed cloud services and DevOps tools for Azure platform.",
+    icon: "ri:microsoft-line"
+  }
+];
+---
+
+<Card colSpan="md:col-span-2" rowSpan="md:row-span-2">
+  <div class="flex flex-col gap-4">
+    <h2 class="text-xl font-bold text-white/80">Recent Work</h2>
+    <div class="flex flex-col">
+      {experiences.map(job => (
+        <div class="card-row">
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <Icon name={job.icon} class="h-5 w-5 text-white/70" />
+                <h3 class="text-lg font-semibold text-white/70">{job.title}</h3>
+              </div>
+              <span class="text-sm text-white/60">{job.date}</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="text-white/70">{job.company}</span>
+              <p class="text-sm text-white/60">{job.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Card>

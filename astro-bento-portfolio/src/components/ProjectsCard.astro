@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+import Card from "./Card/index.astro";
+import { Image } from "astro:assets";
+
+const projects = [
+  {
+    title: "inboxhiive",
+    description: "SaaS platform transforming podcast audio into rich newsletters using Next.js and Firebase.",
+    link: "#",
+    icon: "ri:mail-line",
+    image: "/projects/inboxhiive.png"
+  },
+  {
+    title: "Nookly",
+    description: "Uber-style home services app built with Flutter and Firebase for convenient scheduling.",
+    link: "#",
+    icon: "ri:home-line",
+    image: "/projects/nookly.png"
+  },
+  {
+    title: "HypeBridge",
+    description: "AI-powered agentic influencer search using Next.js and Gemini for automated discovery.",
+    link: "#",
+    icon: "ri:robot-line",
+    image: "/projects/hypebridge.png"
+  }
+];
+---
+
+<Card colSpan="md:col-span-2" rowSpan="md:row-span-2" expandable={true}>
+  <div class="flex flex-col gap-4">
+    <h2 class="text-xl font-bold text-white/80">Recent Projects</h2>
+    <div class="flex flex-col">
+      {projects.map(project => (
+        <a href={project.link} class="card-row group/item">
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+              <Icon name={project.icon} class="h-5 w-5 text-white/70" />
+              <h3 class="text-lg font-semibold text-white/70 group-hover/item:text-white/90">{project.title}</h3>
+            </div>
+            <p class="text-sm text-white/60 group-hover/item:text-white/70">{project.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="expanded-content hidden">
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      {projects.map(project => (
+        <div class="relative aspect-video rounded-lg overflow-hidden">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={400}
+            height={225}
+            class="object-cover"
+          />
+          <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+            <a href={project.link} class="text-white hover:underline">View Project</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Card>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const expandButtons = document.querySelectorAll('.card[expandable] button');
+    expandButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.card');
+        const content = card.querySelector('.expanded-content');
+        content.classList.toggle('hidden');
+        button.querySelector('svg').style.transform = content.classList.contains('hidden') ? '' : 'rotate(180deg)';
+      });
+    });
+  });
+</script>
