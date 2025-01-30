@@ -1,19 +1,24 @@
-import { onMount } from "solid-js";
 import * as d3 from "d3";
+import { onMount } from "solid-js";
 import worldData from "../lib/world.json";
 
 const GlobeComponent = () => {
   let mapContainer: HTMLDivElement | undefined;
 
   const visitedCountries = [
-    "France",
-    "China",
+    "United States",
+    "Egypt",
+    "Spain",
     "Italy",
-    "Sri Lanka",
-    "Turkey",
+    "India",
+    "United Arab Emirates",
+    "Singapore",
+    "Singapore",
+    "Vietnam",
+    "Indonesia",
     "Greece",
-    "Malta",
-    "Hungary",
+    "Japan",
+    "Australia",
     "Portugal",
     "Marocco",
   ];

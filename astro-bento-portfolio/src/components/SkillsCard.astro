@@ -1,25 +1,48 @@
 ---
 import Card from "./Card/index.astro";
+import { Icon } from "astro-icon/components";
 
 const skills = {
   "Languages": ["Dart", "Java", "C++", "Python", "C", "C#", "JavaScript", "GoLang", "Shell"],
   "Libraries": ["Vue.js", "React.js", "Flutter", "Next.js"],
   "DevOps/Tools": ["Git", "Docker", "Nginx", "Azure DevOps", "Jenkins", "Firebase"],
   "Databases": ["MySQL", "Postgres", "Azure DocDB"],
-  "Methodologies": ["Agile", "Scrum", "TDD", "CI/CD"]
+  "Methodologies": ["Agile", "Scrum", "Test Driven Development", "Continuous Integration/Deployment"]
 };
 ---
 
-<Card colSpan="md:col-span-2" rowSpan="md:row-span-1">
-  <div class="flex flex-col gap-2">
-    <h2 class="text-xl font-bold text-white/80">Skills</h2>
-    <div class="flex flex-col gap-4">
+<Card colSpan="col-span-2 sm:col-span-2" rowSpan="row-span-1">
+  <div class="flex flex-col gap-2 h-full">
+    <div class="flex items-center justify-between">
+      <h2 class="text-xl font-bold text-white">Skills</h2>
+      <div class="search-container relative">
+        <button 
+          id="searchToggle"
+          class="p-1 hover:bg-white/10 rounded-full transition-colors"
+        >
+          <Icon name="ri:search-line" class="h-5 w-5 text-white/60" />
+        </button>
+        <div 
+          id="searchBar" 
+          class="absolute right-0 top-0 flex items-center bg-white/10 rounded-full overflow-hidden w-0 transition-all duration-300"
+        >
+          <input 
+            type="text" 
+            placeholder="Search skills..." 
+            class="bg-transparent border-none text-sm text-white/90 placeholder:text-white/40 focus:outline-none focus:ring-0 px-3 py-1 w-full"
+            id="skillSearch"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex flex-col gap-4 overflow-y-auto pr-2 custom-scrollbar">
       {Object.entries(skills).map(([category, items]) => (
-        <div class="card-row">
-          <h3 class="text-sm font-semibold text-white/70 mb-2">{category}</h3>
-          <div class="flex flex-wrap gap-2">
+        <div class="skill-category" data-skills={items.join(',').toLowerCase()}>
+          <h3 class="text-sm font-semibold text-white/90 mb-2">{category}</h3>
+          <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
             {items.map(skill => (
-              <span class="text-xs bg-white/10 text-white/60 px-2 py-1 rounded-full">
+              <span class="skill-item text-xs bg-white/20 text-white/90 px-2 py-1 rounded-full hover:bg-white/30 transition-colors text-center truncate">
                 {skill}
               </span>
             ))}
@@ -29,3 +52,82 @@ const skills = {
     </div>
   </div>
 </Card>
+
+<style>
+  .custom-scrollbar {
+    max-height: calc(100% - 2.5rem);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+  
+  .search-container.expanded #searchBar {
+    width: 150px;
+    padding-right: 2.5rem;
+  }
+  
+  #searchToggle {
+    position: relative;
+    z-index: 10;
+  }
+</style>
+
+<script>
+  function initializeSearch() {
+    const searchContainer = document.querySelector('.search-container');
+    const searchToggle = document.getElementById('searchToggle');
+    const searchInput = document.getElementById('skillSearch') as HTMLInputElement;
+    const skillCategories = document.querySelectorAll('.skill-category');
+    const skillItems = document.querySelectorAll('.skill-item');
+
+    if (!searchToggle || !searchInput) return;
+
+    // Toggle search bar
+    searchToggle.addEventListener('click', () => {
+      searchContainer?.classList.toggle('expanded');
+      if (searchContainer?.classList.contains('expanded')) {
+        searchInput.focus();
+      } else {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+      }
+    });
+
+    // Handle search
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+
+      skillCategories.forEach((category) => {
+        const skills = (category as HTMLElement).dataset.skills?.split(',') || [];
+        const hasMatch = skills.some(skill => skill.includes(searchTerm));
+        category.classList.toggle('hidden', !hasMatch && searchTerm !== '');
+      });
+
+      skillItems.forEach((item) => {
+        const skill = item.textContent?.toLowerCase() || '';
+        item.classList.toggle('bg-white/30', skill.includes(searchTerm) && searchTerm !== '');
+      });
+    });
+
+    // Close search on click outside
+    document.addEventListener('click', (e) => {
+      if (!searchContainer?.contains(e.target as Node) && searchContainer?.classList.contains('expanded')) {
+        searchContainer.classList.remove('expanded');
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+      }
+    });
+  }
+
+  // Initialize search when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initializeSearch);
+</script>

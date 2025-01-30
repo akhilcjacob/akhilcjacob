@@ -1,53 +1,250 @@
 ---
-import Card from "./Card/index.astro";
 import { Icon } from "astro-icon/components";
+import Card from "./Card/index.astro";
 
-const experiences = [
+const allExperiences = [
   {
-    title: "Senior Software Engineer",
-    company: "Codeium",
-    date: "2023 - Present",
-    description: "Leading development of AI-powered developer tools and infrastructure.",
-    icon: "ri:code-line"
-  },
-  {
-    title: "Software Engineer",
-    company: "Uber",
-    date: "2021 - 2023",
-    description: "Built scalable backend systems for Uber's core ride-sharing platform.",
-    icon: "ri:car-line"
+    title: "Software Engineer II",
+    company: "Datavant",
+    team: "Identified Data",
+    location: "Remote",
+    date: "March 2022 - May 2023",
+    overview: "Led development of auth systems and healthcare data infrastructure",
+    description: "Developed containerized auth system with Docker, Kotlin, and Rego. Built and optimized healthcare data production microservices. Led implementation of automated data retrieval system.",
+    icon: "ri:database-2-line"
   },
   {
     title: "Software Engineer",
     company: "Microsoft",
-    date: "2019 - 2021",
-    description: "Developed cloud services and DevOps tools for Azure platform.",
+    team: "Azure Identity",
+    location: "Seattle, Washington",
+    date: "August 2019 - February 2022",
+    overview: "Built identity and deployment tools for Azure platform",
+    description: "Led development of automated config deployment platform in C#. Enhanced identity management tooling for Azure Active Directory with new API and UI features.",
     icon: "ri:microsoft-line"
+  },
+  {
+    title: "Co-Founder & Full Stack Developer",
+    company: "Our.News",
+    location: "Troy, New York",
+    date: "April 2018 - July 2018",
+    overview: "Redesigned UX and upgraded site capabilities",
+    description: "Redesigned UX and upgraded site capabilities using Python, PHP, SQL, and JavaScript. Implemented code quality practices and created portable web components.",
+    icon: "ri:newspaper-line"
+  },
+  {
+    title: "Software Engineering Intern",
+    company: "Bank of America",
+    location: "Jersey City, New Jersey",
+    date: "June 2018 - August 2018",
+    overview: "Built error tracking system for JavaScript applications",
+    description: "Developed a Scala application to ingest JavaScript errors and contextual information, storing them into a Postgres instance.",
+    icon: "ri:bank-line"
+  },
+  {
+    title: "Software Engineering Intern",
+    company: "MITRE Corp",
+    location: "Bedford, Massachusetts",
+    date: "June 2017 - August 2017",
+    overview: "Developed document sanitization application",
+    description: "Developed JavaFX application for document sanitization, saving Air Force personnel 7 hours per week. Practiced Agile in 2-week sprints.",
+    icon: "ri:government-line"
   }
 ];
+
+const recentExperiences = allExperiences.slice(0, 3);
+const additionalCount = allExperiences.length - recentExperiences.length;
+
+// Calculate years of experience
+const startDate = new Date('2017-06-01'); // First job
+const endDate = new Date('2023-05-31'); // Last job
+const yearsOfExperience = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24 * 365));
 ---
 
-<Card colSpan="md:col-span-2" rowSpan="md:row-span-2">
-  <div class="flex flex-col gap-4">
-    <h2 class="text-xl font-bold text-white/80">Recent Work</h2>
-    <div class="flex flex-col">
-      {experiences.map(job => (
-        <div class="card-row">
-          <div class="flex flex-col gap-2">
+<Card colSpan="col-span-2 sm:col-span-2" rowSpan="row-span-2">
+  <div class="flex flex-col gap-2">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <Icon name="ri:briefcase-4-line" class="h-6 w-6 text-white" />
+        <h2 class="text-xl font-bold text-white">
+          Work Experience
+          <span class="text-sm font-normal text-white/50">({yearsOfExperience} years)</span>
+        </h2>
+      </div>
+      <div class="flex items-center gap-2">
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="resume.pdf"
+          class="rounded-lg bg-white/10 px-2 py-1 text-sm text-white/80 hover:bg-white/20 transition-colors flex items-center gap-1"
+        >
+          <Icon name="ri:download-2-line" class="h-4 w-4" />
+          <span>Resume</span>
+        </a>
+        <button
+          id="workViewMoreBtn"
+          class="rounded-lg bg-white/10 px-2 py-1 text-sm text-white/80 hover:bg-white/20 transition-colors"
+        >
+          View More
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-col" id="workExperience">
+      {recentExperiences.map((job, index) => (
+        <div class={`py-3 ${index !== 0 ? 'border-t border-white/10' : ''}`}>
+          <div class="flex flex-col gap-1">
             <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <Icon name={job.icon} class="h-5 w-5 text-white/70" />
-                <h3 class="text-lg font-semibold text-white/70">{job.title}</h3>
+              <div class="flex items-center gap-3">
+                <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10">
+                  <Icon name={job.icon} class="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-white">{job.company}</span>
+                    <span class="text-sm text-white/50">/</span>
+                    <span class="text-sm text-white/80">{job.title}</span>
+                  </div>
+                  <p class="text-sm text-white/60">{job.overview}</p>
+                </div>
               </div>
-              <span class="text-sm text-white/60">{job.date}</span>
+              <span class="text-sm text-white/40">{job.date}</span>
             </div>
-            <div class="flex flex-col gap-1">
-              <span class="text-white/70">{job.company}</span>
-              <p class="text-sm text-white/60">{job.description}</p>
+          </div>
+        </div>
+      ))}
+      {additionalCount > 0 && (
+        <div class="mt-2 border-t border-white/10 pt-3 text-center">
+          <button id="workViewMoreBtnBottom" class="text-sm text-white/60 hover:text-white/80 transition-colors">
+            View {additionalCount} more experience{additionalCount > 1 ? 's' : ''}
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+</Card>
+
+<!-- Work Modal -->
+<div id="workModal" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="workModalBackdrop"></div>
+  <div class="absolute left-1/2 top-1/2 w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 space-y-6 rounded-xl bg-[#1d1d20] p-6 shadow-xl">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold text-white">Work Experience</h2>
+      <button id="closeWorkModal" class="rounded-lg p-2 text-white/80 hover:bg-white/10 transition-colors">
+        <Icon name="ri:close-line" class="h-6 w-6" />
+      </button>
+    </div>
+
+    <!-- Modal Content (Scrollable) -->
+    <div class="max-h-[70vh] space-y-6 overflow-y-auto pr-2">
+      {allExperiences.map((job, index) => (
+        <div
+          id={`modalWork-${index}`}
+          class={`space-y-3 ${index !== 0 ? 'border-t border-white/10 pt-6' : ''}`}
+          key={job.title}
+        >
+          <div class="flex items-start gap-3">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
+              <Icon name={job.icon} class="h-6 w-6 text-white" />
+            </div>
+
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold text-white">{job.company}</h3>
+                  <div class="mt-1 flex items-center gap-2 text-sm text-white/60">
+                    <span class="rounded-md bg-white/10 px-2 py-1">{job.title}</span>
+                    {job.team && <span class="text-white/40">• {job.team}</span>}
+                    <span class="text-white/40">• {job.location}</span>
+                  </div>
+                </div>
+                <span class="text-sm text-white/40">{job.date}</span>
+              </div>
+              <p class="mt-3 text-white/80">{job.description}</p>
             </div>
           </div>
         </div>
       ))}
     </div>
   </div>
-</Card>
+</div>
+
+<style>
+  #workModal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  #workModal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #workModal .max-h-[70vh] {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+
+  #workModal .max-h-[70vh]::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #workModal .max-h-[70vh]::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  #workModal .max-h-[70vh]::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+</style>
+<script>
+  // Only run this code on the client side
+  if (typeof window !== 'undefined') {
+    const setupModal = () => {
+      const workViewMoreBtn = document.getElementById('workViewMoreBtn');
+      const workViewMoreBtnBottom = document.getElementById('workViewMoreBtnBottom');
+      const closeWorkModalBtn = document.getElementById('closeWorkModal');
+      const modal = document.getElementById('workModal');
+      const modalBackdrop = document.getElementById('workModalBackdrop');
+
+      if (!modal || !modalBackdrop || !closeWorkModalBtn) return;
+
+      const openModal = () => {
+        modal.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          modal.classList.add('active');
+        });
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeModal = () => {
+        modal.classList.remove('active');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+      };
+
+      workViewMoreBtn?.addEventListener('click', openModal);
+      workViewMoreBtnBottom?.addEventListener('click', openModal);
+      closeWorkModalBtn.addEventListener('click', closeModal);
+      modalBackdrop.addEventListener('click', closeModal);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    };
+
+    // Run setup when the DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupModal);
+    } else {
+      setupModal();
+    }
+  }
+</script>

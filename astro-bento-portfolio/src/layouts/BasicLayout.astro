@@ -15,56 +15,28 @@ const image =
     ? `${Astro.url.origin}/globe_preview.webp"`
     : `${Astro.url.origin}/og-image.png`;
 
-const schema =
-  page !== "blog"
-    ? {
+const schema = {
         "@context": "http://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
+  name: "Akhil Jacob",
         url: Astro.url.origin,
         sameAs: [LINKS.linkedin, LINKS.github],
         image: `${Astro.url.origin}/og-image.png`,
-        jobTitle: "Freelance Frontend Developer",
+  jobTitle: "Software Engineer",
         worksFor: {
           "@type": "Organization",
           name: "Self-Employed",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
+      addressLocality: "San Diego",
+      addressRegion: "California",
+      addressCountry: "US",
           },
         },
         nationality: {
           "@type": "Country",
-          name: "Italy",
-        },
-      }
-    : {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": `${Astro.url.origin}/blog/${slug}`,
-        },
-        headline: title || title,
-        description: description || title,
-        image: `${Astro.url.origin}/og-image.png`, //TODO: dynamic
-        author: {
-          "@type": "Person",
-          name: "Gianmarco",
-          url: Astro.url.origin,
-          sameAs: [LINKS.linkedin, LINKS.github],
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "Gianmarco",
-          logo: {
-            "@type": "ImageObject",
-            url: `${Astro.url.origin}/og-image.png`,
-          },
-        },
-        datePublished: pubDate || new Date().toISOString(),
-        dateModified: pubDate || new Date().toISOString(),
+    name: "United States",
+  },
       };
 ---
 
@@ -100,11 +72,6 @@ const schema =
     {
       page === "travel" && (
         <link rel="canonical" href={`${Astro.url.origin}/travel`} />
-      )
-    }
-    {
-      page === "blog" && (
-        <link rel="canonical" href={`${Astro.url.origin}/blog/${slug}`} />
       )
     }
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />

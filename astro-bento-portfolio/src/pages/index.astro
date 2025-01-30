@@ -7,7 +7,6 @@ import WorkCard from "../components/WorkCard.astro";
 import ProjectsCard from "../components/ProjectsCard.astro";
 import SkillsCard from "../components/SkillsCard.astro";
 import TimeZone from "../components/TimeZoneCard.astro";
-import AboutMe from "../components/AboutMe.astro";
 import Now from "../components/Now.astro";
 import Globe from "../components/Globe";
 import { getCollection } from "astro:content";
@@ -16,10 +15,51 @@ import { Image } from "astro:assets";
 
 const posts = (await getCollection("blog"))?.sort(
   (blogEntryA, blogEntryB) =>
-    (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
+    blogEntryB.data.pubDate.valueOf() - blogEntryA.data.pubDate.valueOf()
 );
 ---
+
+<Layout
+  title="Akhil Jacob - Developer"
+  description="I’m a software engineer and entrepreneur with a drive for end-to-end innovation. I’ve launched AI-driven apps, built scalable backend systems, and embraced rapid iteration in both startup and enterprise settings."
+>
+  <main
+    class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full grid-cols-2 sm:grid-cols-2 sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-4 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
+  >
+    <!-- Row 1 -->
+     <Card
+     colSpan="col-span-1 sm:col-span-1"
+     rowSpan="row-span-1">
+        <Image
+          src="/me.jpeg"
+          alt="Akhil Jacob"
+          width={150}
+          height={150}
+          class="rounded-2xl object-cover aspect-square h-full w-full absolute inset-0 -z-10"
+        />
+     </Card>
+    <IntroCard />
+    <ContactCard />
+    <WorkCard />
+    <TimeZone />
+    <Card
+      colSpan="col-span-1"
+      rowSpan="row-span-1"
+      title="Countries Visited"
+      href="/travel"
+    >
+      <div class="h-full w-full absolute inset-0 -z-10">
+        <Globe client:load />
+      </div>
+    </Card>
+    
+    <!-- Row 2 -->
+    <ProjectsCard />
+
+    <!-- Row 3 -->
+    <SkillsCard />
+  </main>
+</Layout>
 
 <script>
   import { spring, stagger, timeline, type TimelineDefinition } from "motion";
@@ -42,46 +82,3 @@ import { loaderAnimation } from "../lib/constants";
 
   timeline(sequence as TimelineDefinition);
 </script>
-
-<Layout
-  title="Gianmarco Cavallo - Freelance front-end Developer"
-  description="I'm a developer based in Italy, passionate about user experience and specializing in engaging animations and micro-interactions. My primary tools of choice include: JavaScript, React, Solid.js, Astro, Svelte, and Node.js."
->
-  <main
-    class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-4 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
-  >
-    <!-- Row 1 -->
-     <Card
-     colSpan="md:col-span-1"
-     rowSpan="md:row-span-1">
-        <Image
-          src="/me.jpeg"
-          alt="Akhil Jacob"
-          width={150}
-          height={150}
-          class="rounded-2xl object-cover aspect-square h-full w-full absolute inset-0 -z-10"
-        />
-     </Card>
-    <IntroCard />
-    <ContactCard />
-    <WorkCard />
-    <TimeZone />
-    <Card
-    colSpan="md:col-span-1"
-    rowSpan="md:row-span-1"
-    title="Countries Visited"
-    href="/travel"
-  >
-    <div class="h-full w-full absolute inset-0 -z-10">
-      <Globe client:load />
-    </div>
-  </Card>
-    <!-- Row 2 -->
- 
-    <ProjectsCard />
-
-    <!-- Row 3 -->
-
-    <SkillsCard />
-  </main>
-</Layout>
