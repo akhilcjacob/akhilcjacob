@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import Card from "./Card/index.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+<Card
+  colSpan="col-span-1"
+  rowSpan="row-span-1"
+  class={`relative w-full h-full min-h-[165px] sm:min-h-0 ${className || ""}`}
+>
+  <Image
+    src="/me.jpeg"
+    alt="Akhil Jacob"
+    width={150}
+    height={150}
+    class="absolute inset-0 w-full h-full object-cover rounded-none"
+  />
+</Card>

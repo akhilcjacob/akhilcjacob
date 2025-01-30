@@ -1,0 +1,22 @@
+---
+import Card from "./Card/index.astro";
+import Globe from "./Globe";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<Card
+  colSpan="col-span-1"
+  rowSpan="row-span-1"
+  title="Countries Visited"
+  href="/travel"
+  class={`min-h-[50px] md:min-h-0 ${className}`}
+>
+  <div class="h-full w-full absolute inset-0 -z-10">
+    <Globe client:load />
+  </div>
+</Card>
