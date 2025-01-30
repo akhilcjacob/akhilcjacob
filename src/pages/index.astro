@@ -1,84 +1,59 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card/index.astro";
 import IntroCard from "../components/IntroCard.astro";
 import ContactCard from "../components/ContactCard.astro";
 import WorkCard from "../components/WorkCard.astro";
 import ProjectsCard from "../components/ProjectsCard.astro";
 import SkillsCard from "../components/SkillsCard.astro";
 import TimeZone from "../components/TimeZoneCard.astro";
-import Now from "../components/Now.astro";
-import Globe from "../components/Globe";
-import { getCollection } from "astro:content";
-import { formatDate } from "../lib/helpers";
-import { Image } from "astro:assets";
+import ProfileCard from "../components/ProfileCard.astro";
+import GlobeCard from "../components/GlobeCard.astro";
 
-const posts = (await getCollection("blog"))?.sort(
-  (blogEntryA, blogEntryB) =>
-    blogEntryB.data.pubDate.valueOf() - blogEntryA.data.pubDate.valueOf()
-);
+// Get viewport width to determine if mobile
+const isMobile = () => {
+  if (typeof window !== 'undefined') {
+    return window.innerWidth < 768;
+  }
+  return false;
+};
 ---
 
 <Layout
   title="Akhil Jacob - Developer"
-  description="I’m a software engineer and entrepreneur with a drive for end-to-end innovation. I’ve launched AI-driven apps, built scalable backend systems, and embraced rapid iteration in both startup and enterprise settings."
+  description="I'm a software engineer and entrepreneur with a drive for end-to-end innovation. I've launched AI-driven apps, built scalable backend systems, and embraced rapid iteration in both startup and enterprise settings."
 >
-  <main
-    class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full grid-cols-2 sm:grid-cols-2 sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-4 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
-  >
-    <!-- Row 1 -->
-     <Card
-     colSpan="col-span-1 sm:col-span-1"
-     rowSpan="row-span-1">
-        <Image
-          src="/me.jpeg"
-          alt="Akhil Jacob"
-          width={150}
-          height={150}
-          class="rounded-2xl object-cover aspect-square h-full w-full absolute inset-0 -z-10"
-        />
-     </Card>
-    <IntroCard />
-    <ContactCard />
-    <WorkCard />
-    <TimeZone />
-    <Card
-      colSpan="col-span-1"
-      rowSpan="row-span-1"
-      title="Countries Visited"
-      href="/travel"
-    >
-      <div class="h-full w-full absolute inset-0 -z-10">
-        <Globe client:load />
-      </div>
-    </Card>
-    
-    <!-- Row 2 -->
-    <ProjectsCard />
+<main
+  class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full 
+         grid-cols-1 sm:grid-cols-2 sm:p-4 sm:gap-2 
+         md:grid-cols-3 md:gap-3 md:p-6 
+         lg:h-screen lg:grid-rows-4 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px] 
+         [&>*]:min-h-[100px]"
+>
 
-    <!-- Row 3 -->
-    <SkillsCard />
+
+
+    <!-- Main Content Cards -->
+    <ProfileCard class="" />
+
+    <ContactCard class="order-2 md:order-3" />
+    <IntroCard class="col-span-2 sm:col-span-1 order-3 md:order-2" />
+    <WorkCard class="order-5 md:order-4" />
+    <TimeZone class="order-4 md:order-5 min-h-[200px] md:min-h-0" />
+    
+    <!-- Globe Card -->
+    <GlobeCard />
+
+    <!-- Additional Cards -->
+    <ProjectsCard class="order-6 md:order-7" />
+    <SkillsCard class="order-8 md:order-8" />
   </main>
 </Layout>
 
 <script>
-  import { spring, stagger, timeline, type TimelineDefinition } from "motion";
-import { loaderAnimation } from "../lib/constants";
-  const cards = document.querySelectorAll(".card");
-
-  const sequence = [
-    loaderAnimation,
-    [
-      cards,
-      { y: ["40%", "0%"], opacity: [0, 1] },
-      {
-        at: "-0.1",
-        duration: 0.4,
-        delay: stagger(0.3),
-        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
-      },
-    ],
-  ];
-
-  timeline(sequence as TimelineDefinition);
+  import { cardEntryAnimation } from "../lib/animations";
+  
+  // Initialize animation once DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    cardEntryAnimation();
+  });
 </script>

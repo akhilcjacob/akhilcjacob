@@ -18,7 +18,8 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
-      lastmod: new Date()
+      lastmod: new Date(),
+      filter: (page) => !page.includes('/private/') && !page.includes('/admin/')
     }),
     robotsTxt({
       sitemap: true,
@@ -38,9 +39,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
-  output: "server",
-  adapter: netlify({ edgeMiddleware: true }),
-  vite: {
-    assetsInclude: "**/*.riv",
-  },
+  output: "static",
+  build: {
+    format: 'file'
+  }
 });

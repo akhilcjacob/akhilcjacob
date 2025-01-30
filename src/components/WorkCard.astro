@@ -4,11 +4,11 @@ import Card from "./Card/index.astro";
 
 const allExperiences = [
   {
-    title: "Software Engineer II",
+    title: "Software Engineer",
     company: "Datavant",
     team: "Identified Data",
     location: "Remote",
-    date: "March 2022 - May 2023",
+    date: "Mar 2022 - May 2023",
     overview: "Led development of auth systems and healthcare data infrastructure",
     description: "Developed containerized auth system with Docker, Kotlin, and Rego. Built and optimized healthcare data production microservices. Led implementation of automated data retrieval system.",
     icon: "ri:database-2-line"
@@ -18,7 +18,7 @@ const allExperiences = [
     company: "Microsoft",
     team: "Azure Identity",
     location: "Seattle, Washington",
-    date: "August 2019 - February 2022",
+    date: "Aug 2019 - Feb 2022",
     overview: "Built identity and deployment tools for Azure platform",
     description: "Led development of automated config deployment platform in C#. Enhanced identity management tooling for Azure Active Directory with new API and UI features.",
     icon: "ri:microsoft-line"
@@ -27,7 +27,7 @@ const allExperiences = [
     title: "Co-Founder & Full Stack Developer",
     company: "Our.News",
     location: "Troy, New York",
-    date: "April 2018 - July 2018",
+    date: "Apr 2018 - Jul 2018",
     overview: "Redesigned UX and upgraded site capabilities",
     description: "Redesigned UX and upgraded site capabilities using Python, PHP, SQL, and JavaScript. Implemented code quality practices and created portable web components.",
     icon: "ri:newspaper-line"
@@ -36,7 +36,7 @@ const allExperiences = [
     title: "Software Engineering Intern",
     company: "Bank of America",
     location: "Jersey City, New Jersey",
-    date: "June 2018 - August 2018",
+    date: "Jun 2018 - Aug 2018",
     overview: "Built error tracking system for JavaScript applications",
     description: "Developed a Scala application to ingest JavaScript errors and contextual information, storing them into a Postgres instance.",
     icon: "ri:bank-line"
@@ -45,7 +45,7 @@ const allExperiences = [
     title: "Software Engineering Intern",
     company: "MITRE Corp",
     location: "Bedford, Massachusetts",
-    date: "June 2017 - August 2017",
+    date: "Jun 2017 - Aug 2017",
     overview: "Developed document sanitization application",
     description: "Developed JavaFX application for document sanitization, saving Air Force personnel 7 hours per week. Practiced Agile in 2-week sprints.",
     icon: "ri:government-line"
@@ -55,10 +55,7 @@ const allExperiences = [
 const recentExperiences = allExperiences.slice(0, 3);
 const additionalCount = allExperiences.length - recentExperiences.length;
 
-// Calculate years of experience
-const startDate = new Date('2017-06-01'); // First job
-const endDate = new Date('2023-05-31'); // Last job
-const yearsOfExperience = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24 * 365));
+
 ---
 
 <Card colSpan="col-span-2 sm:col-span-2" rowSpan="row-span-2">
@@ -67,8 +64,8 @@ const yearsOfExperience = Math.round((endDate - startDate) / (1000 * 60 * 60 * 2
       <div class="flex items-center gap-2">
         <Icon name="ri:briefcase-4-line" class="h-6 w-6 text-white" />
         <h2 class="text-xl font-bold text-white">
-          Work Experience
-          <span class="text-sm font-normal text-white/50">({yearsOfExperience} years)</span>
+          Work
+          <span class="text-sm font-normal text-white/50">(7 years)</span>
         </h2>
       </div>
       <div class="flex items-center gap-2">
