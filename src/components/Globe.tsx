@@ -23,6 +23,10 @@ const GlobeComponent = () => {
     "Portugal",
     "Mexico",
     "United Kingdom",
+    "France",
+    "Costa Rica",
+    "Taiwan",
+    "England"
   ];
 
   onMount(() => {
