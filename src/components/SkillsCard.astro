@@ -91,7 +91,6 @@ const skills = {
 
     if (!searchToggle || !searchInput) return;
 
-    // Toggle search bar
     searchToggle.addEventListener('click', () => {
       searchContainer?.classList.toggle('expanded');
       if (searchContainer?.classList.contains('expanded')) {
@@ -102,7 +101,6 @@ const skills = {
       }
     });
 
-    // Handle search
     searchInput.addEventListener('input', (e) => {
       const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
 
@@ -114,11 +112,14 @@ const skills = {
 
       skillItems.forEach((item) => {
         const skill = item.textContent?.toLowerCase() || '';
-        item.classList.toggle('bg-white/30', skill.includes(searchTerm) && searchTerm !== '');
+        if (skill.includes(searchTerm) && searchTerm !== '') {
+          item.classList.add('bg-white', 'text-black');
+        } else {
+          item.classList.remove('bg-white', 'text-black');
+        }
       });
     });
 
-    // Close search on click outside
     document.addEventListener('click', (e) => {
       if (!searchContainer?.contains(e.target as Node) && searchContainer?.classList.contains('expanded')) {
         searchContainer.classList.remove('expanded');
@@ -128,6 +129,5 @@ const skills = {
     });
   }
 
-  // Initialize search when DOM is loaded
   document.addEventListener('DOMContentLoaded', initializeSearch);
 </script>
