@@ -5,7 +5,6 @@ import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 
 import solidJs from "@astrojs/solid-js";
-import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 
 import svelte from "@astrojs/svelte";
 
@@ -35,9 +34,6 @@ export default defineConfig({
     icon(),
     svelte(),
   ],
-  markdown: {
-    remarkPlugins: [remarkReadingTime],
-  },
   output: "static",
   build: {
     format: 'file'
