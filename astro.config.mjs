@@ -12,14 +12,23 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://akhilcjacob.com/",
+  site: "https://akhilcjacob.github.io",
+  base: "/",
   integrations: [
-    sitemap(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date()
+    }),
     robotsTxt({
-      sitemap: [
-        "https://akhilcjacob.com/sitemap-index.xml",
-        "https://akhilcjacob.com/sitemap-0.xml",
-      ],
+      sitemap: true,
+      host: true,
+      policy: [{
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/private/', '/admin/'],
+        crawlDelay: 10,
+      }]
     }),
     solidJs(),
     UnoCSS({ injectReset: true }),
