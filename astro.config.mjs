@@ -1,4 +1,3 @@
-import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import UnoCSS from "@unocss/astro";
 import icon from "astro-icon";
@@ -12,7 +11,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://akhilcjacob.github.io",
+  site: "https://akhilcjacob.com",
   base: "/",
   integrations: [
     sitemap({
