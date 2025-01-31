@@ -11,9 +11,9 @@ export const cardEntryAnimation = () => {
       { y: ["40%", "0%"], opacity: [0, 1] },
       {
         at: "-0.1",
-        duration: 0.4,
-        delay: stagger(0.3),
-        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+        duration: 0.3,
+        delay: stagger(0.2),
+        easing: spring({ velocity: 100, stiffness: 150, damping: 15 }),
       },
     ],
   ];
