@@ -803,3 +803,154 @@ section.animate-fade {
 .sticky.glass-button-sm.primary {
   animation: pulse 2s infinite;
 }
+
+/* Contact Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.form-input,
+.form-textarea,
+select.form-input {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+select.form-input {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+select.form-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Project Type Options */
+.project-type-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-type-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-type-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.project-type-option input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.project-type-option input[type="checkbox"]:checked {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.project-type-option input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 2px;
+}
+
+.project-type-option span {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+/* Select Dropdown Styles */
+select.form-input option {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+/* Hidden class for Other inputs */
+.hidden {
+  display: none;
+}
+
+/* Margin utility */
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+/* Transition for Other inputs */
+.form-input:not(.hidden) {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
