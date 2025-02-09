@@ -1,12 +1,12 @@
 ---
 import BasicLayout from "../layouts/BasicLayout.astro";
-import '../styles/projects.css';
+import "../styles/projects.css";
 
 interface Project {
   title: string;
   description: string;
   tech: string[];
-  appUrl: string;
+  appUrl?: string;
   landingPageUrl: string;
   screenshots: string[];
   videoUrl?: string;
@@ -21,6 +21,13 @@ interface ProjectPair {
   type: "web" | "mobile";
 }
 
+// Utility function to get YouTube video ID
+function getYouTubeVideoId(url: string): string | null {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+}
+
 const projectsData: ProjectPair[] = [
   {
     name: "HypeBridge",
@@ -31,7 +38,6 @@ const projectsData: ProjectPair[] = [
         description:
           "A polished landing page that highlights key features and benefits.",
         tech: ["Next.js", "Marketing"],
-        appUrl: "https://thehypebridge.com",
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
         categories: ["web"],
@@ -42,20 +48,20 @@ const projectsData: ProjectPair[] = [
         description:
           "A polished landing page that highlights key features and benefits.",
         tech: ["Next.js", "Marketing"],
-        appUrl: "https://thehypebridge.com",
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
+        videoUrl: "https://youtu.be/7TFqc2ty8yI",
         categories: ["web"],
         type: "web",
       },
     ],
   },
   {
-    name: "InboxHiive",
+    name: "inboxhiiv",
     type: "web",
     projects: [
-    {
-        title: "InboxHiive Landing Page",
+      {
+        title: "inboxhiiv Landing Page",
         description:
           "A clean landing page that highlights the service’s capabilities.",
         tech: ["Next.js", "Marketing"],
@@ -66,13 +72,13 @@ const projectsData: ProjectPair[] = [
         type: "web",
       },
       {
-        title: "InboxHiive Landing Page",
+        title: "inboxhiiv",
         description:
           "A clean landing page that highlights the service’s capabilities.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
-        screenshots: ["https://inboxhiiv.com/screenshots/dashboard.png"],
+        screenshots: ["/images/inboxhiiv_landing.png"],
         categories: ["web"],
         type: "web",
       },
@@ -82,14 +88,14 @@ const projectsData: ProjectPair[] = [
     name: "Nookly",
     type: "web",
     projects: [
-    {
+      {
         title: "Nookly",
         description:
           "A beautifully designed landing page that communicates Nookly’s core offerings.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
-        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
+        screenshots: ["/images/nookly_screenshot.png"],
         categories: ["mobile"],
         type: "mobile",
       },
@@ -100,38 +106,43 @@ const projectsData: ProjectPair[] = [
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
-        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
+        screenshots: [
+          "https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png",
+        ],
         categories: ["web"],
         type: "web",
       },
-    
     ],
   },
   {
     name: "Skywise",
     type: "mobile",
     projects: [
-     {
+      {
+        title: "Skywise",
+        description:
+          "A refined landing page that showcases the Skywise app’s innovative features.",
+        tech: ["Next.js", "Marketing"],
+        appUrl: "https://modrnmagic.app/skywise",
+        landingPageUrl: "https://modrnmagic.app/skywise",
+        screenshots: [
+          "/images/skywise.png",
+        ],
+        categories: ["mobile"],
+        type: "mobile",
+      },
+      {
         title: "Nookly Landing Page",
         description:
           "A beautifully designed landing page that communicates Nookly’s core offerings.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
-        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
+        screenshots: [
+          "https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png",
+        ],
         categories: ["web"],
         type: "web",
-      },
-      {
-        title: "Skywise Landing Page",
-        description:
-          "A refined landing page that showcases the Skywise app’s innovative features.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://modrnmagic.app/skywise",
-        landingPageUrl: "https://modrnmagic.app/skywise",
-        screenshots: ["https://modrnmagic.app/apps/skywise/screenshots/Screenshot%20Nov%208.png"],
-        categories: ["mobile"],
-        type: "mobile",
       },
     ],
   },
@@ -140,7 +151,7 @@ const projectsData: ProjectPair[] = [
     type: "mobile",
     projects: [
       {
-        title: "Flowmoro Landing Page",
+        title: "Flowmoro",
         description:
           "A sleek landing page that underlines Flowmoro’s design-forward approach.",
         tech: ["Next.js", "Marketing"],
@@ -151,13 +162,15 @@ const projectsData: ProjectPair[] = [
         type: "mobile",
       },
       {
-        title: "Nookly Landing Page",
+        title: "Flowmoro Landing Page",
         description:
           "A beautifully designed landing page that communicates Nookly’s core offerings.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
-        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
+        screenshots: [
+          "/images/flowmoro_landing.png",
+        ],
         categories: ["web"],
         type: "web",
       },
@@ -166,38 +179,62 @@ const projectsData: ProjectPair[] = [
 ];
 
 // Create array for landing page marquee - only web projects
-const landingPages = projectsData.flatMap((pair) => 
+const landingPages = projectsData.flatMap((pair) =>
   pair.projects
-    .filter(p => p.type === "web")
-    .map(p => ({
+    .filter((p) => p.type === "web")
+    .map((p) => ({
       url: p.screenshots[0],
       name: pair.name,
       type: "web",
-      appUrl: p.appUrl
-    }))
+      appUrl: p.appUrl,
+    })),
 );
 
 // Duplicate the array to create a seamless loop
 const landingPagesLoop = [...landingPages, ...landingPages];
-
 ---
 
 <BasicLayout>
   <div class="relative min-h-screen w-full overflow-y-auto">
     <!-- Background effect -->
     <div class="fixed inset-0 z-0">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(65,105,225,0.15),rgba(30,144,255,0.08),rgba(10,10,10,0.95))]"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#4169E1]/5 via-transparent to-transparent"></div>
-      <div class="absolute inset-0 bg-[url('/noise.png')] opacity-25 mix-blend-soft-light"></div>
-      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(65,105,225,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(65,105,225,0.03) 1px, transparent 1px); background-size: 32px 32px;"></div>
-      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#4169E1] opacity-[0.15] blur-[128px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#1E90FF] opacity-[0.15] blur-[96px] rounded-full"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(65,105,225,0.15),rgba(30,144,255,0.08),rgba(10,10,10,0.95))]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#4169E1]/5 via-transparent to-transparent"
+      >
+      </div>
+      <div
+        class="absolute inset-0 bg-[url('/noise.png')] opacity-25 mix-blend-soft-light"
+      >
+      </div>
+      <div
+        class="absolute inset-0"
+        style="background-image: linear-gradient(rgba(65,105,225,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(65,105,225,0.03) 1px, transparent 1px); background-size: 32px 32px;"
+      >
+      </div>
+      <div
+        class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#4169E1] opacity-[0.15] blur-[128px] rounded-full"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#1E90FF] opacity-[0.15] blur-[96px] rounded-full"
+      >
+      </div>
     </div>
 
     <!-- Sticky CTA Bar -->
-    <div class="sticky top-0 z-50 w-full backdrop-blur-md bg-black/30 border-b border-white/10">
-      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div class="text-white/80 text-sm md:text-base">Ready to build your next digital product?</div>
+    <div
+      class="sticky top-0 z-50 w-full backdrop-blur-md bg-black/30 border-b border-white/10"
+    >
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="text-white/80 text-sm md:text-base">
+          Ready to build your next digital product?
+        </div>
         <div class="flex gap-4">
           <a href="#contact" class="glass-button-sm primary">Work with Me →</a>
         </div>
@@ -206,13 +243,16 @@ const landingPagesLoop = [...landingPages, ...landingPages];
 
     <div class="container mx-auto px-4 py-16 relative z-10">
       <!-- Hero Section with Enhanced Marquee -->
-      <section class="relative min-h-screen flex flex-col items-center justify-center text-center animate-fade">
+      <section
+        class="relative min-h-screen flex flex-col items-center justify-center text-center animate-fade"
+      >
         <div class="relative z-10 mb-32">
           <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
             Crafting Digital Experiences
           </h1>
           <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
-            From concept to launch, I build complete digital products. Each project comes with both a powerful app and a beautiful landing page.
+            From concept to launch, I build complete digital products. Each
+            project comes with both a powerful app and a beautiful landing page.
           </p>
           <div class="flex flex-col md:flex-row gap-6 justify-center">
             <a href="#contact" class="glass-button primary">
@@ -228,32 +268,43 @@ const landingPagesLoop = [...landingPages, ...landingPages];
         <div class="absolute bottom-0 left-0 right-0 h-80 overflow-hidden">
           <div class="marquee-container">
             <div class="marquee marquee-landing">
-              {landingPagesLoop.map((item) => (
-                <a href={item.appUrl} target="_blank" class="marquee-item-landing">
-                  <div class="landing-image-container">
-                    <img 
-                      src={item.url} 
-                      alt={`${item.name} landing page`}
-                      class="rounded-xl shadow-2xl"
-                    />
-                    <div class="marquee-overlay glass-card">
-                      <span class="text-lg font-medium">{item.name}</span>
+              {
+                landingPagesLoop.map((item) => (
+                  <a
+                    href={item.appUrl}
+                    target="_blank"
+                    class="marquee-item-landing"
+                  >
+                    <div class="landing-image-container">
+                      <img
+                        src={item.url}
+                        alt={`${item.name} landing page`}
+                        class="rounded-xl shadow-2xl"
+                      />
+                      <div class="marquee-overlay glass-card">
+                        <span class="text-lg font-medium">{item.name}</span>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                ))
+              }
             </div>
           </div>
         </div>
       </section>
 
       <!-- Services Section -->
-      <section class="min-h-screen flex items-center justify-center py-24 animate-fade">
+      <section
+        class="min-h-screen flex items-center justify-center py-24 animate-fade"
+      >
         <div class="w-full">
           <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Your Vision, Delivered</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+              Your Vision, Delivered
+            </h2>
             <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              I specialize in turning ideas into polished digital products, combining powerful functionality with stunning design.
+              I specialize in turning ideas into polished digital products,
+              combining powerful functionality with stunning design.
             </p>
           </div>
 
@@ -261,13 +312,16 @@ const landingPagesLoop = [...landingPages, ...landingPages];
             <div class="glass-card-service p-8 relative overflow-hidden group">
               <div class="relative z-10">
                 <div class="text-3xl mb-6">🚀</div>
-                <h3 class="text-2xl font-bold text-white mb-4">Web Applications</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">
+                  Web Applications
+                </h3>
                 <ul class="space-y-3 text-gray-300 mb-8">
                   <li class="flex items-center gap-2">
                     <span class="text-blue-400">✓</span> Full-featured web application
                   </li>
                   <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Modern, responsive landing page
+                    <span class="text-blue-400">✓</span> Modern, responsive landing
+                    page
                   </li>
                   <li class="flex items-center gap-2">
                     <span class="text-blue-400">✓</span> Authentication & core features
@@ -276,15 +330,22 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                     <span class="text-blue-400">✓</span> 4-6 weeks delivery
                   </li>
                 </ul>
-                <a href="#contact" class="glass-button-sm primary">Get Started →</a>
+                <a href="#contact" class="glass-button-sm primary"
+                  >Get Started →</a
+                >
               </div>
-              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 transform group-hover:scale-105 transition-transform duration-500"></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 transform group-hover:scale-105 transition-transform duration-500"
+              >
+              </div>
             </div>
 
             <div class="glass-card-service p-8 relative overflow-hidden group">
               <div class="relative z-10">
                 <div class="text-3xl mb-6">📱</div>
-                <h3 class="text-2xl font-bold text-white mb-4">Mobile Applications</h3>
+                <h3 class="text-2xl font-bold text-white mb-4">
+                  Mobile Applications
+                </h3>
                 <ul class="space-y-3 text-gray-300 mb-8">
                   <li class="flex items-center gap-2">
                     <span class="text-blue-400">✓</span> Native iOS/Android app
@@ -299,9 +360,14 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                     <span class="text-blue-400">✓</span> 4-6 weeks delivery
                   </li>
                 </ul>
-                <a href="#contact" class="glass-button-sm primary">Get Started →</a>
+                <a href="#contact" class="glass-button-sm primary"
+                  >Get Started →</a
+                >
               </div>
-              <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 transform group-hover:scale-105 transition-transform duration-500"></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 transform group-hover:scale-105 transition-transform duration-500"
+              >
+              </div>
             </div>
           </div>
 
@@ -318,116 +384,156 @@ const landingPagesLoop = [...landingPages, ...landingPages];
         <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
           Featured Work
         </h2>
-        
+
         <div class="space-y-32">
-          {projectsData.map((projectPair) => (
-            <div class="project-showcase">
-              <h3 class="text-3xl font-bold text-white mb-8">{projectPair.name}</h3>
-              
-              {projectPair.projects.map((project) => (
-                <div class="glass-card-project mb-16">
-                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Project Info */}
-                    <div class={`project-info ${project.type === 'mobile' ? 'lg:order-2' : ''}`}>
-                      <h4 class="text-2xl font-semibold text-white mb-4">{project.title}</h4>
-                      <p class="text-gray-300 mb-6">{project.description}</p>
-                      
-                      <div class="flex flex-wrap gap-2 mb-6">
-                        {project.tech.map((tech) => (
-                          <span class="glass-pill">
-                            {tech}
-                          </span>
-                        ))}
+          {
+            projectsData.map((projectPair) => (
+              <div class="project-showcase">
+                <h3 class="text-3xl font-bold text-white mb-8">
+                  {projectPair.name}
+                </h3>
+
+                {projectPair.projects.map((project) => (
+                  <div class="glass-card-project mb-16">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                      {/* Project Info */}
+                      <div
+                        class={`project-info ${project.type === "mobile" ? "lg:order-2" : ""}`}
+                      >
+                        <h4 class="text-2xl font-semibold text-white mb-4">
+                          {project.title}
+                        </h4>
+                        <p class="text-gray-300 mb-6">{project.description}</p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                          {project.tech.map((tech) => (
+                            <span class="glass-pill">{tech}</span>
+                          ))}
+                        </div>
+
+                        <div class="flex gap-4">
+                          {project.appUrl && (
+                            <a
+                              href={project.appUrl}
+                              target="_blank"
+                              class="glass-button primary"
+                            >
+                              View{" "}
+                              {project.type === "mobile" ? "App" : "Web App"} →
+                            </a>
+                          )}
+                          <a
+                            href={project.landingPageUrl}
+                            target="_blank"
+                            class="glass-button secondary"
+                          >
+                            Landing Page →
+                          </a>
+                        </div>
                       </div>
-                      
-                      <div class="flex gap-4">
-                        <a 
-                          href={project.appUrl} 
-                          target="_blank" 
-                          class="glass-button primary"
+
+                      {/* Project Screenshots or Video */}
+                      <div
+                        class={`project-screenshots ${project.type === "mobile" ? "lg:order-1" : ""}`}
+                      >
+                        <div
+                          class={`screenshot-container ${project.type === "mobile" ? "mobile-screenshots" : "web-screenshots"}`}
                         >
-                          View {project.type === 'mobile' ? 'App' : 'Web App'} →
-                        </a>
-                        <a 
-                          href={project.landingPageUrl} 
-                          target="_blank" 
-                          class="glass-button secondary"
-                        >
-                          Landing Page →
-                        </a>
-                      </div>
-                    </div>
-                    
-                    {/* Project Screenshots */}
-                    <div class={`project-screenshots ${project.type === 'mobile' ? 'lg:order-1' : ''}`}>
-                      <div class={`screenshot-container ${project.type === 'mobile' ? 'mobile-screenshots' : 'web-screenshots'}`}>
-                        {project.type === 'mobile' ? (
-                          // Mobile app view
-                          <div class="mobile-app-container">
-                            {project.screenshots.map((screenshot, index) => (
-                              <div class="mobile-shot">
-                                <img 
-                                  src={screenshot} 
-                                  alt={`${project.title} screenshot ${index + 1}`}
-                                  class="mobile-image"
-                                  style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
+                          {project.videoUrl ? (
+                            // YouTube Video Embed
+                            <div class="web-shot glass-card relative">
+                              <iframe
+                                width="100%"
+                                height="315"
+                                src={`https://www.youtube.com/embed/${getYouTubeVideoId(project.videoUrl)}`}
+                                title={`${project.title} demo video`}
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                class="rounded-lg relative z-10"
+                                style="pointer-events: auto;"
+                              />
+                            </div>
+                          ) : project.type === "mobile" ? (
+                            // Mobile app view
+                            <div class="mobile-app-container">
+                              {project.screenshots.map((screenshot, index) => (
+                                <div class="mobile-shot">
+                                  <img
+                                    src={screenshot}
+                                    alt={`${project.title} screenshot ${index + 1}`}
+                                    class="mobile-image"
+                                    style={
+                                      project.imageOpacity
+                                        ? `opacity: ${project.imageOpacity / 100}`
+                                        : ""
+                                    }
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            // Web project view - show landing page
+                            <div class="web-shot glass-card">
+                              <div class="relative w-full h-0 pb-[56.25%]">
+                                <img
+                                  src={project.screenshots[0]}
+                                  alt={`${project.title} landing page`}
+                                  class="web-image absolute top-0 left-0 w-full h-full object-contain"
+                                  style={
+                                    project.imageOpacity
+                                      ? `opacity: ${project.imageOpacity / 100}`
+                                      : ""
+                                  }
                                 />
                               </div>
-                            ))}
-                          </div>
-                        ) : (
-                          // Web project view - show landing page
-                          <div class="web-shot glass-card">
-                            <img 
-                              src={project.screenshots[0]} 
-                              alt={`${project.title} landing page`}
-                              class="web-image"
-                              style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
-                            />
-                          </div>
-                        )}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-
-            
-            </div>
-          ))}
+                ))}
+              </div>
+            ))
+          }
         </div>
       </section>
 
       <!-- Contact Section -->
       <section id="contact" class="py-24 animate-fade">
         <div class="glass-card-lg max-w-3xl mx-auto p-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-6">Let's Build Something Amazing</h2>
+          <h2
+            class="text-4xl md:text-5xl font-bold text-white text-center mb-6"
+          >
+            Let's Build Something Amazing
+          </h2>
           <p class="text-xl text-gray-300 mb-12 text-center">
             Share your vision and I'll help bring it to life.
           </p>
-          
+
           <form id="contact-form" class="contact-form">
             <div class="form-group">
               <label for="name" class="form-label">Your Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                class="form-input" 
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
                 placeholder="John Doe"
-                required 
+                required
               />
             </div>
-            
+
             <div class="form-group">
               <label for="email" class="form-label">Email Address</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                class="form-input" 
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
                 placeholder="john@example.com"
-                required 
+                required
               />
             </div>
 
@@ -439,23 +545,37 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                   <span>Web App</span>
                 </label>
                 <label class="project-type-option">
-                  <input type="checkbox" name="project-type" value="mobile-app" />
+                  <input
+                    type="checkbox"
+                    name="project-type"
+                    value="mobile-app"
+                  />
                   <span>Mobile App</span>
                 </label>
                 <label class="project-type-option">
-                  <input type="checkbox" name="project-type" value="landing-page" />
+                  <input
+                    type="checkbox"
+                    name="project-type"
+                    value="landing-page"
+                  />
                   <span>Landing Page</span>
                 </label>
                 <label class="project-type-option">
-                  <input type="checkbox" name="project-type" value="other" class="other-checkbox" data-target="other-project-type" />
+                  <input
+                    type="checkbox"
+                    name="project-type"
+                    value="other"
+                    class="other-checkbox"
+                    data-target="other-project-type"
+                  />
                   <span>Other</span>
                 </label>
               </div>
-              <input 
-                type="text" 
-                id="other-project-type" 
-                name="other-project-type" 
-                class="form-input mt-3 hidden" 
+              <input
+                type="text"
+                id="other-project-type"
+                name="other-project-type"
+                class="form-input mt-3 hidden"
                 placeholder="Please specify your project type"
               />
             </div>
@@ -470,11 +590,11 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                 <option value="50k+">$50,000+</option>
                 <option value="other">Other (Please specify)</option>
               </select>
-              <input 
-                type="text" 
-                id="other-budget" 
-                name="other-budget" 
-                class="form-input mt-3 hidden" 
+              <input
+                type="text"
+                id="other-budget"
+                name="other-budget"
+                class="form-input mt-3 hidden"
                 placeholder="Please specify your budget range"
               />
             </div>
@@ -491,18 +611,17 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                 <option value="other">other</option>
               </select>
             </div>
-            
+
             <div class="form-group">
               <label for="message" class="form-label">Project Details</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                class="form-textarea" 
+              <textarea
+                id="message"
+                name="message"
+                class="form-textarea"
                 placeholder="Tell me about your project idea, specific features you'd like to include, and any other important details."
-                required
-              ></textarea>
+                required></textarea>
             </div>
-            
+
             <button type="submit" class="glass-button primary w-full">
               Send Message →
             </button>
@@ -510,84 +629,96 @@ const landingPagesLoop = [...landingPages, ...landingPages];
         </div>
       </section>
 
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+      <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+      ></script>
 
       <script>
-        (function() {
-            emailjs.init("vS3CR-R0Bjl5BLllJ");
+        (function () {
+          emailjs.init("vS3CR-R0Bjl5BLllJ");
         })();
 
-        const form = document.getElementById('contact-form');
-        
+        const form = document.getElementById("contact-form");
+
         // Handle "Other" option visibility
-        document.querySelector('input[value="other"].other-checkbox').addEventListener('change', function(e) {
+        document
+          .querySelector('input[value="other"].other-checkbox')
+          .addEventListener("change", function (e) {
             const otherInput = document.getElementById(this.dataset.target);
-            otherInput.classList.toggle('hidden', !this.checked);
+            otherInput.classList.toggle("hidden", !this.checked);
             if (this.checked) {
-                otherInput.required = true;
+              otherInput.required = true;
             } else {
-                otherInput.required = false;
-                otherInput.value = '';
+              otherInput.required = false;
+              otherInput.value = "";
             }
-        });
+          });
 
         // Handle budget "Other" option
-        document.getElementById('budget').addEventListener('change', function(e) {
-            const otherBudgetInput = document.getElementById('other-budget');
-            otherBudgetInput.classList.toggle('hidden', this.value !== 'other');
-            if (this.value === 'other') {
-                otherBudgetInput.required = true;
+        document
+          .getElementById("budget")
+          .addEventListener("change", function (e) {
+            const otherBudgetInput = document.getElementById("other-budget");
+            otherBudgetInput.classList.toggle("hidden", this.value !== "other");
+            if (this.value === "other") {
+              otherBudgetInput.required = true;
             } else {
-                otherBudgetInput.required = false;
-                otherBudgetInput.value = '';
+              otherBudgetInput.required = false;
+              otherBudgetInput.value = "";
             }
-        });
-        
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const button = form.querySelector('button[type="submit"]');
-            const originalContent = button.innerHTML;
-            button.disabled = true;
-            button.innerHTML = '<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
-            
-            const formData = {
-                name: form.querySelector('#name').value,
-                email: form.querySelector('#email').value,
-                projectType: Array.from(form.querySelectorAll('input[name="project-type"]:checked')).map(input => {
-                    if (input.value === 'other') {
-                        return `Other: ${form.querySelector('#other-project-type').value}`;
-                    }
-                    return input.value;
-                }),
-                budget: form.querySelector('#budget').value === 'other' 
-                    ? `Other: ${form.querySelector('#other-budget').value}`
-                    : form.querySelector('#budget').value,
-                timeline: form.querySelector('#timeline').value,
-                message: form.querySelector('#message').value,
-            };
+          });
 
-            try {
-                const response = await emailjs.send(
-                    "service_lh7iqlh",
-                    "template_r1vw5j2",
-                    {
-                        from_name: formData.name,
-                        from_email: formData.email,
-                        project_type: formData.projectType.join(', '),
-                        budget: formData.budget,
-                        timeline: formData.timeline,
-                        message: formData.message,
-                        to_name: "Akhil",
-                        to_email: "akhil@modrnmagic.app"
-                    }
-                );
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
 
-                if (response.status === 200) {
-                    // Show success message
-                    const successMessage = document.createElement('div');
-                    successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50';
-                    successMessage.innerHTML = `
+          const button = form.querySelector('button[type="submit"]');
+          const originalContent = button.innerHTML;
+          button.disabled = true;
+          button.innerHTML =
+            '<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+
+          const formData = {
+            name: form.querySelector("#name").value,
+            email: form.querySelector("#email").value,
+            projectType: Array.from(
+              form.querySelectorAll('input[name="project-type"]:checked'),
+            ).map((input) => {
+              if (input.value === "other") {
+                return `Other: ${form.querySelector("#other-project-type").value}`;
+              }
+              return input.value;
+            }),
+            budget:
+              form.querySelector("#budget").value === "other"
+                ? `Other: ${form.querySelector("#other-budget").value}`
+                : form.querySelector("#budget").value,
+            timeline: form.querySelector("#timeline").value,
+            message: form.querySelector("#message").value,
+          };
+
+          try {
+            const response = await emailjs.send(
+              "service_lh7iqlh",
+              "template_r1vw5j2",
+              {
+                from_name: formData.name,
+                from_email: formData.email,
+                project_type: formData.projectType.join(", "),
+                budget: formData.budget,
+                timeline: formData.timeline,
+                message: formData.message,
+                to_name: "Akhil",
+                to_email: "akhil@modrnmagic.app",
+              },
+            );
+
+            if (response.status === 200) {
+              // Show success message
+              const successMessage = document.createElement("div");
+              successMessage.className =
+                "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
+              successMessage.innerHTML = `
                         <div class="flex items-center">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -595,20 +726,21 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                             <span>Thanks! I'll get back to you shortly.</span>
                         </div>
                     `;
-                    document.body.appendChild(successMessage);
-                    
-                    setTimeout(() => {
-                        successMessage.style.transform = 'translateY(-100%)';
-                        setTimeout(() => successMessage.remove(), 500);
-                    }, 5000);
-                    
-                    form.reset();
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                const errorMessage = document.createElement('div');
-                errorMessage.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50';
-                errorMessage.innerHTML = `
+              document.body.appendChild(successMessage);
+
+              setTimeout(() => {
+                successMessage.style.transform = "translateY(-100%)";
+                setTimeout(() => successMessage.remove(), 500);
+              }, 5000);
+
+              form.reset();
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            const errorMessage = document.createElement("div");
+            errorMessage.className =
+              "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
+            errorMessage.innerHTML = `
                     <div class="flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -616,17 +748,17 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                         <span>Oops! Something went wrong. Please try again.</span>
                     </div>
                 `;
-                document.body.appendChild(errorMessage);
-                
-                setTimeout(() => {
-                    errorMessage.style.transform = 'translateY(-100%)';
-                    setTimeout(() => errorMessage.remove(), 500);
-                }, 5000);
-            } finally {
-                // Restore the original button content and enable it
-                button.innerHTML = originalContent;
-                button.disabled = false;
-            }
+            document.body.appendChild(errorMessage);
+
+            setTimeout(() => {
+              errorMessage.style.transform = "translateY(-100%)";
+              setTimeout(() => errorMessage.remove(), 500);
+            }, 5000);
+          } finally {
+            // Restore the original button content and enable it
+            button.innerHTML = originalContent;
+            button.disabled = false;
+          }
         });
       </script>
     </div>
