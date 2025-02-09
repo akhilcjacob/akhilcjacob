@@ -9,7 +9,7 @@
 </p>
 
 <div align="center">
-  <a href="https://modrnmagic.app" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); color: #333; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 20px 0; border: 1px solid rgba(209, 213, 219, 0.5); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px); transition: all 0.3s ease;">✨ View Portfolio ✨</a>
+  <a href="https://akhilcjacob.com" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); color: #333; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 20px 0; border: 1px solid rgba(209, 213, 219, 0.5); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px); transition: all 0.3s ease;">✨ View Homepage ✨</a>
 </div>
 
 #### 🔗 **Personal Links**
