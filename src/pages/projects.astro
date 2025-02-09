@@ -1,7 +1,6 @@
 ---
-// projects.astro
-import { Image } from "astro:assets";
 import BasicLayout from "../layouts/BasicLayout.astro";
+import '../styles/projects.css';
 
 interface Project {
   title: string;
@@ -28,26 +27,13 @@ const projectsData: ProjectPair[] = [
     type: "web",
     projects: [
       {
-        title: "HypeBridge App",
-        description:
-          "Cutting-edge AI-powered platform for intelligent influencer discovery and automated outreach, revolutionizing brand-creator collaborations.",
-        tech: ["Next.js", "Gemini", "Google Cloud (GCP)"],
-        appUrl: "https://app.thehypebridge.com",
-        landingPageUrl: "https://thehypebridge.com",
-        screenshots: ["https://thehypebridge.com/og-image.png"],
-        videoUrl: "https://thehypebridge.com/showcase.mp4",
-        categories: ["web"],
-        type: "web",
-      },
-      {
         title: "HypeBridge Landing Page",
         description:
-          "Landing page for HypeBridge, showcasing the platform's features and benefits.",
+          "A polished landing page that highlights key features and benefits.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://thehypebridge.com",
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
-        videoUrl: "https://thehypebridge.com/showcase.mp4",
         categories: ["web"],
         type: "web",
       },
@@ -57,27 +43,25 @@ const projectsData: ProjectPair[] = [
     name: "InboxHiive",
     type: "web",
     projects: [
-      {
-        title: "InboxHiive App",
+    {
+        title: "InboxHiive Landing Page",
         description:
-          "Revolutionary SaaS platform that transforms podcast audio content into engaging, rich newsletters.",
-        tech: ["Next.js", "Firebase", "React", "Node.js", "Cloud Functions", "Mailgun"],
-        appUrl: "https://app.inboxhiiv.com",
+          "A clean landing page that highlights the service’s capabilities.",
+        tech: ["Next.js", "Marketing"],
+        appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
         screenshots: ["https://inboxhiiv.com/screenshots/dashboard.png"],
-        videoUrl: "https://inboxhiiv.com/showcase.mp4",
         categories: ["web"],
         type: "web",
       },
       {
         title: "InboxHiive Landing Page",
         description:
-          "Landing page for InboxHiive, showcasing the platform's features and benefits.",
+          "A clean landing page that highlights the service’s capabilities.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
         screenshots: ["https://inboxhiiv.com/screenshots/dashboard.png"],
-        videoUrl: "https://inboxhiiv.com/showcase.mp4",
         categories: ["web"],
         type: "web",
       },
@@ -88,58 +72,15 @@ const projectsData: ProjectPair[] = [
     type: "web",
     projects: [
       {
-        title: "Nookly App",
-        description:
-          "Uber-style platform revolutionizing home services. Nookly connects homeowners with vetted professionals.",
-        tech: ["Flutter", "Firebase", "Dart", "Cloud Firestore", "Google Maps API", "Stripe", "Push Notifications", "Real-time Chat"],
-        appUrl: "https://app.nookly.co",
-        landingPageUrl: "https://nookly.co",
-        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
-        videoUrl: "https://nookly.co/showcase.mp4",
-        categories: ["web"],
-        type: "web",
-      },
-      {
         title: "Nookly Landing Page",
         description:
-          "Landing page for Nookly, showcasing the platform's features and benefits.",
+          "A beautifully designed landing page that communicates Nookly’s core offerings.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
         screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
-        videoUrl: "https://nookly.co/showcase.mp4",
         categories: ["web"],
         type: "web",
-      },
-    ],
-  },
-  {
-    name: "Nookly Mobile",
-    type: "mobile",
-    projects: [
-      {
-        title: "Nookly Mobile App",
-        description:
-          "Mobile companion to our home services platform. Schedule services, chat with professionals, and manage appointments on the go.",
-        tech: ["Flutter", "Firebase", "Dart", "Cloud Firestore", "Google Maps API", "Stripe", "Push Notifications", "Real-time Chat"],
-        appUrl: "https://apps.apple.com/us/app/nookly",
-        landingPageUrl: "https://nookly.co/mobile",
-        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
-        videoUrl: "https://nookly.co/mobile-showcase.mp4",
-        categories: ["mobile"],
-        type: "mobile",
-      },
-      {
-        title: "Nookly Mobile Landing Page",
-        description:
-          "Landing page for Nookly Mobile, showcasing the platform's features and benefits.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://nookly.co/mobile",
-        landingPageUrl: "https://nookly.co/mobile",
-        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
-        videoUrl: "https://nookly.co/mobile-showcase.mp4",
-        categories: ["mobile"],
-        type: "mobile",
       },
     ],
   },
@@ -147,27 +88,25 @@ const projectsData: ProjectPair[] = [
     name: "Skywise",
     type: "mobile",
     projects: [
-      {
-        title: "Skywise App",
+     {
+        title: "Nookly Landing Page",
         description:
-          "AI-powered weather app delivering personalized forecasts with a conversational interface.",
-        tech: ["Flutter", "OpenAI GPT API", "Postgres", "Weather API Integration", "RevenueCat", "Geolocation Services", "Custom UI/UX Design"],
-        appUrl: "https://apps.apple.com/us/app/skywise-weather",
-        landingPageUrl: "https://modrnmagic.app/skywise",
-        screenshots: ["https://modrnmagic.app/apps/skywise/screenshots/Screenshot%20Nov%208.png"],
-        videoUrl: "https://modrnmagic.app/skywise/showcase.mp4",
-        categories: ["mobile"],
-        type: "mobile",
+          "A beautifully designed landing page that communicates Nookly’s core offerings.",
+        tech: ["Next.js", "Marketing"],
+        appUrl: "https://nookly.co",
+        landingPageUrl: "https://nookly.co",
+        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
+        categories: ["web"],
+        type: "web",
       },
       {
         title: "Skywise Landing Page",
         description:
-          "Landing page for Skywise, showcasing the app's features and benefits.",
+          "A refined landing page that showcases the Skywise app’s innovative features.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://modrnmagic.app/skywise",
         landingPageUrl: "https://modrnmagic.app/skywise",
         screenshots: ["https://modrnmagic.app/apps/skywise/screenshots/Screenshot%20Nov%208.png"],
-        videoUrl: "https://modrnmagic.app/skywise/showcase.mp4",
         categories: ["mobile"],
         type: "mobile",
       },
@@ -178,246 +117,285 @@ const projectsData: ProjectPair[] = [
     type: "mobile",
     projects: [
       {
-        title: "Flowmoro App",
-        description:
-          "Productivity app reimagining the Pomodoro technique with a minimalist interface.",
-        tech: ["Flutter", "Custom Animations"],
-        appUrl: "https://apps.apple.com/us/app/flowmoro",
-        landingPageUrl: "https://modrnmagic.app/flowmoro",
-        screenshots: ["https://modrnmagic.app/apps/flowmoro/screenshots/1.png"],
-        videoUrl: "https://modrnmagic.app/flowmoro/showcase.mp4",
-        categories: ["mobile"],
-        type: "mobile",
-      },
-      {
         title: "Flowmoro Landing Page",
         description:
-          "Landing page for Flowmoro, showcasing the app's features and benefits.",
+          "A sleek landing page that underlines Flowmoro’s design-forward approach.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://modrnmagic.app/flowmoro",
         landingPageUrl: "https://modrnmagic.app/flowmoro",
         screenshots: ["https://modrnmagic.app/apps/flowmoro/screenshots/1.png"],
-        videoUrl: "https://modrnmagic.app/flowmoro/showcase.mp4",
         categories: ["mobile"],
         type: "mobile",
+      },
+      {
+        title: "Nookly Landing Page",
+        description:
+          "A beautifully designed landing page that communicates Nookly’s core offerings.",
+        tech: ["Next.js", "Marketing"],
+        appUrl: "https://nookly.co",
+        landingPageUrl: "https://nookly.co",
+        screenshots: ["https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png"],
+        categories: ["web"],
+        type: "web",
       },
     ],
   },
 ];
----
-<!-- Custom Animations -->
-<style global>
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fadeInUp {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-  @keyframes popIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  .animate-popIn {
-    animation: popIn 0.5s ease-out forwards;
-  }
-</style>
 
-<BasicLayout
-  title="Akhil Jacob - Projects & MVP Development Services"
-  description="A clean showcase of web and mobile projects paired with beautiful landing pages."
-  page="projects"
->
-  <div class="relative min-h-screen w-full overflow-y-auto bg-[#0A0A0A]">
-    {/*
-      Dark-themed background elements (unchanged)
-    */}
+// Create array for landing page marquee - only web projects
+const landingPages = projectsData.flatMap((pair) => 
+  pair.projects
+    .filter(p => p.type === "web")
+    .map(p => ({
+      url: p.screenshots[0],
+      name: pair.name,
+      type: "web",
+      appUrl: p.appUrl
+    }))
+);
+
+// Duplicate the array to create a seamless loop
+const landingPagesLoop = [...landingPages, ...landingPages];
+
+---
+
+<BasicLayout>
+  <div class="relative min-h-screen w-full overflow-y-auto">
+    <!-- Background effect -->
     <div class="fixed inset-0 z-0">
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(65,105,225,0.15),rgba(30,144,255,0.08),rgba(10,10,10,0.95))]"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-[#4169E1]/5 via-transparent to-transparent"></div>
       <div class="absolute inset-0 bg-[url('/noise.png')] opacity-25 mix-blend-soft-light"></div>
-      <div
-        class="absolute inset-0"
-        style="background-image: linear-gradient(rgba(65,105,225,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(65,105,225,0.03) 1px, transparent 1px); background-size: 32px 32px;"
-      ></div>
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(65,105,225,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(65,105,225,0.03) 1px, transparent 1px); background-size: 32px 32px;"></div>
       <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#4169E1] opacity-[0.15] blur-[128px] rounded-full"></div>
       <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#1E90FF] opacity-[0.15] blur-[96px] rounded-full"></div>
     </div>
 
-    <div class="container mx-auto px-4 py-16 relative z-10">
-      {/*
-        Hero Section with fadeIn animation
-      */}
-      <header class="text-center mb-20 animate-fadeInUp">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
-          Projects
-        </h1>
-        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-          A portfolio of work that speaks for itself. Each project represents a blend of design, technology, and passion.
-        </p>
-      </header>
+    <!-- Sticky CTA Bar -->
+    <div class="sticky top-0 z-50 w-full backdrop-blur-md bg-black/30 border-b border-white/10">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="text-white/80 text-sm md:text-base">Ready to build your next digital product?</div>
+        <div class="flex gap-4">
+          <a href="#contact" class="glass-button-sm primary">Work with Me →</a>
+        </div>
+      </div>
+    </div>
 
-      {/*
-        Projects Showcase Section: Each project pair is displayed as a segmented glassmorphic card.
-      */}
-      <section class="mb-24">
-        <div class="grid gap-16">
-          {projectsData.map((pair, pairIndex) => (
-            <div
-              key={pair.name}
-              class="bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 animate-popIn"
-              style="animation-delay: calc(0.2s * var(--pair-index));"
-              style={`--pair-index: ${pairIndex}`}
-            >
-              <div class="px-8 py-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-opacity-30 rounded-t-3xl">
-                <h2 class="text-2xl md:text-3xl font-bold text-white">{pair.name}</h2>
+    <div class="container mx-auto px-4 py-16 relative z-10">
+      <!-- Hero Section with Enhanced Marquee -->
+      <section class="relative min-h-screen flex flex-col items-center justify-center text-center animate-fade">
+        <div class="relative z-10 mb-32">
+          <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
+            Crafting Digital Experiences
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
+            From concept to launch, I build complete digital products. Each project comes with both a powerful app and a beautiful landing page.
+          </p>
+          <div class="flex flex-col md:flex-row gap-6 justify-center">
+            <a href="#contact" class="glass-button primary">
+              Start Your Project →
+            </a>
+            <a href="#featured-work" class="glass-button secondary">
+              View My Work
+            </a>
+          </div>
+        </div>
+
+        <!-- Enhanced Landing Page Marquee -->
+        <div class="absolute bottom-0 left-0 right-0 h-80 overflow-hidden">
+          <div class="marquee-container">
+            <div class="marquee marquee-landing">
+              {landingPagesLoop.map((item) => (
+                <a href={item.appUrl} target="_blank" class="marquee-item-landing">
+                  <div class="landing-image-container">
+                    <img 
+                      src={item.url} 
+                      alt={`${item.name} landing page`}
+                      class="rounded-xl shadow-2xl"
+                    />
+                    <div class="marquee-overlay glass-card">
+                      <span class="text-lg font-medium">{item.name}</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="min-h-screen flex items-center justify-center py-24 animate-fade">
+        <div class="w-full">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Your Vision, Delivered</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              I specialize in turning ideas into polished digital products, combining powerful functionality with stunning design.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="glass-card-service p-8 relative overflow-hidden group">
+              <div class="relative z-10">
+                <div class="text-3xl mb-6">🚀</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Web Applications</h3>
+                <ul class="space-y-3 text-gray-300 mb-8">
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> Full-featured web application
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> Modern, responsive landing page
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> Authentication & core features
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> 4-6 weeks delivery
+                  </li>
+                </ul>
+                <a href="#contact" class="glass-button-sm primary">Get Started →</a>
               </div>
-              <div class="p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {pair.projects.map((project) => (
-                    <div
-                      key={project.title}
-                      class="bg-black/40 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl"
-                    >
-                      {(() => {
-                        const isLandingPage = project.title.toLowerCase().includes("landing");
-                        const isMobileScreenshot = project.type === "mobile" && !isLandingPage;
-                        if (isMobileScreenshot) {
-                          // Mobile app screenshot (portrait view)
-                          return (
-                            <div class="w-full aspect-[9/16] relative">
-                              <Image
-                                src={project.screenshots[0]}
-                                alt={project.title}
-                                width={828}
-                                height={1828}
-                                class="w-full h-full object-contain"
-                                style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
-                              />
-                            </div>
-                          );
-                        } else {
-                          // Desktop screenshot (for web projects or mobile landing pages)
-                          return (
-                            <div class="w-full h-48 relative overflow-hidden">
-                              <Image
-                                src={project.screenshots[0]}
-                                alt={project.title}
-                                width={1920}
-                                height={320}
-                                class="w-full h-full object-cover"
-                                style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
-                              />
-                            </div>
-                          );
-                        }
-                      })()}
-                      <div class="p-4">
-                        <h3 class="text-xl md:text-2xl font-semibold text-white">{project.title}</h3>
-                        <p class="text-sm md:text-base text-gray-300 mt-2">{project.description}</p>
-                        <div class="flex flex-wrap gap-2 mt-3">
-                          {project.tech.map((tech) => (
-                            <span key={tech} class="text-xs md:text-sm bg-white/20 text-white px-3 py-1 rounded-full">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                        <div class="mt-4 flex gap-2">
-                          <a
-                            href={project.appUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors duration-200"
-                          >
-                            {project.title.toLowerCase().includes("app") ? "Open App" : "Visit"}
-                          </a>
-                          <a
-                            href={project.landingPageUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="flex-1 text-center border border-white/30 hover:bg-white/20 text-white px-4 py-2 rounded transition-colors duration-200"
-                          >
-                            {project.title.toLowerCase().includes("landing") ? "View Landing" : "Learn More"}
-                          </a>
-                        </div>
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 transform group-hover:scale-105 transition-transform duration-500"></div>
+            </div>
+
+            <div class="glass-card-service p-8 relative overflow-hidden group">
+              <div class="relative z-10">
+                <div class="text-3xl mb-6">📱</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Mobile Applications</h3>
+                <ul class="space-y-3 text-gray-300 mb-8">
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> Native iOS/Android app
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> Professional landing page
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> App store submission
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-blue-400">✓</span> 4-6 weeks delivery
+                  </li>
+                </ul>
+                <a href="#contact" class="glass-button-sm primary">Get Started →</a>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 transform group-hover:scale-105 transition-transform duration-500"></div>
+            </div>
+          </div>
+
+          <div class="text-center mt-16">
+            <a href="#contact" class="glass-button primary">
+              Start Your Project →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Work Section -->
+      <section id="featured-work" class="py-24 animate-fade">
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
+          Featured Work
+        </h2>
+        
+        <div class="space-y-32">
+          {projectsData.map((projectPair) => (
+            <div class="project-showcase">
+              <h3 class="text-3xl font-bold text-white mb-8">{projectPair.name}</h3>
+              
+              {projectPair.projects.map((project) => (
+                <div class="glass-card-project mb-16">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    {/* Project Info */}
+                    <div class={`project-info ${project.type === 'mobile' ? 'lg:order-2' : ''}`}>
+                      <h4 class="text-2xl font-semibold text-white mb-4">{project.title}</h4>
+                      <p class="text-gray-300 mb-6">{project.description}</p>
+                      
+                      <div class="flex flex-wrap gap-2 mb-6">
+                        {project.tech.map((tech) => (
+                          <span class="glass-pill">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <div class="flex gap-4">
+                        <a 
+                          href={project.appUrl} 
+                          target="_blank" 
+                          class="glass-button primary"
+                        >
+                          View {project.type === 'mobile' ? 'App' : 'Web App'} →
+                        </a>
+                        <a 
+                          href={project.landingPageUrl} 
+                          target="_blank" 
+                          class="glass-button secondary"
+                        >
+                          Landing Page →
+                        </a>
                       </div>
                     </div>
-                  ))}
+                    
+                    {/* Project Screenshots */}
+                    <div class={`project-screenshots ${project.type === 'mobile' ? 'lg:order-1' : ''}`}>
+                      <div class={`screenshot-container ${project.type === 'mobile' ? 'mobile-screenshots' : 'web-screenshots'}`}>
+                        {project.type === 'mobile' ? (
+                          // Mobile app view
+                          <div class="mobile-app-container">
+                            {project.screenshots.map((screenshot, index) => (
+                              <div class="mobile-shot">
+                                <img 
+                                  src={screenshot} 
+                                  alt={`${project.title} screenshot ${index + 1}`}
+                                  class="mobile-image"
+                                  style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          // Web project view - show landing page
+                          <div class="web-shot glass-card">
+                            <img 
+                              src={project.screenshots[0]} 
+                              alt={`${project.title} landing page`}
+                              class="web-image"
+                              style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
+
+            
             </div>
           ))}
         </div>
       </section>
 
-      {/*
-        Overall Call-to-Action Section
-      */}
-      <section id="mvp-contact" class="mt-24 animate-fadeInUp">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-              Inspired?
-            </span>
-          </h2>
-          <p class="text-lg md:text-xl text-gray-300">
-            If you like what you see and dream of your own custom project, let's chat.
+      <!-- Contact Section -->
+      <section id="contact" class="py-24 animate-fade">
+        <div class="glass-card-lg max-w-3xl mx-auto text-center p-12">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Build Something Amazing?</h2>
+          <p class="text-xl text-gray-300 mb-8">
+            Let's create a complete digital product that your users will love.
           </p>
-        </div>
-        <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto shadow-2xl">
-          <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Get in Touch</h3>
-          <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-            <input type="hidden" name="access_key" value="YOUR-ACCESS-KEY-HERE" />
-            <input type="hidden" name="subject" value="New Project Inquiry" />
-            <div>
-              <label for="name" class="block text-sm font-medium text-white mb-2">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-3 bg-black/50 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-white mb-2">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="w-full px-4 py-3 bg-black/50 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-white mb-2">Project Details</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                class="w-full px-4 py-3 bg-black/50 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+          <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <a
+              href="mailto:your-email@example.com"
+              class="glass-button primary"
             >
-              Let's Talk
-            </button>
-          </form>
+              Start Your Project →
+            </a>
+            <a
+              href="#featured-work"
+              class="glass-button secondary"
+            >
+              View More Work
+            </a>
+          </div>
         </div>
       </section>
     </div>
