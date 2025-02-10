@@ -106,16 +106,16 @@ const projectsData: ProjectPair[] = [
       {
         title: "Skywise",
         description: "Groundbreaking mobile app featuring an AI-powered chat interface that provides personalized weather insights, outfit recommendations, and climate-related advice tailored to your location and preferences.",
-        appUrl: "https://modrnmagic.app/skywise",
-        landingPageUrl: "https://modrnmagic.app/skywise",
+        appUrl: "https://modrnmagic.app/",
+        landingPageUrl: "https://modrnmagic.app/",
         screenshots: ["/images/skywise.png"],
         categories: ["mobile"],
         type: "mobile",
       },
       {
         title: "Skywise Landing Page",
-        appUrl: "https://modrnmagic.app/skywise",
-        landingPageUrl: "https://modrnmagic.app/skywise",
+        appUrl: "https://modrnmagic.app/",
+        landingPageUrl: "https://modrnmagic.app/",
         screenshots: ["/images/modrn.png"],
         categories: ["web"],
         type: "web",
@@ -129,16 +129,16 @@ const projectsData: ProjectPair[] = [
       {
         title: "Flowmoro",
         description: "Elegantly designed Pomodoro timer app that enhances productivity through its intuitive interface, customizable work sessions, and insightful productivity analytics.",
-        appUrl: "https://modrnmagic.app/flowmoro",
-        landingPageUrl: "https://modrnmagic.app/flowmoro",
+        appUrl: "https://modrnmagic.app/apps/flowmoro/home/",
+        landingPageUrl: "https://modrnmagic.app/apps/flowmoro/home/",
         screenshots: ["https://modrnmagic.app/apps/flowmoro/screenshots/1.png"],
         categories: ["mobile"],
         type: "mobile",
       },
       {
         title: "Flowmoro Landing Page",
-        appUrl: "https://modrnmagic.app/flowmoro",
-        landingPageUrl: "https://modrnmagic.app/flowmoro",
+        appUrl: "https://modrnmagic.app/apps/flowmoro/home/",
+        landingPageUrl: "https://modrnmagic.app/apps/flowmoro/home/",
         screenshots: ["/images/flowmoro_landing.png"],
         categories: ["web"],
         type: "web",
@@ -153,7 +153,7 @@ const landingPages = [
     url: "/images/modrn.png",
     name: "Skywise",
     type: "web",
-    appUrl: "https://modrnmagic.app/skywise",
+    appUrl: "https://modrnmagic.app/",
   },
   {
     url: "/images/inboxhiiv_landing.png",
@@ -165,7 +165,7 @@ const landingPages = [
     url: "/images/flowmoro_landing.png",
     name: "Flowmoro",
     type: "web",
-    appUrl: "https://modrnmagic.app/flowmoro",
+    appUrl: "https://modrnmagic.app/apps/flowmoro/home/",
   },
   {
     url: "https://thehypebridge.com/og-image.png",
@@ -221,18 +221,19 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       >
         <div class="relative z-10 mb-32">
           <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
-            <GradientText>Crafting</GradientText> Digital Experiences
+            Turn <GradientText>Bold Ideas</GradientText> Into
+            <GradientText>Reality</GradientText>
           </h1>
           <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
-            From concept to launch, I build complete digital products. Each
-            project comes with both a powerful app and a beautiful landing page.
+            Zero BS. Two-week turnaround. One mission: Building game-changing products 
+            that make your competition irrelevant.
           </p>
           <div class="flex flex-col md:flex-row gap-6 justify-center">
             <a href="#contact" class="glass-button primary">
-              Start Your Project →
+              Launch Your Vision →
             </a>
             <a href="#featured-work" class="glass-button secondary">
-              View My Work
+              View The Arsenal →
             </a>
           </div>
         </div>
@@ -266,109 +267,50 @@ const landingPagesLoop = [...landingPages, ...landingPages];
         </div>
       </section>
 
-      <!-- Services Section -->
-      <section
-        class="min-h-screen flex items-center justify-center py-24 animate-fade"
-      >
-        <div class="w-full">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-              Your Vision, Delivered
-            </h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              I specialize in turning ideas into polished digital products,
-              combining powerful functionality with stunning design.
-            </p>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div class="glass-card-service p-8 relative overflow-hidden group">
-              <div class="relative z-10">
-                <div class="text-3xl mb-6">🚀</div>
-                <h3 class="text-2xl font-bold text-white mb-4">
-                  Web Applications
-                </h3>
-                <ul class="space-y-3 text-gray-300 mb-8">
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Full-featured web application
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Modern, responsive landing
-                    page
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Authentication & core features
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> 4-6 weeks delivery
-                  </li>
-                </ul>
-                <a href="#contact" class="glass-button-sm primary"
-                  >Get Started →</a
-                >
-              </div>
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 transform group-hover:scale-105 transition-transform duration-500"
-              >
-              </div>
-            </div>
-
-            <div class="glass-card-service p-8 relative overflow-hidden group">
-              <div class="relative z-10">
-                <div class="text-3xl mb-6">📱</div>
-                <h3 class="text-2xl font-bold text-white mb-4">
-                  Mobile Applications
-                </h3>
-                <ul class="space-y-3 text-gray-300 mb-8">
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Native iOS/Android app
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Professional landing page
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> App store submission
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> 4-6 weeks delivery
-                  </li>
-                </ul>
-                <a href="#contact" class="glass-button-sm primary"
-                  >Get Started →</a
-                >
-              </div>
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 transform group-hover:scale-105 transition-transform duration-500"
-              >
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center mt-16">
-            <a href="#contact" class="glass-button primary">
-              Start Your Project →
-            </a>
-          </div>
+      <!-- Vision Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
+        <div class="glass-card-service p-8">
+          <h3 class="text-2xl font-bold text-white mb-4">Zero to MVP in 14 Days</h3>
+          <p class="text-gray-300">
+            Skip the endless planning. Get a battle-tested product in your users' 
+            hands in two weeks flat. Built to scale, ready to dominate.
+          </p>
         </div>
-      </section>
+
+        <div class="glass-card-service p-8">
+          <h3 class="text-2xl font-bold text-white mb-4">AI That Means Business</h3>
+          <p class="text-gray-300">
+            Not another chatbot. We're talking AI that cuts costs, multiplies 
+            productivity, and creates unfair advantages for your business.
+          </p>
+        </div>
+
+        <div class="glass-card-service p-8">
+          <h3 class="text-2xl font-bold text-white mb-4">Full-Stack Domination</h3>
+          <p class="text-gray-300">
+            Your product deserves more than a MVP. Get a conversion-optimized 
+            landing page and a scalable app that's ready for prime time.
+          </p>
+        </div>
+      </div>
 
       <!-- Featured Work Section -->
       <section id="featured-work" class="py-24 animate-fade">
         <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-          Featured Work
+          Recent Projects
         </h2>
 
         <div class="space-y-32">
           {
             projectsData.map((projectPair) => (
-              <div class="project-showcase">
+              <div class="project-showcase ">
                 <h3 class="text-3xl font-bold text-white mb-8">
                   {projectPair.name}
                 </h3>
 
                 {projectPair.projects.map((project) => (
                   <div class="glass-card-project mb-16">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center ">
                       {/* Project Info */}
                       <div
                         class={`project-info ${project.type === "mobile" ? "lg:order-2" : ""} text-left md:text-left`}
@@ -457,50 +399,70 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-24 mt-10">
-        <div class="glass-card-lg max-w-3xl mx-auto p-12 mt-10">
-          <h2
-            class="text-4xl md:text-5xl font-bold text-white text-center mb-6"
-          >
-            Let's Build Something Amazing
+      <section id="contact" class="py-24">
+        <div class="glass-card-lg max-w-3xl mx-auto p-12">
+          <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-6">
+            Let's Make <GradientText>History</GradientText>
           </h2>
-          <p class="text-xl text-gray-300 mb-12 text-center">
-            Share your vision and I'll help bring it to life.
+          <p class="text-xl text-gray-300 text-center mb-12">
+            Cut through the noise. Tell me your vision, and I'll show you exactly 
+            how we'll bring it to life. No fluff, just results.
           </p>
 
-          <form id="contact-form" class="contact-form">
-            <div class="form-group">
-              <label for="name" class="form-label">Your Name</label>
+          <form id="contact-form" class="space-y-8">
+            <!-- Name field -->
+            <div>
+              <label for="name" class="block text-white mb-2 font-medium"
+                >Your Name</label
+              >
               <input
                 type="text"
                 id="name"
                 name="name"
-                class="form-input"
-                placeholder="John Doe"
                 required
+                class="glass-input w-full"
+                placeholder="John Doe"
               />
             </div>
 
-            <div class="form-group">
-              <label for="email" class="form-label">Email Address</label>
+            <!-- Email field -->
+            <div>
+              <label for="email" class="block text-white mb-2 font-medium"
+                >Email</label
+              >
               <input
                 type="email"
                 id="email"
                 name="email"
-                class="form-input"
-                placeholder="john@example.com"
                 required
+                class="glass-input w-full"
+                placeholder="john@example.com"
               />
             </div>
 
-            <div class="form-group">
-              <label for="project-type" class="form-label">Project Type</label>
-              <div class="project-type-options">
-                <label class="project-type-option">
-                  <input type="checkbox" name="project-type" value="web-app" />
+            <!-- Project Type -->
+            <div>
+              <label class="block text-white mb-4 font-medium"
+                >What are you building?</label
+              >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="glass-radio">
+                  <input
+                    type="checkbox"
+                    name="project-type"
+                    value="ai-product"
+                  />
+                  <span>AI Product</span>
+                </label>
+                <label class="glass-radio">
+                  <input
+                    type="checkbox"
+                    name="project-type"
+                    value="web-app"
+                  />
                   <span>Web App</span>
                 </label>
-                <label class="project-type-option">
+                <label class="glass-radio">
                   <input
                     type="checkbox"
                     name="project-type"
@@ -508,7 +470,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                   />
                   <span>Mobile App</span>
                 </label>
-                <label class="project-type-option">
+                <label class="glass-radio">
                   <input
                     type="checkbox"
                     name="project-type"
@@ -516,70 +478,60 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                   />
                   <span>Landing Page</span>
                 </label>
-                <label class="project-type-option">
-                  <input
-                    type="checkbox"
-                    name="project-type"
-                    value="other"
-                    class="other-checkbox"
-                    data-target="other-project-type"
-                  />
-                  <span>Other</span>
-                </label>
               </div>
-              <input
-                type="text"
-                id="other-project-type"
-                name="other-project-type"
-                class="form-input mt-3 hidden"
-                placeholder="Please specify your project type"
-              />
             </div>
 
-            <div class="form-group">
-              <label for="budget" class="form-label">Budget Range</label>
-              <select id="budget" name="budget" class="form-input" required>
-                <option value="">Select a budget range</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-25k">$10,000 - $25,000</option>
-                <option value="25k-50k">$25,000 - $50,000</option>
-                <option value="50k+">$50,000+</option>
-                <option value="other">Other (Please specify)</option>
+            <!-- Budget -->
+            <div>
+              <label for="budget" class="block text-white mb-2 font-medium"
+                >Investment Range</label
+              >
+              <select id="budget" name="budget" required class="glass-input w-full">
+                <option value="">Select a range</option>
+                <option value="5k-10k">$5K - $10K (MVP)</option>
+                <option value="10k-20k">$10K - $20K (Full Product)</option>
+                <option value="20k+">$20K+ (Complex System)</option>
+                <option value="other">Custom Range</option>
               </select>
               <input
                 type="text"
                 id="other-budget"
                 name="other-budget"
-                class="form-input mt-3 hidden"
-                placeholder="Please specify your budget range"
+                class="glass-input w-full mt-4 hidden"
+                placeholder="Specify your budget range"
               />
             </div>
 
-            <div class="form-group">
-              <label for="timeline" class="form-label">Desired Timeline</label>
-              <select id="timeline" name="timeline" class="form-input" required>
-                <option value="">Select a timeline</option>
-                <option value="1-2-weeks">1-2 weeks</option>
-                <option value="1-2-months">1-2 months</option>
-                <option value="2-4-months">2-4 months</option>
-                <option value="4-6-months">4-6 months</option>
-                <option value="6-plus-months">6+ months</option>
-                <option value="other">other</option>
+            <!-- Timeline -->
+            <div>
+              <label for="timeline" class="block text-white mb-2 font-medium"
+                >When do you need this?</label
+              >
+              <select id="timeline" name="timeline" required class="glass-input w-full">
+                <option value="">Select timeline</option>
+                <option value="2-weeks">Next 2 Weeks</option>
+                <option value="month">Within a Month</option>
+                <option value="quarter">This Quarter</option>
+                <option value="flexible">Flexible</option>
               </select>
             </div>
 
-            <div class="form-group">
-              <label for="message" class="form-label">Project Details</label>
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-white mb-2 font-medium"
+                >Tell me about your project</label
+              >
               <textarea
                 id="message"
                 name="message"
-                class="form-textarea"
-                placeholder="Tell me about your project idea, specific features you'd like to include, and any other important details."
+                rows="4"
+                class="glass-input w-full"
+                placeholder="What problem are you solving? Who is it for? What's your vision?"
                 required></textarea>
             </div>
 
             <button type="submit" class="glass-button primary w-full">
-              Send Message →
+              Send It →
             </button>
           </form>
         </div>
