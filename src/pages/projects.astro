@@ -3,6 +3,16 @@ import "../styles/projects.css";
 import CTABar from "../components/projects/CTABar.astro";
 import GradientText from "../components/ui/GradientText.astro";
 import BasicLayout from "../layouts/BasicLayout.astro";
+import {
+  Rocket,
+  Brain,
+  Layout,
+  CheckCircle,
+  Clock,
+  Code,
+  DollarSign,
+  Monitor,
+} from "lucide-astro";
 
 interface Project {
   title: string;
@@ -237,11 +247,11 @@ const landingPagesLoop = [...landingPages, ...landingPages];
             products that make your competition irrelevant.
           </p>
           <div class="flex flex-col md:flex-row gap-6 justify-center">
-            <a href="#contact" class="glass-button primary">
-              Launch Your Vision →
-            </a>
             <a href="#featured-work" class="glass-button secondary">
-              Explore Previous Projects →
+              Explore Previous Projects ↓
+            </a>
+            <a href="#contact" class="glass-button primary">
+              Kickstart Your Next Idea →
             </a>
           </div>
         </div>
@@ -275,39 +285,195 @@ const landingPagesLoop = [...landingPages, ...landingPages];
           </div>
         </div>
       </section>
-
-      <!-- Vision Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
-        <div class="glass-card-service p-8">
-          <h3 class="text-2xl font-bold text-white mb-4">
-            Zero to MVP in 14 Days
-          </h3>
-          <p class="text-gray-300">
-            Skip the endless planning. Get a battle-tested product in your
-            users' hands in two weeks flat. Built to scale, ready to dominate.
-          </p>
+      <!-- How It Works Section -->
+      <section id="how-it-works" class="py-16 text-white animate-fade">
+        <div class="container mx-auto text-center">
+          <h2
+            class="text-3xl font-bold mb-4 relative inline-block pb-2 text-white"
+          >
+            How It Works
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
+            ></span>
+          </h2>
+          <div
+            class="flex flex-col sm:flex-row justify-center items-stretch gap-6"
+          >
+            <!-- Step 1: Choose Your Plan -->
+            <div class="glass-card-service p-6 rounded-2xl flex-1">
+              <div class="flex items-center justify-center mb-4">
+                <div
+                  class="w-16 h-16 rounded-full bg-orange-600 flex items-center justify-center text-xl font-bold"
+                >
+                  01
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Choose Your Plan</h3>
+              <p class="text-gray-300 text-sm">
+                Select the package that fits your vision and budget.
+              </p>
+            </div>
+            <!-- Step 2: Rapid Build -->
+            <div class="glass-card-service p-6 rounded-2xl flex-1">
+              <div class="flex items-center justify-center mb-4">
+                <div
+                  class="w-16 h-16 rounded-full bg-pink-600 flex items-center justify-center text-xl font-bold"
+                >
+                  02
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Rapid Build</h3>
+              <p class="text-gray-300 text-sm">
+                I’ll develop a robust MVP in just 14 days—ready for investors or
+                user testing.
+              </p>
+            </div>
+            <!-- Step 3: Iterate & Perfect -->
+            <div class="glass-card-service p-6 rounded-2xl flex-1">
+              <div class="flex items-center justify-center mb-4">
+                <div
+                  class="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold"
+                >
+                  03
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Iterate & Perfect</h3>
+              <p class="text-gray-300 text-sm">
+                We refine and optimize until your MVP is truly market-ready.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="glass-card-service p-8">
-          <h3 class="text-2xl font-bold text-white mb-4">
-            AI That Means Business
-          </h3>
-          <p class="text-gray-300">
-            Not another chatbot. We're talking AI that cuts costs, multiplies
-            productivity, and creates unfair advantages for your business.
-          </p>
-        </div>
+      <section id="vision" class="py-16 text-white animate-fade">
+        <div class="container mx-auto text-center">
+          <h2
+            class="text-3xl font-bold mb-4 relative inline-block pb-2 text-white"
+          >
+            Our Vision for Your Success
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
+            ></span>
+          </h2>
+          <!-- Vision Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <!-- MVP Card -->
+            <div class="glass-card-service p-8">
+              <div class="flex items-center gap-3 mb-4">
+                <Rocket size={24} class="text-blue-400" />
+                <h3 class="text-2xl font-bold text-white">MVP in 14 Days</h3>
+              </div>
+              <p class="text-gray-300">
+                Launch a battle-tested MVP fast—ideal for pitching to investors
+                or testing with users.
+              </p>
+            </div>
 
-        <div class="glass-card-service p-8">
-          <h3 class="text-2xl font-bold text-white mb-4">
-            Full-Stack Domination
-          </h3>
-          <p class="text-gray-300">
-            Your product deserves more than a MVP. Get a conversion-optimized
-            landing page and a scalable app that's ready for prime time.
-          </p>
+            <!-- Full-Stack Card -->
+            <div class="glass-card-service p-8">
+              <div class="flex items-center gap-3 mb-4">
+                <Layout size={24} class="text-blue-400" />
+                <h3 class="text-2xl font-bold text-white">
+                  Full-Stack Excellence
+                </h3>
+              </div>
+              <p class="text-gray-300">
+                From a sleek landing page to a scalable app, get a complete
+                digital product. (AI Integration available)
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section id="why-work-with-me" class="py-16 animate-fade">
+        <div class="container mx-auto text-center">
+          <h2
+            class="text-3xl font-bold mb-4 relative inline-block pb-2 text-white"
+          >
+            What You'll Love
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
+            ></span>
+          </h2>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+          >
+            <!-- Benefit 1: Fixed Pricing -->
+            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
+              <div class="flex justify-center mb-2">
+                <DollarSign class="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">Fixed Pricing</h3>
+              <p class="text-gray-300 text-sm">
+                Transparent, flat fees with no hidden costs.
+              </p>
+            </div>
+            <!-- Benefit 2: Two-Week Turnaround -->
+            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
+              <div class="flex justify-center mb-2">
+                <Clock class="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">
+                Two-Week Turnaround
+              </h3>
+              <p class="text-gray-300 text-sm">
+                Your MVP delivered in just 14 days—fast and efficient.
+              </p>
+            </div>
+            <!-- Benefit 3: Production-Ready Prototype -->
+            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
+              <div class="flex justify-center mb-2">
+                <Monitor class="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">
+                Production-Ready Prototype
+              </h3>
+              <p class="text-gray-300 text-sm">
+                A complete mobile or web app with a high-converting landing
+                page—ready for launch.
+              </p>
+            </div>
+            <!-- Benefit 4: Full-Stack Expertise -->
+            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
+              <div class="flex justify-center mb-2">
+                <Code class="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">
+                Full-Stack Expertise
+              </h3>
+              <p class="text-gray-300 text-sm">
+                A digital product built from the ground up, both beautiful and
+                robust.
+              </p>
+            </div>
+            <!-- Benefit 5: AI Integration -->
+            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
+              <div class="flex justify-center mb-2">
+                <Brain class="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">AI Integration</h3>
+              <p class="text-gray-300 text-sm">
+                Optional smart features to give your product that competitive
+                edge.
+              </p>
+            </div>
+            <!-- Benefit 6: No Fluff, Just Results -->
+            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
+              <div class="flex justify-center mb-2">
+                <CheckCircle class="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">
+                No Fluff, Just Results
+              </h3>
+              <p class="text-gray-300 text-sm">
+                Focused work that delivers real, measurable impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Featured Work Section -->
       <section id="featured-work" class="py-24 animate-fade">
@@ -343,14 +509,18 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                           </div>
                           <div class="min-h-[3rem]">
                             {project.description && (
-                              <p class="text-gray-300 text-sm line-clamp-2">{project.description}</p>
+                              <p class="text-gray-300 text-sm line-clamp-2">
+                                {project.description}
+                              </p>
                             )}
                           </div>
                         </div>
 
                         {/* Project Screenshots or Video */}
                         <div class="project-screenshots">
-                          <div class={`screenshot-container ${project.type === "mobile" ? "mobile-screenshots" : "web-screenshots"}`}>
+                          <div
+                            class={`screenshot-container ${project.type === "mobile" ? "mobile-screenshots" : "web-screenshots"}`}
+                          >
                             {project.videoUrl ? (
                               // YouTube Video Embed
                               <div class="web-shot glass-card relative">
@@ -369,20 +539,22 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                             ) : project.type === "mobile" ? (
                               // Mobile app view
                               <div class="mobile-app-container">
-                                {project.screenshots.map((screenshot, index) => (
-                                  <div class="mobile-shot">
-                                    <img
-                                      src={screenshot}
-                                      alt={`${project.title} screenshot ${index + 1}`}
-                                      class="mobile-image"
-                                      style={
-                                        project.imageOpacity
-                                          ? `opacity: ${project.imageOpacity / 100}`
-                                          : ""
-                                      }
-                                    />
-                                  </div>
-                                ))}
+                                {project.screenshots.map(
+                                  (screenshot, index) => (
+                                    <div class="mobile-shot">
+                                      <img
+                                        src={screenshot}
+                                        alt={`${project.title} screenshot ${index + 1}`}
+                                        class="mobile-image"
+                                        style={
+                                          project.imageOpacity
+                                            ? `opacity: ${project.imageOpacity / 100}`
+                                            : ""
+                                        }
+                                      />
+                                    </div>
+                                  ),
+                                )}
                               </div>
                             ) : (
                               // Web project view - show landing page
@@ -410,6 +582,44 @@ const landingPagesLoop = [...landingPages, ...landingPages];
               </div>
             ))
           }
+        </div>
+      </section>
+
+      <!-- Specialized Expertise Section -->
+      <section id="specialized-expertise" class="py-16 relative animate-fade">
+        <div class="container mx-auto">
+          <div class="glass-card-lg backdrop-blur-md p-8 rounded-3xl h-full">
+            <h2 class="text-3xl font-bold mb-8 text-white text-center">
+              Specialized Expertise, Full-Service Digital Products
+            </h2>
+            <div class="flex flex-wrap justify-center gap-4">
+              <button
+                class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white"
+              >
+                Landing Pages
+              </button>
+              <button
+                class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white"
+              >
+                MVP Build
+              </button>
+              <button
+                class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white"
+              >
+                Branding
+              </button>
+              <button
+                class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white"
+              >
+                App Design
+              </button>
+              <button
+                class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white"
+              >
+                AI Integration
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 

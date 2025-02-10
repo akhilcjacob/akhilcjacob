@@ -201,119 +201,51 @@
 .marquee-container {
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 300px;
   overflow: hidden;
-  padding: 0.5rem 0;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
 }
 
-@media (min-width: 640px) {
-  .marquee-container {
-    height: 320px;
-    padding: 1rem 0;
-    margin-bottom: 0;
-  }
-}
-
-.marquee {
-  display: flex;
-  position: absolute;
-  animation: marquee 60s linear infinite;
-  will-change: transform;
-  gap: 16px;
-}
-
-.marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Landing Page Marquee Items */
 .marquee-landing {
-  height: 180px;
-}
-
-@media (min-width: 640px) {
-  .marquee-landing {
-    height: 320px;
-  }
+  display: flex;
+  gap: 2rem;
+  position: absolute;
+  animation: scroll 60s linear infinite;
 }
 
 .marquee-item-landing {
   flex: 0 0 auto;
-  width: 500px;
-  height: 320px;
   position: relative;
-  transition: transform 0.3s ease;
-}
-
-.marquee-item-landing::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 16px;
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    transparent 100%
-  );
-  background-size: 200% 200%;
-  animation: shimmer 3s infinite linear;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.marquee-item-landing:hover::after {
-  opacity: 1;
-}
-
-.marquee-item-landing:hover {
-  transform: translateY(-8px);
+  width: 400px;
+  height: 225px;
+  overflow: hidden;
 }
 
 .landing-image-container {
+  width: 100%;
+  height: 100%;
   position: relative;
-  width: 240px;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-@media (min-width: 640px) {
-  .landing-image-container {
-    width: 480px;
-    height: 320px;
-  }
 }
 
 .landing-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-  border-radius: 12px;
+  object-position: center;
 }
 
-.marquee-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 0 0 16px 16px;
+/* Mobile app screenshots - remove vertical padding */
+.project-screenshot img {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
-.marquee-item-landing:hover .marquee-overlay {
-  opacity: 1;
+/* Landing page images vertical centering */
+[alt*="landing page"] {
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Project Screenshots */
@@ -869,6 +801,7 @@ section.animate-fade {
 .glass-card-service::before {
   content: '';
   position: absolute;
+  backdrop-filter: blur(40px);
   top: 0;
   left: -100%;
   width: 100%;
