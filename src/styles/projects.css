@@ -328,7 +328,7 @@
 /* Web Project Screenshots */
 .web-screenshots {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
   border-radius: 12px;
@@ -432,6 +432,26 @@
   width: auto;
   object-fit: contain;
   border-radius: 24px;
+}
+
+.mobile-screenshots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.mobile-shot {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.mobile-shot img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 
 /* Sub-project Layout */
@@ -657,7 +677,7 @@ section.animate-fade {
 /* Web Project Screenshots (OG Images) */
 .web-screenshots {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
   border-radius: 12px;
@@ -1114,4 +1134,172 @@ select.form-input option {
 
 .mobile-shot:hover .mobile-image {
   transform: scale(1.02);
+}
+
+.marquee-content {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 250px;
+  position: relative;
+}
+
+.marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Web Screenshots */
+.web-screenshots {
+  width: 100%;
+  height: auto;
+}
+
+.web-shot {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.web-shot img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Mobile Screenshots */
+.mobile-screenshots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: auto;
+}
+
+.mobile-shot {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.mobile-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Marquee styles */
+.marquee-content {
+  display: flex;
+  gap: 3rem;
+  padding: 1.5rem;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  width: 500px;
+  height: 300px;
+  position: relative;
+}
+
+.marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsive marquee */
+@media (max-width: 768px) {
+  .marquee-item {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+/* Project Screenshots */
+.web-screenshots {
+  width: 100%;
+  height: auto;
+}
+
+.web-shot {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.web-shot img,
+.web-shot iframe {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Mobile Screenshots */
+.mobile-screenshots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: auto;
+}
+
+.mobile-shot {
+  width: 280px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.mobile-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.mobile-shot:hover .mobile-image {
+  transform: scale(1.02);
+}
+
+/* Marquee styles */
+.marquee-content {
+  display: flex;
+  gap: 3rem;
+  padding: 1.5rem;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  width: 500px;
+  height: 300px;
+  position: relative;
+}
+
+.marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsive marquee */
+@media (max-width: 768px) {
+  .marquee-item {
+    width: 300px;
+    height: 200px;
+  }
 }
