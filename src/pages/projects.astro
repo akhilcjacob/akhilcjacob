@@ -2,11 +2,11 @@
 import BasicLayout from "../layouts/BasicLayout.astro";
 import "../styles/projects.css";
 import CTABar from "../components/projects/CTABar.astro";
+import GradientText from "../components/ui/GradientText.astro";
 
 interface Project {
   title: string;
-  description: string;
-  tech: string[];
+  description?: string;
   appUrl?: string;
   landingPageUrl: string;
   screenshots: string[];
@@ -28,7 +28,6 @@ function getYouTubeVideoId(url: string): string | null {
   const match = url.match(regExp);
   return match && match[2].length === 11 ? match[2] : null;
 }
-
 const projectsData: ProjectPair[] = [
   {
     name: "HypeBridge",
@@ -36,9 +35,6 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "HypeBridge Landing Page",
-        description:
-          "A polished landing page that highlights key features and benefits.",
-        tech: ["Next.js", "Marketing"],
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
         categories: ["web"],
@@ -46,9 +42,7 @@ const projectsData: ProjectPair[] = [
       },
       {
         title: "HypeBridge",
-        description:
-          "A polished landing page that highlights key features and benefits.",
-        tech: ["Next.js", "Marketing"],
+        description: "Revolutionary AI-powered platform that automates end-to-end influencer marketing campaigns, leveraging advanced AI agents for unprecedented efficiency and reach.",
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
         videoUrl: "https://youtu.be/7TFqc2ty8yI",
@@ -63,9 +57,7 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "inboxhiiv",
-        description:
-          "A clean landing page that highlights the service’s capabilities.",
-        tech: ["Next.js", "Marketing"],
+        description: "Cutting-edge AI system that transforms podcast episodes into comprehensive newsletters, featuring intelligent summaries, chapter breakdowns, and key takeaways - all automated and delivered fresh to your inbox.",
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
         screenshots: ["https://inboxhiiv.com/screenshots/dashboard.png"],
@@ -74,9 +66,6 @@ const projectsData: ProjectPair[] = [
       },
       {
         title: "inboxhiiv Landing Page",
-        description:
-          "A clean landing page that highlights the service’s capabilities.",
-        tech: ["Next.js", "Marketing"],
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
         screenshots: ["/images/inboxhiiv_landing.png"],
@@ -87,13 +76,11 @@ const projectsData: ProjectPair[] = [
   },
   {
     name: "Nookly",
-    type: "web",
+    type: "mobile",
     projects: [
       {
         title: "Nookly",
-        description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
-        tech: ["Next.js", "Marketing"],
+        description: "Innovative Uber-style platform revolutionizing home services, connecting homeowners with skilled professionals for seamless, on-demand home maintenance and improvement.",
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
         screenshots: ["/images/nookly_screenshot.png"],
@@ -102,9 +89,6 @@ const projectsData: ProjectPair[] = [
       },
       {
         title: "Nookly Landing Page",
-        description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
-        tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
         screenshots: [
@@ -121,9 +105,7 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Skywise",
-        description:
-          "A refined landing page that showcases the Skywise app’s innovative features.",
-        tech: ["Next.js", "Marketing"],
+        description: "Groundbreaking mobile app featuring an AI-powered chat interface that provides personalized weather insights, outfit recommendations, and climate-related advice tailored to your location and preferences.",
         appUrl: "https://modrnmagic.app/skywise",
         landingPageUrl: "https://modrnmagic.app/skywise",
         screenshots: ["/images/skywise.png"],
@@ -131,12 +113,9 @@ const projectsData: ProjectPair[] = [
         type: "mobile",
       },
       {
-        title: "SkyWise Landing Page",
-        description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://nookly.co",
-        landingPageUrl: "https://nookly.co",
+        title: "Skywise Landing Page",
+        appUrl: "https://modrnmagic.app/skywise",
+        landingPageUrl: "https://modrnmagic.app/skywise",
         screenshots: ["/images/modrn.png"],
         categories: ["web"],
         type: "web",
@@ -149,9 +128,7 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Flowmoro",
-        description:
-          "A sleek landing page that underlines Flowmoro’s design-forward approach.",
-        tech: ["Next.js", "Marketing"],
+        description: "Elegantly designed Pomodoro timer app that enhances productivity through its intuitive interface, customizable work sessions, and insightful productivity analytics.",
         appUrl: "https://modrnmagic.app/flowmoro",
         landingPageUrl: "https://modrnmagic.app/flowmoro",
         screenshots: ["https://modrnmagic.app/apps/flowmoro/screenshots/1.png"],
@@ -160,11 +137,8 @@ const projectsData: ProjectPair[] = [
       },
       {
         title: "Flowmoro Landing Page",
-        description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://nookly.co",
-        landingPageUrl: "https://nookly.co",
+        appUrl: "https://modrnmagic.app/flowmoro",
+        landingPageUrl: "https://modrnmagic.app/flowmoro",
         screenshots: ["/images/flowmoro_landing.png"],
         categories: ["web"],
         type: "web",
@@ -247,7 +221,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       >
         <div class="relative z-10 mb-32">
           <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
-            Crafting Digital Experiences
+            <GradientText>Crafting</GradientText> Digital Experiences
           </h1>
           <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
             From concept to launch, I build complete digital products. Each
@@ -394,25 +368,24 @@ const landingPagesLoop = [...landingPages, ...landingPages];
 
                 {projectPair.projects.map((project) => (
                   <div class="glass-card-project mb-16">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
                       {/* Project Info */}
                       <div
                         class={`project-info ${project.type === "mobile" ? "lg:order-2" : ""} text-left md:text-left`}
                       >
-                        <h4 class="text-2xl font-semibold text-white mb-4">
-                          {project.title}
-                        </h4>
-                        <p class="text-gray-300 mb-6">{project.description}</p>
-
-                        <div class="flex justify-center md:justify-center">
+                        <div class="flex justify-between items-center mb-4">
+                          <h4 class="text-2xl font-semibold text-white">
+                            {project.title}
+                          </h4>
                           <a
                             href={project.landingPageUrl}
                             target="_blank"
-                            class="glass-button primary"
+                            class="glass-button-sm primary"
                           >
                             Open Project →
                           </a>
                         </div>
+                        {project.description && <p class="text-gray-300">{project.description}</p>}
                       </div>
 
                       {/* Project Screenshots or Video */}
@@ -484,8 +457,8 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-24">
-        <div class="glass-card-lg max-w-3xl mx-auto p-12">
+      <section id="contact" class="py-24 mt-10">
+        <div class="glass-card-lg max-w-3xl mx-auto p-12 mt-10">
           <h2
             class="text-4xl md:text-5xl font-bold text-white text-center mb-6"
           >

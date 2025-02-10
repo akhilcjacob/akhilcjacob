@@ -1,0 +1,57 @@
+---
+import MarqueeItem from './MarqueeItem.astro';
+import type { LandingPage } from './types';
+
+const landingPages: LandingPage[] = [
+  {
+    url: "/images/modrn.png",
+    name: "Skywise",
+    type: "web",
+    appUrl: "https://modrnmagic.app/skywise"
+  },
+  {
+    url: "/images/inboxhiiv_landing.png",
+    name: "inboxhiiv",
+    type: "web",
+    appUrl: "https://inboxhiiv.com"
+  },
+  {
+    url: "/images/flowmoro_landing.png",
+    name: "Flowmoro",
+    type: "web",
+    appUrl: "https://modrnmagic.app/flowmoro"
+  },
+  {
+    url: "https://thehypebridge.com/og-image.png",
+    name: "HypeBridge",
+    type: "web",
+    appUrl: "https://thehypebridge.com"
+  },
+];
+
+const landingPagesLoop = [...landingPages, ...landingPages];
+---
+
+<section
+  class="relative min-h-screen flex flex-col items-center justify-center text-center animate-fade"
+>
+  <div class="w-full">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Your MVP in 2 Weeks
+      </h2>
+      <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
+        From concept to launch in 14 days. Specializing in rapid MVP development
+        for startups and innovative projects.
+      </p>
+    </div>
+
+    <div class="marquee-container">
+      <div class="marquee">
+        {landingPagesLoop.map((page) => (
+          <MarqueeItem {...page} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

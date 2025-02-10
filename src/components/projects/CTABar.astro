@@ -1,0 +1,80 @@
+---
+---
+<div class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full px-4">
+  <div class="flex items-center justify-center">
+    <div class="flex items-center gap-4 p-3 backdrop-blur-lg bg-black/40 border border-white/10 rounded-full shadow-lg hover:bg-black/50 transition-all duration-300">
+      <button 
+        id="mobileMenuBtn"
+        class="p-2 text-white/80 hover:text-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+      <div id="navLinks" class="hidden items-center gap-4">
+        <a 
+          href="#about" 
+          class="px-4 py-2 rounded-full text-white/80 hover:text-white text-sm whitespace-nowrap transition-all duration-300"
+        >
+          About
+        </a>
+        <a 
+          href="#featured-work" 
+          class="px-4 py-2 rounded-full text-white/80 hover:text-white text-sm whitespace-nowrap transition-all duration-300"
+        >
+          Projects
+        </a>
+        <a 
+          href="#process" 
+          class="px-4 py-2 rounded-full text-white/80 hover:text-white text-sm whitespace-nowrap transition-all duration-300"
+        >
+          Process
+        </a>
+      </div>
+      <a 
+        href="#contact" 
+        class="px-6 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm whitespace-nowrap shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-white/20"
+      >
+        Let's Build
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  mobileMenuBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks?.classList.toggle('hidden');
+    navLinks?.classList.toggle('flex');
+  });
+
+  document.addEventListener('click', () => {
+    navLinks?.classList.add('hidden');
+    navLinks?.classList.remove('flex');
+  });
+</script>
+
+<style>
+  #navLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    flex-direction: column;
+  }
+
+  #navLinks a {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+  }
+</style>

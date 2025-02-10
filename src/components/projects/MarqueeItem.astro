@@ -1,0 +1,24 @@
+---
+interface Props {
+  url: string;
+  name: string;
+  appUrl: string;
+}
+
+const { url, name, appUrl } = Astro.props;
+---
+<a
+  href={appUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="marquee-item-landing"
+>
+  <div class="landing-image-container">
+    <img
+      src={url}
+      alt={`${name} Landing Page`}
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
+</a>
