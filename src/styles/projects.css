@@ -12,7 +12,6 @@
 /* Glassmorphism Base Styles */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -20,8 +19,7 @@
 }
 
 .glass-card-lg {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(20px);
+  background: rgba(10, 10, 10, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -29,7 +27,6 @@
 
 .glass-card-project {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   padding: 2rem;
@@ -92,7 +89,6 @@
 
 .glass-pill {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.8);
   padding: 0.5rem 1rem;
@@ -131,8 +127,9 @@
 .marquee-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 320px;
   overflow: hidden;
+  padding: 1rem 0;
 }
 
 .marquee {
@@ -140,6 +137,7 @@
   position: absolute;
   animation: marquee 60s linear infinite;
   will-change: transform;
+  gap: 16px;
 }
 
 .marquee:hover {
@@ -154,11 +152,9 @@
 .marquee-item-landing {
   flex: 0 0 auto;
   width: 500px;
-  height: 100%;
-  margin-right: 32px;
+  height: 320px;
   position: relative;
   transition: transform 0.3s ease;
-  position: relative;
 }
 
 .marquee-item-landing::after {
@@ -194,6 +190,8 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .landing-image-container img {
@@ -201,6 +199,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  border-radius: 24px;
 }
 
 .marquee-overlay {
@@ -210,11 +209,10 @@
   right: 0;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 16px 16px;
 }
 
 .marquee-item-landing:hover .marquee-overlay {
@@ -357,7 +355,6 @@
   position: relative;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   transition: all 0.3s ease;
@@ -543,7 +540,6 @@ section.animate-fade {
   padding: 2rem;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -734,7 +730,6 @@ section.animate-fade {
   right: 0;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -747,7 +742,6 @@ section.animate-fade {
 
 .glass-card-service {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   transition: all 0.5s ease;
@@ -841,12 +835,9 @@ select.form-input {
   padding: 0.875rem;
   font-size: 1rem;
   color: white;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  transition: all 0.3s ease;
-  -webkit-appearance: none;
-  appearance: none;
 }
 
 select.form-input {
@@ -865,14 +856,26 @@ select.form-input {
 .form-input:focus,
 .form-textarea:focus,
 select.form-input:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Specific styles for text inputs */
+input[type="text"].form-input,
+input[type="email"].form-input {
+  transition: none;
+  animation: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"].form-input:focus,
+input[type="email"].form-input:focus {
+  transition: none;
+  animation: none;
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Project Type Options */

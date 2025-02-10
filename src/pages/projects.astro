@@ -28,6 +28,7 @@ function getYouTubeVideoId(url: string): string | null {
   return match && match[2].length === 11 ? match[2] : null;
 }
 
+// Updated Project Data with new descriptions
 const projectsData: ProjectPair[] = [
   {
     name: "HypeBridge",
@@ -36,7 +37,7 @@ const projectsData: ProjectPair[] = [
       {
         title: "HypeBridge Landing Page",
         description:
-          "A polished landing page that highlights key features and benefits.",
+          "A cutting-edge platform that uses AI to automate influencer marketing. This landing page introduces the platform’s key benefits—streamlining campaigns, discovering the perfect creators, and leveraging powerful analytics—all in one place.",
         tech: ["Next.js", "Marketing"],
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
@@ -46,7 +47,7 @@ const projectsData: ProjectPair[] = [
       {
         title: "HypeBridge",
         description:
-          "A polished landing page that highlights key features and benefits.",
+          "A polished web app harnessing the power of AI to automate influencer marketing—from discovery to campaign management. Access robust analytics, manage campaigns seamlessly, and accelerate your brand growth.",
         tech: ["Next.js", "Marketing"],
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
@@ -63,7 +64,7 @@ const projectsData: ProjectPair[] = [
       {
         title: "inboxhiiv Landing Page",
         description:
-          "A clean landing page that highlights the service’s capabilities.",
+          "A forward-thinking landing page that showcases how newly released podcast episodes are instantly transformed into clean summaries and chapter breakdowns—delivered right to your inbox.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
@@ -74,7 +75,7 @@ const projectsData: ProjectPair[] = [
       {
         title: "inboxhiiv",
         description:
-          "A clean landing page that highlights the service’s capabilities.",
+          "A revolutionary service that takes newly published podcast episodes and distills them into concise summaries and segmented breakdowns, conveniently emailed to you. Perfect for staying up-to-date without a major time commitment.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
@@ -91,7 +92,7 @@ const projectsData: ProjectPair[] = [
       {
         title: "Nookly",
         description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
+          "A convenient Uber-styled platform for on-demand home services, connecting homeowners with reliable professionals in just a tap. Streamline your home maintenance and chores under one roof.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
@@ -102,7 +103,7 @@ const projectsData: ProjectPair[] = [
       {
         title: "Nookly Landing Page",
         description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
+          "A user-friendly landing page highlighting Nookly’s on-demand home service solutions. Discover how easy it is to book cleaning, handyman services, and more from one intuitive platform.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
@@ -121,26 +122,22 @@ const projectsData: ProjectPair[] = [
       {
         title: "Skywise",
         description:
-          "A refined landing page that showcases the Skywise app’s innovative features.",
+          "A next-generation weather app that combines accurate forecasts with AI-powered guidance. Ask questions and get personalized suggestions on what to wear or how best to plan your day.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://modrnmagic.app/skywise",
         landingPageUrl: "https://modrnmagic.app/skywise",
-        screenshots: [
-          "/images/skywise.png",
-        ],
+        screenshots: ["/images/skywise.png"],
         categories: ["mobile"],
         type: "mobile",
       },
       {
         title: "SkyWise Landing Page",
         description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
+          "A refined landing page that highlights how Skywise leverages AI to make weather planning easier and more intuitive. Explore key features like conversational weather queries, personalized clothing tips, and more.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
-        screenshots: [
-          "/images/modrn.png",
-        ],
+        screenshots: ["/images/modrn.png"],
         categories: ["web"],
         type: "web",
       },
@@ -153,7 +150,7 @@ const projectsData: ProjectPair[] = [
       {
         title: "Flowmoro",
         description:
-          "A sleek landing page that underlines Flowmoro’s design-forward approach.",
+          "A sleek and modern Pomodoro app designed to keep you focused and productive. Break work into manageable intervals, track your progress, and build a healthier workflow.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://modrnmagic.app/flowmoro",
         landingPageUrl: "https://modrnmagic.app/flowmoro",
@@ -164,13 +161,11 @@ const projectsData: ProjectPair[] = [
       {
         title: "Flowmoro Landing Page",
         description:
-          "A beautifully designed landing page that communicates Nookly’s core offerings.",
+          "A beautifully crafted landing page showcasing Flowmoro’s productivity-boosting Pomodoro features. Learn how structured work sprints can optimize efficiency and well-being.",
         tech: ["Next.js", "Marketing"],
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
-        screenshots: [
-          "/images/flowmoro_landing.png",
-        ],
+        screenshots: ["/images/flowmoro_landing.png"],
         categories: ["web"],
         type: "web",
       },
@@ -178,17 +173,33 @@ const projectsData: ProjectPair[] = [
   },
 ];
 
-// Create array for landing page marquee - only web projects
-const landingPages = projectsData.flatMap((pair) =>
-  pair.projects
-    .filter((p) => p.type === "web")
-    .map((p) => ({
-      url: p.screenshots[0],
-      name: pair.name,
-      type: "web",
-      appUrl: p.appUrl,
-    })),
-);
+// Hardcoded list for landing page marquee
+const landingPages = [
+  {
+    url: "/images/modrn.png",
+    name: "Skywise",
+    type: "web",
+    appUrl: "https://modrnmagic.app/skywise"
+  },
+  {
+    url: "/images/inboxhiiv_landing.png",
+    name: "inboxhiiv",
+    type: "web",
+    appUrl: "https://inboxhiiv.com"
+  },
+  {
+    url: "/images/flowmoro_landing.png",
+    name: "Flowmoro",
+    type: "web",
+    appUrl: "https://modrnmagic.app/flowmoro"
+  },
+  {
+    url: "https://thehypebridge.com/og-image.png",
+    name: "HypeBridge",
+    type: "web",
+    appUrl: "https://thehypebridge.com"
+  },
+];
 
 // Duplicate the array to create a seamless loop
 const landingPagesLoop = [...landingPages, ...landingPages];
@@ -379,6 +390,109 @@ const landingPagesLoop = [...landingPages, ...landingPages];
         </div>
       </section>
 
+      <!-- NEW "About / Philosophy / Approach" SECTION -->
+      <section class="py-24 animate-fade">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-8">
+            Need Design That Really Reflects Who You Are?
+          </h2>
+          <p class="text-xl text-gray-300 text-center max-w-3xl mx-auto mb-12">
+            My job isn’t just about making things look good—it’s about capturing 
+            the essence of your brand and translating that into a powerful, 
+            memorable experience for your audience. I believe that truly 
+            successful design resonates deeply with the people it’s meant for.
+          </p>
+        </div>
+
+        <div class="flex items-center justify-center mb-16">
+          <img
+            src="/images/abstract-flower.png"
+            alt="Abstract design element"
+            class="w-80 h-80 opacity-70"
+          />
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4">
+          <div class="text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              My Approach
+            </h3>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+              Every design starts with a thorough understanding of your goals, 
+              audience, and brand personality. By focusing on strategy first, I 
+              ensure that the creative direction aligns perfectly with your 
+              vision. This way, you end up with a final product that’s not just 
+              visually stunning, but genuinely meaningful to your users.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW TESTIMONIAL SECTION -->
+      <section class="py-24">
+        <div class="glass-card-lg max-w-4xl mx-auto p-8">
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/testimonial-person.jpg"
+              alt="Client headshot"
+              class="w-20 h-20 rounded-full mb-6"
+            />
+            <blockquote class="text-xl italic text-center text-gray-300 leading-relaxed max-w-3xl">
+              “Marc is one of the most precious in our industry;
+              the way he approaches projects is an inspiration. 
+              He truly cares about every detail, from the UX to the final polish 
+              on the landing page. We couldn’t be happier with our results!”
+            </blockquote>
+            <p class="mt-4 text-gray-400">— Sarah P, Founder at WellnessCo</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPTIONAL: A “How it Works” / “Process” Section -->
+      <section class="py-24 animate-fade">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+            How do things work?
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            Let’s break down my process into a few simple steps so you know exactly 
+            what to expect when we collaborate.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div class="p-8 glass-card-service">
+              <h3 class="text-2xl font-bold text-white mb-4">1. Exploration</h3>
+              <p class="text-gray-300">
+                We’ll talk about your goals, target audience, and brand identity.
+                Think of it as a deep dive that helps us uncover what truly 
+                matters for your project.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="p-8 glass-card-service">
+              <h3 class="text-2xl font-bold text-white mb-4">2. Strategy & Design</h3>
+              <p class="text-gray-300">
+                Based on our insights, I’ll craft a design strategy and produce 
+                wireframes or prototypes, ensuring every detail aligns with your 
+                brand’s essence.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="p-8 glass-card-service">
+              <h3 class="text-2xl font-bold text-white mb-4">3. Build & Launch</h3>
+              <p class="text-gray-300">
+                Once the design is approved, I’ll build out your product—whether 
+                that’s a web app, mobile app, or marketing site—and help ensure a 
+                smooth launch from day one.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Featured Work Section -->
       <section id="featured-work" class="py-24 animate-fade">
         <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
@@ -501,7 +615,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-24 animate-fade">
+      <section id="contact" class="py-24">
         <div class="glass-card-lg max-w-3xl mx-auto p-12">
           <h2
             class="text-4xl md:text-5xl font-bold text-white text-center mb-6"
