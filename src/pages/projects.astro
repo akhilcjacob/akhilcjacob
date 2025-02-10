@@ -315,69 +315,81 @@ const landingPagesLoop = [...landingPages, ...landingPages];
           Recent Projects
         </h2>
 
-        <div class="space-y-32">
+        <div class="grid grid-cols-1 lg:grid-cols-1 gap-16">
           {
             projectsData.map((projectPair) => (
-              <div class="project-showcase ">
-                <h3 class="text-3xl font-bold text-white mb-8">
+              <div class="project-showcase">
+                <h3 class="text-3xl font-bold text-white mb-4">
                   {projectPair.name}
                 </h3>
 
-                {projectPair.projects.map((project) => (
-                  <div class="glass-card-project mb-16">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center ">
-                      {/* Project Info */}
-                      <div
-                        class={`project-info ${project.type === "mobile" ? "lg:order-2" : ""} text-left md:text-left`}
-                      >
-                        <div class="flex justify-between items-center mb-4">
-                          <h4 class="text-2xl font-semibold text-white">
-                            {project.title}
-                          </h4>
-                          <a
-                            href={project.landingPageUrl}
-                            target="_blank"
-                            class="glass-button-sm primary"
-                          >
-                            Open Project →
-                          </a>
+                <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
+                  {projectPair.projects.map((project) => (
+                    <div class="glass-card-project">
+                      <div class="flex flex-col gap-4">
+                        {/* Project Info */}
+                        <div class="text-left">
+                          <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-semibold text-white">
+                              {project.title}
+                            </h4>
+                            <a
+                              href={project.landingPageUrl}
+                              target="_blank"
+                              class="glass-button-sm primary"
+                            >
+                              Open Project →
+                            </a>
+                          </div>
+                          {project.description && (
+                            <p class="text-gray-300 text-sm line-clamp-2">{project.description}</p>
+                          )}
                         </div>
-                        {project.description && (
-                          <p class="text-gray-300">{project.description}</p>
-                        )}
-                      </div>
 
-                      {/* Project Screenshots or Video */}
-                      <div
-                        class={`project-screenshots ${project.type === "mobile" ? "lg:order-1" : ""}`}
-                      >
-                        <div
-                          class={`screenshot-container ${project.type === "mobile" ? "mobile-screenshots" : "web-screenshots"}`}
-                        >
-                          {project.videoUrl ? (
-                            // YouTube Video Embed
-                            <div class="web-shot glass-card relative">
-                              <iframe
-                                width="100%"
-                                height="315"
-                                src={`https://www.youtube.com/embed/${getYouTubeVideoId(project.videoUrl)}`}
-                                title={`${project.title} demo video`}
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                                class="rounded-lg relative z-10"
-                                style="pointer-events: auto;"
-                              />
-                            </div>
-                          ) : project.type === "mobile" ? (
-                            // Mobile app view
-                            <div class="mobile-app-container">
-                              {project.screenshots.map((screenshot, index) => (
-                                <div class="mobile-shot">
+                        {/* Project Screenshots or Video */}
+                        <div class="project-screenshots">
+                          <div class={`screenshot-container ${project.type === "mobile" ? "mobile-screenshots" : "web-screenshots"}`}>
+                            {project.videoUrl ? (
+                              // YouTube Video Embed
+                              <div class="web-shot glass-card relative">
+                                <iframe
+                                  width="100%"
+                                  height="315"
+                                  src={`https://www.youtube.com/embed/${getYouTubeVideoId(project.videoUrl)}`}
+                                  title={`${project.title} demo video`}
+                                  frameborder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowfullscreen
+                                  class="rounded-lg relative z-10"
+                                  style="pointer-events: auto;"
+                                />
+                              </div>
+                            ) : project.type === "mobile" ? (
+                              // Mobile app view
+                              <div class="mobile-app-container">
+                                {project.screenshots.map((screenshot, index) => (
+                                  <div class="mobile-shot">
+                                    <img
+                                      src={screenshot}
+                                      alt={`${project.title} screenshot ${index + 1}`}
+                                      class="mobile-image"
+                                      style={
+                                        project.imageOpacity
+                                          ? `opacity: ${project.imageOpacity / 100}`
+                                          : ""
+                                      }
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              // Web project view - show landing page
+                              <div class="web-shot glass-card">
+                                <div class="relative w-full h-0 pb-[56.25%]">
                                   <img
-                                    src={screenshot}
-                                    alt={`${project.title} screenshot ${index + 1}`}
-                                    class="mobile-image"
+                                    src={project.screenshots[0]}
+                                    alt={`${project.title} landing page`}
+                                    class="web-image absolute top-0 left-0 w-full h-full object-contain"
                                     style={
                                       project.imageOpacity
                                         ? `opacity: ${project.imageOpacity / 100}`
@@ -385,30 +397,14 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                                     }
                                   />
                                 </div>
-                              ))}
-                            </div>
-                          ) : (
-                            // Web project view - show landing page
-                            <div class="web-shot glass-card">
-                              <div class="relative w-full h-0 pb-[56.25%]">
-                                <img
-                                  src={project.screenshots[0]}
-                                  alt={`${project.title} landing page`}
-                                  class="web-image absolute top-0 left-0 w-full h-full object-contain"
-                                  style={
-                                    project.imageOpacity
-                                      ? `opacity: ${project.imageOpacity / 100}`
-                                      : ""
-                                  }
-                                />
                               </div>
-                            </div>
-                          )}
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             ))
           }
