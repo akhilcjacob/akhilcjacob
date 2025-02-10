@@ -36,7 +36,24 @@
 }
 
 .glass-card-project {
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.034);
+  backdrop-filter: blur(150px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.25rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .glass-card-project {
+    padding: 1.5rem;
+  }
+}
+
+.glass-card-project:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .glass-card-service {
@@ -62,9 +79,18 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 0.875rem;
   color: white;
   transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .glass-input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
 }
 
 .glass-input:focus {
@@ -172,17 +198,22 @@
 }
 
 /* Enhanced Landing Page Marquee */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
 .marquee-container {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 180px;
   overflow: hidden;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .marquee-container {
+    height: 320px;
+    padding: 1rem 0;
+    margin-bottom: 0;
+  }
 }
 
 .marquee {
@@ -199,7 +230,13 @@
 
 /* Landing Page Marquee Items */
 .marquee-landing {
-  height: 100%;
+  height: 180px;
+}
+
+@media (min-width: 640px) {
+  .marquee-landing {
+    height: 320px;
+  }
 }
 
 .marquee-item-landing {
@@ -240,11 +277,18 @@
 
 .landing-image-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 240px;
+  height: 180px;
   overflow: hidden;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .landing-image-container {
+    width: 480px;
+    height: 320px;
+  }
 }
 
 .landing-image-container img {
@@ -252,7 +296,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
-  border-radius: 24px;
+  border-radius: 12px;
 }
 
 .marquee-overlay {
@@ -1020,4 +1064,54 @@ select.form-input option {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.project-screenshots {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.screenshot-container {
+  width: 100%;
+  position: relative;
+}
+
+.web-shot {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.web-image {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.web-shot:hover .web-image {
+  transform: scale(1.02);
+}
+
+.mobile-app-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.mobile-shot {
+  width: 200px;
+  height: auto;
+  position: relative;
+}
+
+.mobile-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-shot:hover .mobile-image {
+  transform: scale(1.02);
 }

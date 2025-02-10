@@ -1,8 +1,8 @@
 ---
-import BasicLayout from "../layouts/BasicLayout.astro";
 import "../styles/projects.css";
 import CTABar from "../components/projects/CTABar.astro";
 import GradientText from "../components/ui/GradientText.astro";
+import BasicLayout from "../layouts/BasicLayout.astro";
 
 interface Project {
   title: string;
@@ -42,7 +42,8 @@ const projectsData: ProjectPair[] = [
       },
       {
         title: "HypeBridge",
-        description: "Revolutionary AI-powered platform that automates end-to-end influencer marketing campaigns, leveraging advanced AI agents for unprecedented efficiency and reach.",
+        description:
+          "Revolutionary AI-powered platform that automates end-to-end influencer marketing campaigns, leveraging advanced AI agents for unprecedented efficiency and reach.",
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
         videoUrl: "https://youtu.be/7TFqc2ty8yI",
@@ -57,7 +58,8 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "inboxhiiv",
-        description: "Cutting-edge AI system that transforms podcast episodes into comprehensive newsletters, featuring intelligent summaries, chapter breakdowns, and key takeaways - all automated and delivered fresh to your inbox.",
+        description:
+          "Cutting-edge AI system that transforms podcast episodes into comprehensive newsletters, featuring intelligent summaries, chapter breakdowns, and key takeaways - all automated and delivered fresh to your inbox.",
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
         screenshots: ["https://inboxhiiv.com/screenshots/dashboard.png"],
@@ -80,7 +82,8 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Nookly",
-        description: "Innovative Uber-style platform revolutionizing home services, connecting homeowners with skilled professionals for seamless, on-demand home maintenance and improvement.",
+        description:
+          "Innovative Uber-style platform revolutionizing home services, connecting homeowners with skilled professionals for seamless, on-demand home maintenance and improvement.",
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
         screenshots: ["/images/nookly_screenshot.png"],
@@ -105,7 +108,8 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Skywise",
-        description: "Groundbreaking mobile app featuring an AI-powered chat interface that provides personalized weather insights, outfit recommendations, and climate-related advice tailored to your location and preferences.",
+        description:
+          "Groundbreaking mobile app featuring an AI-powered chat interface that provides personalized weather insights, outfit recommendations, and climate-related advice tailored to your location and preferences.",
         appUrl: "https://modrnmagic.app/",
         landingPageUrl: "https://modrnmagic.app/",
         screenshots: ["/images/skywise.png"],
@@ -128,7 +132,8 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Flowmoro",
-        description: "Elegantly designed Pomodoro timer app that enhances productivity through its intuitive interface, customizable work sessions, and insightful productivity analytics.",
+        description:
+          "Elegantly designed Pomodoro timer app that enhances productivity through its intuitive interface, customizable work sessions, and insightful productivity analytics.",
         appUrl: "https://modrnmagic.app/apps/flowmoro/home/",
         landingPageUrl: "https://modrnmagic.app/apps/flowmoro/home/",
         screenshots: ["https://modrnmagic.app/apps/flowmoro/screenshots/1.png"],
@@ -173,14 +178,17 @@ const landingPages = [
     type: "web",
     appUrl: "https://thehypebridge.com",
   },
-  
 ];
 
 // Duplicate the array to create a seamless loop
 const landingPagesLoop = [...landingPages, ...landingPages];
 ---
 
-<BasicLayout>
+<BasicLayout
+  title="Akhil Jacob - Projects"
+  description="Next generation digital products built in 2-weeks"
+  page="projects"
+>
   <div class="relative min-h-screen w-full overflow-y-auto">
     <!-- Background effect -->
     <div class="fixed inset-0 z-0">
@@ -225,21 +233,22 @@ const landingPagesLoop = [...landingPages, ...landingPages];
             <GradientText>Reality</GradientText>
           </h1>
           <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
-            Zero BS. Two-week turnaround. One mission: Building game-changing products 
-            that make your competition irrelevant.
+            Zero BS. Two-week turnaround. One mission: Building game-changing
+            products that make your competition irrelevant.
           </p>
           <div class="flex flex-col md:flex-row gap-6 justify-center">
             <a href="#contact" class="glass-button primary">
               Launch Your Vision →
             </a>
             <a href="#featured-work" class="glass-button secondary">
-              View The Arsenal →
+              Explore Previous Projects →
             </a>
           </div>
         </div>
 
         <!-- Enhanced Landing Page Marquee -->
         <div class="absolute bottom-0 left-0 right-0 h-80 overflow-hidden">
+          <div class="h-10"></div>
           <div class="marquee-container">
             <div class="marquee marquee-landing">
               {
@@ -270,25 +279,31 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       <!-- Vision Cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
         <div class="glass-card-service p-8">
-          <h3 class="text-2xl font-bold text-white mb-4">Zero to MVP in 14 Days</h3>
+          <h3 class="text-2xl font-bold text-white mb-4">
+            Zero to MVP in 14 Days
+          </h3>
           <p class="text-gray-300">
-            Skip the endless planning. Get a battle-tested product in your users' 
-            hands in two weeks flat. Built to scale, ready to dominate.
+            Skip the endless planning. Get a battle-tested product in your
+            users' hands in two weeks flat. Built to scale, ready to dominate.
           </p>
         </div>
 
         <div class="glass-card-service p-8">
-          <h3 class="text-2xl font-bold text-white mb-4">AI That Means Business</h3>
+          <h3 class="text-2xl font-bold text-white mb-4">
+            AI That Means Business
+          </h3>
           <p class="text-gray-300">
-            Not another chatbot. We're talking AI that cuts costs, multiplies 
+            Not another chatbot. We're talking AI that cuts costs, multiplies
             productivity, and creates unfair advantages for your business.
           </p>
         </div>
 
         <div class="glass-card-service p-8">
-          <h3 class="text-2xl font-bold text-white mb-4">Full-Stack Domination</h3>
+          <h3 class="text-2xl font-bold text-white mb-4">
+            Full-Stack Domination
+          </h3>
           <p class="text-gray-300">
-            Your product deserves more than a MVP. Get a conversion-optimized 
+            Your product deserves more than a MVP. Get a conversion-optimized
             landing page and a scalable app that's ready for prime time.
           </p>
         </div>
@@ -327,7 +342,9 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                             Open Project →
                           </a>
                         </div>
-                        {project.description && <p class="text-gray-300">{project.description}</p>}
+                        {project.description && (
+                          <p class="text-gray-300">{project.description}</p>
+                        )}
                       </div>
 
                       {/* Project Screenshots or Video */}
@@ -401,12 +418,14 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       <!-- Contact Section -->
       <section id="contact" class="py-24">
         <div class="glass-card-lg max-w-3xl mx-auto p-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-6">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-white text-center mb-6"
+          >
             Let's Make <GradientText>History</GradientText>
           </h2>
           <p class="text-xl text-gray-300 text-center mb-12">
-            Cut through the noise. Tell me your vision, and I'll show you exactly 
-            how we'll bring it to life. No fluff, just results.
+            Cut through the noise. Tell me your vision, and I'll show you
+            exactly how we'll bring it to life. No fluff, just results.
           </p>
 
           <form id="contact-form" class="space-y-8">
@@ -455,11 +474,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                   <span>AI Product</span>
                 </label>
                 <label class="glass-radio">
-                  <input
-                    type="checkbox"
-                    name="project-type"
-                    value="web-app"
-                  />
+                  <input type="checkbox" name="project-type" value="web-app" />
                   <span>Web App</span>
                 </label>
                 <label class="glass-radio">
@@ -486,7 +501,12 @@ const landingPagesLoop = [...landingPages, ...landingPages];
               <label for="budget" class="block text-white mb-2 font-medium"
                 >Investment Range</label
               >
-              <select id="budget" name="budget" required class="glass-input w-full">
+              <select
+                id="budget"
+                name="budget"
+                required
+                class="glass-input w-full"
+              >
                 <option value="">Select a range</option>
                 <option value="5k-10k">$5K - $10K (MVP)</option>
                 <option value="10k-20k">$10K - $20K (Full Product)</option>
@@ -507,7 +527,12 @@ const landingPagesLoop = [...landingPages, ...landingPages];
               <label for="timeline" class="block text-white mb-2 font-medium"
                 >When do you need this?</label
               >
-              <select id="timeline" name="timeline" required class="glass-input w-full">
+              <select
+                id="timeline"
+                name="timeline"
+                required
+                class="glass-input w-full"
+              >
                 <option value="">Select timeline</option>
                 <option value="2-weeks">Next 2 Weeks</option>
                 <option value="month">Within a Month</option>
