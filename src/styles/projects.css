@@ -15,6 +15,8 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .glass-card-lg {
@@ -230,7 +232,11 @@
 
 /* Web Project Screenshots */
 .web-screenshots {
-  aspect-ratio: 1200/630;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -557,7 +563,12 @@ section.animate-fade {
 
 /* Web Project Screenshots (OG Images) */
 .web-screenshots {
-  aspect-ratio: 1200/630; /* Standard OG image ratio */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .web-shot {
