@@ -5,8 +5,6 @@ import "../styles/projects.css";
 interface Project {
   title: string;
   description: string;
-  tech: string[];
-  appUrl?: string;
   landingPageUrl: string;
   screenshots: string[];
   videoUrl?: string;
@@ -35,20 +33,8 @@ const projectsData: ProjectPair[] = [
     type: "web",
     projects: [
       {
-        title: "HypeBridge Landing Page",
-        description:
-          "A cutting-edge platform that uses AI to automate influencer marketing. This landing page introduces the platform’s key benefits—streamlining campaigns, discovering the perfect creators, and leveraging powerful analytics—all in one place.",
-        tech: ["Next.js", "Marketing"],
-        landingPageUrl: "https://thehypebridge.com",
-        screenshots: ["https://thehypebridge.com/og-image.png"],
-        categories: ["web"],
-        type: "web",
-      },
-      {
         title: "HypeBridge",
-        description:
-          "A polished web app harnessing the power of AI to automate influencer marketing—from discovery to campaign management. Access robust analytics, manage campaigns seamlessly, and accelerate your brand growth.",
-        tech: ["Next.js", "Marketing"],
+        description: "An AI-powered influencer marketing platform built in 2 weeks. Streamlines campaign management and creator discovery with powerful analytics—demonstrating rapid MVP development for startups in the marketing tech space.",
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
         videoUrl: "https://youtu.be/7TFqc2ty8yI",
@@ -62,22 +48,8 @@ const projectsData: ProjectPair[] = [
     type: "web",
     projects: [
       {
-        title: "inboxhiiv Landing Page",
-        description:
-          "A forward-thinking landing page that showcases how newly released podcast episodes are instantly transformed into clean summaries and chapter breakdowns—delivered right to your inbox.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://inboxhiiv.com",
-        landingPageUrl: "https://inboxhiiv.com",
-        screenshots: ["https://inboxhiiv.com/screenshots/dashboard.png"],
-        categories: ["web"],
-        type: "web",
-      },
-      {
         title: "inboxhiiv",
-        description:
-          "A revolutionary service that takes newly published podcast episodes and distills them into concise summaries and segmented breakdowns, conveniently emailed to you. Perfect for staying up-to-date without a major time commitment.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://inboxhiiv.com",
+        description: "A podcast summarization service built and launched in just 10 days. Automatically processes new episodes into concise summaries—showcasing rapid development of AI-integrated web applications.",
         landingPageUrl: "https://inboxhiiv.com",
         screenshots: ["/images/inboxhiiv_landing.png"],
         categories: ["web"],
@@ -91,27 +63,11 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Nookly",
-        description:
-          "A convenient Uber-styled platform for on-demand home services, connecting homeowners with reliable professionals in just a tap. Streamline your home maintenance and chores under one roof.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://nookly.co",
+        description: "An Uber-style platform for home services developed in 2 weeks. Features real-time service booking and provider matching—demonstrating quick delivery of complex marketplace applications.",
         landingPageUrl: "https://nookly.co",
         screenshots: ["/images/nookly_screenshot.png"],
         categories: ["mobile"],
         type: "mobile",
-      },
-      {
-        title: "Nookly Landing Page",
-        description:
-          "A user-friendly landing page highlighting Nookly’s on-demand home service solutions. Discover how easy it is to book cleaning, handyman services, and more from one intuitive platform.",
-        tech: ["Next.js", "Marketing"],
-        appUrl: "https://nookly.co",
-        landingPageUrl: "https://nookly.co",
-        screenshots: [
-          "https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png",
-        ],
-        categories: ["web"],
-        type: "web",
       },
     ],
   },
@@ -311,39 +267,37 @@ const landingPagesLoop = [...landingPages, ...landingPages];
         <div class="w-full">
           <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-              Your Vision, Delivered
+              Your MVP in 2 Weeks
             </h2>
             <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              I specialize in turning ideas into polished digital products,
-              combining powerful functionality with stunning design.
+              US-based full-stack developer specializing in rapid prototypes and MVPs.
+              From AI apps to mobile solutions, I turn ideas into working products in 1-2 weeks.
             </p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div class="glass-card-service p-8 relative overflow-hidden group">
-              <div class="relative z-10">
-                <div class="text-3xl mb-6">🚀</div>
+          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="glass-card group relative overflow-hidden">
+              <div class="p-8 relative z-10">
                 <h3 class="text-2xl font-bold text-white mb-4">
-                  Web Applications
+                  Rapid MVP Development
                 </h3>
-                <ul class="space-y-3 text-gray-300 mb-8">
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Full-featured web application
+                <ul class="text-gray-300 space-y-3 mb-8 text-left">
+                  <li>
+                    <span class="text-blue-400">✓</span> Working prototype in 1-2 weeks
                   </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Modern, responsive landing
-                    page
+                  <li>
+                    <span class="text-blue-400">✓</span> AI, Web, and Mobile apps
                   </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Authentication & core features
+                  <li>
+                    <span class="text-blue-400">✓</span> Perfect for startup validation
                   </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> 4-6 weeks delivery
+                  <li>
+                    <span class="text-blue-400">✓</span> US-based development
                   </li>
                 </ul>
-                <a href="#contact" class="glass-button-sm primary"
-                  >Get Started →</a
-                >
+                <a href="#contact" class="glass-button-sm primary">
+                  Start Your Project →
+                </a>
               </div>
               <div
                 class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 transform group-hover:scale-105 transition-transform duration-500"
@@ -351,29 +305,28 @@ const landingPagesLoop = [...landingPages, ...landingPages];
               </div>
             </div>
 
-            <div class="glass-card-service p-8 relative overflow-hidden group">
-              <div class="relative z-10">
-                <div class="text-3xl mb-6">📱</div>
+            <div class="glass-card group relative overflow-hidden">
+              <div class="p-8 relative z-10">
                 <h3 class="text-2xl font-bold text-white mb-4">
-                  Mobile Applications
+                  Full-Stack Solutions
                 </h3>
-                <ul class="space-y-3 text-gray-300 mb-8">
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Native iOS/Android app
+                <ul class="text-gray-300 space-y-3 mb-8 text-left">
+                  <li>
+                    <span class="text-blue-400">✓</span> AI/ML Integration
                   </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> Professional landing page
+                  <li>
+                    <span class="text-blue-400">✓</span> Beautiful UI/UX Design
                   </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> App store submission
+                  <li>
+                    <span class="text-blue-400">✓</span> Mobile & Web Apps
                   </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-blue-400">✓</span> 4-6 weeks delivery
+                  <li>
+                    <span class="text-blue-400">✓</span> Quick Iterations
                   </li>
                 </ul>
-                <a href="#contact" class="glass-button-sm primary"
-                  >Get Started →</a
-                >
+                <a href="#contact" class="glass-button-sm primary">
+                  Discuss Your Idea →
+                </a>
               </div>
               <div
                 class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 transform group-hover:scale-105 transition-transform duration-500"
@@ -381,122 +334,52 @@ const landingPagesLoop = [...landingPages, ...landingPages];
               </div>
             </div>
           </div>
-
-          <div class="text-center mt-16">
-            <a href="#contact" class="glass-button primary">
-              Start Your Project →
-            </a>
-          </div>
         </div>
       </section>
 
-      <!-- NEW "About / Philosophy / Approach" SECTION -->
       <section class="py-24 animate-fade">
         <div class="max-w-4xl mx-auto px-4">
           <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-8">
-            Need Design That Really Reflects Who You Are?
+            Why Choose Rapid MVP Development?
           </h2>
-          <p class="text-xl text-gray-300 text-center max-w-3xl mx-auto mb-12">
-            My job isn’t just about making things look good—it’s about capturing 
-            the essence of your brand and translating that into a powerful, 
-            memorable experience for your audience. I believe that truly 
-            successful design resonates deeply with the people it’s meant for.
-          </p>
-        </div>
-
-        <div class="flex items-center justify-center mb-16">
-          <img
-            src="/images/abstract-flower.png"
-            alt="Abstract design element"
-            class="w-80 h-80 opacity-70"
-          />
-        </div>
-
-        <div class="max-w-5xl mx-auto px-4">
-          <div class="text-center">
-            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
-              My Approach
-            </h3>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-              Every design starts with a thorough understanding of your goals, 
-              audience, and brand personality. By focusing on strategy first, I 
-              ensure that the creative direction aligns perfectly with your 
-              vision. This way, you end up with a final product that’s not just 
-              visually stunning, but genuinely meaningful to your users.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- NEW TESTIMONIAL SECTION -->
-      <section class="py-24">
-        <div class="glass-card-lg max-w-4xl mx-auto p-8">
-          <div class="flex flex-col items-center">
-            <img
-              src="/images/testimonial-person.jpg"
-              alt="Client headshot"
-              class="w-20 h-20 rounded-full mb-6"
-            />
-            <blockquote class="text-xl italic text-center text-gray-300 leading-relaxed max-w-3xl">
-              “Marc is one of the most precious in our industry;
-              the way he approaches projects is an inspiration. 
-              He truly cares about every detail, from the UX to the final polish 
-              on the landing page. We couldn’t be happier with our results!”
-            </blockquote>
-            <p class="mt-4 text-gray-400">— Sarah P, Founder at WellnessCo</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- OPTIONAL: A “How it Works” / “Process” Section -->
-      <section class="py-24 animate-fade">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
-            How do things work?
-          </h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-            Let’s break down my process into a few simple steps so you know exactly 
-            what to expect when we collaborate.
-          </p>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Step 1 -->
-            <div class="p-8 glass-card-service">
-              <h3 class="text-2xl font-bold text-white mb-4">1. Exploration</h3>
-              <p class="text-gray-300">
-                We’ll talk about your goals, target audience, and brand identity.
-                Think of it as a deep dive that helps us uncover what truly 
-                matters for your project.
-              </p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="p-8 glass-card-service">
-              <h3 class="text-2xl font-bold text-white mb-4">2. Strategy & Design</h3>
-              <p class="text-gray-300">
-                Based on our insights, I’ll craft a design strategy and produce 
-                wireframes or prototypes, ensuring every detail aligns with your 
-                brand’s essence.
-              </p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="p-8 glass-card-service">
-              <h3 class="text-2xl font-bold text-white mb-4">3. Build & Launch</h3>
-              <p class="text-gray-300">
-                Once the design is approved, I’ll build out your product—whether 
-                that’s a web app, mobile app, or marketing site—and help ensure a 
-                smooth launch from day one.
-              </p>
+          <div class="glass-card-lg p-8 md:p-12">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-4">Speed to Market</h3>
+                <p class="text-gray-300">
+                  Launch your product in weeks, not months. Perfect for validating ideas
+                  and securing early users or investors.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-4">Quality First</h3>
+                <p class="text-gray-300">
+                  Get a production-ready MVP with clean code, modern design, and scalable
+                  architecture.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-4">US-Based Development</h3>
+                <p class="text-gray-300">
+                  Direct communication, same timezone collaboration, and fast response
+                  times.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-4">Full-Stack Expertise</h3>
+                <p class="text-gray-300">
+                  From AI integration to beautiful UIs, get everything you need in one
+                  place.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Featured Work Section -->
       <section id="featured-work" class="py-24 animate-fade">
         <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-          Featured Work
+          2-Week MVP Success Stories
         </h2>
 
         <div class="space-y-32">
@@ -520,7 +403,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                         <p class="text-gray-300 mb-6">{project.description}</p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                          {project.tech.map((tech) => (
+                          {project.tech && project.tech.map((tech) => (
                             <span class="glass-pill">{tech}</span>
                           ))}
                         </div>
@@ -617,13 +500,12 @@ const landingPagesLoop = [...landingPages, ...landingPages];
       <!-- Contact Section -->
       <section id="contact" class="py-24">
         <div class="glass-card-lg max-w-3xl mx-auto p-12">
-          <h2
-            class="text-4xl md:text-5xl font-bold text-white text-center mb-6"
-          >
-            Let's Build Something Amazing
+          <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-6">
+            Start Your MVP Journey
           </h2>
-          <p class="text-xl text-gray-300 mb-12 text-center">
-            Share your vision and I'll help bring it to life.
+          <p class="text-xl text-gray-300 text-center mb-12">
+            Ready to turn your idea into reality? Let's discuss your project and get
+            your MVP launched in weeks.
           </p>
 
           <form id="contact-form" class="contact-form">
@@ -790,7 +672,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
           const originalContent = button.innerHTML;
           button.disabled = true;
           button.innerHTML =
-            '<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+            '<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
 
           const formData = {
             name: form.querySelector("#name").value,
