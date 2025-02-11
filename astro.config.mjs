@@ -17,7 +17,19 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
-      filter: (page) => !page.includes('/private/') && !page.includes('/admin/')
+      filter: (page) => !page.includes('/private/') && !page.includes('/admin/'),
+      customPages: ['https://akhilcjacob.com/mvp'],
+      serialize: (item) => {
+        if (item.url.includes('/mvp')) {
+          return {
+            url: item.url,
+            changefreq: 'weekly',
+            priority: 1.0,
+            lastmod: new Date()
+          };
+        }
+        return undefined;
+      }
     }),
     robotsTxt({
       sitemap: true,
