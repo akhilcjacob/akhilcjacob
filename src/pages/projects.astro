@@ -155,12 +155,10 @@ const landingPagesLoop = [...landingPages, ...landingPages];
   <div class="relative min-h-screen w-full overflow-y-auto">
     <!-- Background effect -->
     <div class="fixed inset-0 z-0">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(65,105,225,0.15),rgba(30,144,255,0.08),rgba(10,10,10,0.95))]"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#4169E1]/5 via-transparent to-transparent"></div>
-      <div class="absolute inset-0 bg-[url('/noise.png')] opacity-25 mix-blend-soft-light"></div>
-      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(65,105,225,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(65,105,225,0.03) 1px, transparent 1px); background-size: 32px 32px;"></div>
-      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#4169E1] opacity-[0.15] blur-[128px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#1E90FF] opacity-[0.15] blur-[96px] rounded-full"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(65,105,225,0.3),rgba(30,144,255,0.15),rgba(10,10,10,0.95))]"
+      >
+      </div>
     </div>
 
     <div class="container mx-auto px-4 py-16 relative z-10">
@@ -206,8 +204,8 @@ const landingPagesLoop = [...landingPages, ...landingPages];
         </div>
         <div class="h-80 overflow-hidden">
           <div class="h-10"></div>
-          <div class="marquee-container">
-            <div class="marquee marquee-landing">
+          <div class="marquee-container h-100 w-100">
+            <div class="marquee marquee-landing ">
               {
                 landingPagesLoop.map((item) => (
                   <a
@@ -221,7 +219,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                         alt={`${item.name} landing page`}
                         class="rounded-xl shadow-2xl"
                       />
-                      <div class="marquee-overlay glass-card">
+                      <div class="marquee-overlay glass-card backdrop-blur-md rounded-3xl">
                         <span class="text-lg font-medium text-white">{item.name}</span>
                       </div>
                     </div>
@@ -249,7 +247,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                   {projectPair.name}
                 </h3>
                 {projectPair.projects.map((project) => (
-                  <div class="glass-card-lg p-8 rounded-3xl hover:scale-[1.01] transition-transform mb-8">
+                  <div class="glass-card-lg p-8 rounded-3xl hover:scale-[1.01] transition-transform mb-8 bg-white/5">
                     <div class="flex flex-col lg:flex-row gap-8">
                       <div class="lg:w-1/2">
                         <h4 class="text-2xl font-semibold mb-4 text-white">
@@ -331,13 +329,13 @@ const landingPagesLoop = [...landingPages, ...landingPages];
             <a
               href={project.link}
               target="_blank"
-              class="glass-card-lg p-6 rounded-xl hover:scale-[1.02] transition-transform"
+              class="glass-card-lg p-8 rounded-3xl hover:scale-[1.01] transition-transform bg-white/5 flex flex-col"
             >
               <div class="flex items-center gap-3 mb-4">
                 <Icon name={project.icon} class="w-6 h-6 text-blue-400" />
                 <h3 class="text-xl font-semibold text-white">{project.title}</h3>
               </div>
-              <p class="text-gray-300 mb-4">{project.description}</p>
+              <p class="text-gray-300 mb-4 flex-1">{project.description}</p>
               <div class="text-sm text-blue-300">{project.tech}</div>
             </a>
           ))}
