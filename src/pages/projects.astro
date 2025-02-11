@@ -145,11 +145,15 @@ const landingPages = [
 ];
 
 const landingPagesLoop = [...landingPages, ...landingPages];
+
+const pageTitle = "Projects & Portfolio - Akhil Jacob";
+const pageDescription = "Explore my portfolio of software engineering projects, including web applications, mobile apps, and innovative solutions. See how I've applied my expertise in full-stack development, AI, and scalable systems.";
+
 ---
 
-<BasicLayout
-  title="Akhil Jacob - Projects"
-  description="Showcasing innovative projects in web and mobile development"
+<BasicLayout 
+  title={pageTitle}
+  description={pageDescription}
   page="projects"
 >
   <div class="relative min-h-screen w-full overflow-y-auto">

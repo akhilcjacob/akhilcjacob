@@ -192,11 +192,15 @@ const landingPages = [
 
 // Duplicate the array to create a seamless loop
 const landingPagesLoop = [...landingPages, ...landingPages];
+
+const pageTitle = "MVP Development Services - Akhil Jacob";
+const pageDescription = "Transform your ideas into reality with my 2-week MVP development service. Expert software engineering for rapid prototyping, full-stack development, and innovative digital products.";
+
 ---
 
 <BasicLayout
-  title="Akhil Jacob - Projects"
-  description="Next generation digital products built in 2-weeks"
+  title={pageTitle}
+  description={pageDescription}
   page="projects"
 >
   <div class="relative min-h-screen w-full overflow-y-auto">
