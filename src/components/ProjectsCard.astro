@@ -90,18 +90,20 @@ const additionalCount = allProjects.length - recentProjects.length;
       </div>
       <div class="flex items-center gap-2">
         <a
-          href="/projects"
+          href="/mvp"
           id="projectExploreBtn"
-          class="rounded-lg bg-gradient-to-r from-blue-600/40 to-purple-600/40 px-4 py-1.5 text-sm font-medium text-white shadow-md hover:from-blue-600/50 hover:to-purple-600/50 hover:shadow-lg hover:scale-105 transition-all duration-300"
+          class="rounded-lg bg-gradient-to-r from-blue-600/40 to-purple-600/40 px-4 py-1.5 text-sm font-medium text-white shadow-md hover:from-blue-600/50 hover:to-purple-600/50 hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-1"
         >
-          Explore 
+          <span>MVP Services</span>
+          <Icon name="ri:rocket-line" class="w-4 h-4" />
         </a>
-        <button
+        <a
+          href="/projects"
           id="projectViewMoreBtn"
           class="rounded-lg bg-white/10 px-3 py-1 text-sm text-white/80 hover:bg-white/20 transition-colors"
         >
-          View More
-        </button>
+          View All
+        </a>
       </div>
     </div>
 
@@ -136,17 +138,6 @@ const additionalCount = allProjects.length - recentProjects.length;
           </div>
         ))}
       </div>
-
-      {additionalCount > 0 && (
-        <div class="mt-auto pt-4 text-center border-t border-white/10">
-          <button
-            id="projectViewMoreBtnBottom"
-            class="text-sm text-white/60 hover:text-white/80 transition-colors"
-          >
-            View {additionalCount} more project{additionalCount > 1 ? 's' : ''}
-          </button>
-        </div>
-      )}
     </div>
   </div>
 </Card>

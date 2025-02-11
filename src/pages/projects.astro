@@ -1,18 +1,8 @@
 ---
-import "../styles/projects.css";
-import CTABar from "../components/projects/CTABar.astro";
+import { Icon } from "astro-icon/components";
 import GradientText from "../components/ui/GradientText.astro";
 import BasicLayout from "../layouts/BasicLayout.astro";
-import {
-  Rocket,
-  Brain,
-  Layout,
-  CheckCircle,
-  Clock,
-  Code,
-  DollarSign,
-  Monitor,
-} from "lucide-astro";
+import "../styles/projects.css";
 
 interface Project {
   title: string;
@@ -38,28 +28,21 @@ function getYouTubeVideoId(url: string): string | null {
   const match = url.match(regExp);
   return match && match[2].length === 11 ? match[2] : null;
 }
+
 const projectsData: ProjectPair[] = [
   {
     name: "HypeBridge",
     type: "web",
     projects: [
       {
-        title: "HypeBridge Landing Page",
-        landingPageUrl: "https://thehypebridge.com",
-        screenshots: ["https://thehypebridge.com/og-image.png"],
-        categories: ["web"],
-        type: "web",
-      },
-      {
         title: "HypeBridge",
-        description:
-          "Revolutionary AI-powered platform that automates end-to-end influencer marketing campaigns, leveraging advanced AI agents for unprecedented efficiency and reach.",
+        description: "Revolutionary AI-powered platform that automates end-to-end influencer marketing campaigns, leveraging advanced AI agents for unprecedented efficiency and reach.",
         landingPageUrl: "https://thehypebridge.com",
         screenshots: ["https://thehypebridge.com/og-image.png"],
         videoUrl: "https://youtu.be/7TFqc2ty8yI",
-        categories: ["web"],
+        categories: ["web", "AI", "Marketing"],
         type: "web",
-      },
+      }
     ],
   },
   {
@@ -68,22 +51,13 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "inboxhiiv",
-        description:
-          "Cutting-edge AI system that transforms podcast episodes into comprehensive newsletters, featuring intelligent summaries, chapter breakdowns, and key takeaways - all automated and delivered fresh to your inbox.",
+        description: "Cutting-edge AI system that transforms podcast episodes into comprehensive newsletters, featuring intelligent summaries, chapter breakdowns, and key takeaways - all automated and delivered fresh to your inbox.",
         appUrl: "https://inboxhiiv.com",
         landingPageUrl: "https://inboxhiiv.com",
         screenshots: ["https://inboxhiiv.com/screenshots/dashboard.png"],
-        categories: ["web"],
+        categories: ["web", "AI", "Podcasts"],
         type: "web",
-      },
-      {
-        title: "inboxhiiv Landing Page",
-        appUrl: "https://inboxhiiv.com",
-        landingPageUrl: "https://inboxhiiv.com",
-        screenshots: ["/images/inboxhiiv_landing.png"],
-        categories: ["web"],
-        type: "web",
-      },
+      }
     ],
   },
   {
@@ -92,24 +66,13 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Nookly",
-        description:
-          "Innovative Uber-style platform revolutionizing home services, connecting homeowners with skilled professionals for seamless, on-demand home maintenance and improvement.",
+        description: "Innovative Uber-style platform revolutionizing home services, connecting homeowners with skilled professionals for seamless, on-demand home maintenance and improvement.",
         appUrl: "https://nookly.co",
         landingPageUrl: "https://nookly.co",
         screenshots: ["/images/nookly_screenshot.png"],
-        categories: ["mobile"],
+        categories: ["mobile", "Services"],
         type: "mobile",
-      },
-      {
-        title: "Nookly Landing Page",
-        appUrl: "https://nookly.co",
-        landingPageUrl: "https://nookly.co",
-        screenshots: [
-          "https://nookly-web--nookly-39589.us-central1.hosted.app/og-image.png",
-        ],
-        categories: ["web"],
-        type: "web",
-      },
+      }
     ],
   },
   {
@@ -118,48 +81,39 @@ const projectsData: ProjectPair[] = [
     projects: [
       {
         title: "Skywise",
-        description:
-          "Groundbreaking mobile app featuring an AI-powered chat interface that provides personalized weather insights, outfit recommendations, and climate-related advice tailored to your location and preferences.",
-        appUrl: "https://modrnmagic.app/",
-        landingPageUrl: "https://modrnmagic.app/",
+        description: "Conversational AI weather app with dynamic forecasts and natural language interactions.",
+        appUrl: "https://modrnmagic.app",
+        landingPageUrl: "https://modrnmagic.app",
         screenshots: ["/images/skywise.png"],
-        categories: ["mobile"],
+        categories: ["mobile", "AI", "Weather"],
         type: "mobile",
-      },
-      {
-        title: "Skywise Landing Page",
-        appUrl: "https://modrnmagic.app/",
-        landingPageUrl: "https://modrnmagic.app/",
-        screenshots: ["/images/modrn.png"],
-        categories: ["web"],
-        type: "web",
-      },
+      }
     ],
+  }
+];
+
+const otherProjects = [
+  {
+    title: "Astro Defender",
+    description: "An engaging mobile game built with Flutter, featuring dynamic gameplay mechanics, particle effects, and real-time physics. Developed to explore advanced mobile development concepts and game design principles.",
+    tech: "Flutter, Flame Engine",
+    icon: "ri:gamepad-line",
+    link: "https://modrnmagic.app",
   },
   {
-    name: "Flowmoro",
-    type: "mobile",
-    projects: [
-      {
-        title: "Flowmoro",
-        description:
-          "Elegantly designed Pomodoro timer app that enhances productivity through its intuitive interface, customizable work sessions, and insightful productivity analytics.",
-        appUrl: "https://modrnmagic.app/apps/flowmoro/home/",
-        landingPageUrl: "https://modrnmagic.app/apps/flowmoro/home/",
-        screenshots: ["https://modrnmagic.app/apps/flowmoro/screenshots/1.png"],
-        categories: ["mobile"],
-        type: "mobile",
-      },
-      {
-        title: "Flowmoro Landing Page",
-        appUrl: "https://modrnmagic.app/apps/flowmoro/home/",
-        landingPageUrl: "https://modrnmagic.app/apps/flowmoro/home/",
-        screenshots: ["/images/flowmoro_landing.png"],
-        categories: ["web"],
-        type: "web",
-      },
-    ],
+    title: "Flowomoro",
+    description: "A beautifully designed Pomodoro timer that enhances productivity through an intuitive interface. Features customizable work sessions, break intervals, and detailed analytics to track your productivity patterns.",
+    tech: "Flutter, Provider",
+    icon: "ri:timer-line",
+    link: "https://modrnmagic.app/apps/flowmoro/home",
   },
+  {
+    title: "Dive Deeper on GitHub",
+    description: "Uncover a treasure trove of projects ranging from parallel reinforcement learning, real-time financial tools, and cutting-edge autonomous systems.",
+    tech: "Python, Java, JavaScript, Shell, and more",
+    icon: "ri:github-line",
+    link: "https://github.com/akhilcjacob",
+  }
 ];
 
 // Hardcoded list for landing page marquee
@@ -190,74 +144,67 @@ const landingPages = [
   },
 ];
 
-// Duplicate the array to create a seamless loop
 const landingPagesLoop = [...landingPages, ...landingPages];
 ---
 
 <BasicLayout
   title="Akhil Jacob - Projects"
-  description="Next generation digital products built in 2-weeks"
+  description="Showcasing innovative projects in web and mobile development"
   page="projects"
 >
   <div class="relative min-h-screen w-full overflow-y-auto">
     <!-- Background effect -->
     <div class="fixed inset-0 z-0">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(65,105,225,0.15),rgba(30,144,255,0.08),rgba(10,10,10,0.95))]"
-      >
-      </div>
-      <div
-        class="absolute inset-0 bg-gradient-to-b from-[#4169E1]/5 via-transparent to-transparent"
-      >
-      </div>
-      <div
-        class="absolute inset-0 bg-[url('/noise.png')] opacity-25 mix-blend-soft-light"
-      >
-      </div>
-      <div
-        class="absolute inset-0"
-        style="background-image: linear-gradient(rgba(65,105,225,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(65,105,225,0.03) 1px, transparent 1px); background-size: 32px 32px;"
-      >
-      </div>
-      <div
-        class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#4169E1] opacity-[0.15] blur-[128px] rounded-full"
-      >
-      </div>
-      <div
-        class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#1E90FF] opacity-[0.15] blur-[96px] rounded-full"
-      >
-      </div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(65,105,225,0.15),rgba(30,144,255,0.08),rgba(10,10,10,0.95))]"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#4169E1]/5 via-transparent to-transparent"></div>
+      <div class="absolute inset-0 bg-[url('/noise.png')] opacity-25 mix-blend-soft-light"></div>
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(65,105,225,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(65,105,225,0.03) 1px, transparent 1px); background-size: 32px 32px;"></div>
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#4169E1] opacity-[0.15] blur-[128px] rounded-full"></div>
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#1E90FF] opacity-[0.15] blur-[96px] rounded-full"></div>
     </div>
 
-    <!-- Floating CTA Bar -->
-    <CTABar />
-
     <div class="container mx-auto px-4 py-16 relative z-10">
-      <!-- Hero Section with Enhanced Marquee -->
-      <section
-        class="relative min-h-screen flex flex-col items-center justify-center text-center animate-fade"
-      >
-        <div class="relative z-10 mb-32">
-          <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
-            Turn <GradientText>Bold Ideas</GradientText> Into
-            <GradientText>Reality</GradientText>
-          </h1>
-          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
-            Zero BS. Two-week turnaround. One mission: Building game-changing
-            products that make your competition irrelevant.
-          </p>
-          <div class="flex flex-col md:flex-row gap-6 justify-center">
-            <a href="#featured-work" class="glass-button secondary">
-              Explore Previous Projects ↓
-            </a>
-            <a href="#contact" class="glass-button primary">
-              Kickstart Your Next Idea →
-            </a>
+      <!-- Intro Section -->
+      <section class="py-16">
+        <div class="glass-card-lg backdrop-blur-md p-8 rounded-3xl">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="w-32 h-32 md:w-48 md:h-48 relative">
+              <img
+                src="/me.jpeg"
+                alt="Akhil Jacob"
+                class="rounded-full w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex-1">
+              <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+                Hi, I'm <GradientText>Akhil Jacob</GradientText>
+              </h1>
+              <p class="text-lg text-gray-300 mb-6">
+                A passionate software engineer focused on building innovative solutions
+                that push the boundaries of what's possible. Here's a showcase of my
+                recent projects that demonstrate my expertise in web and mobile
+                development.
+              </p>
+              <a 
+                href="/" 
+                class="inline-block px-6 py-3 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 rounded-full transition-colors"
+              >
+                View Full Profile →
+              </a>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Enhanced Landing Page Marquee -->
-        <div class="absolute bottom-0 left-0 right-0 h-80 overflow-hidden">
+      <!-- Marquee Section -->
+      <section class="py-12">
+        <div class="relative mb-8">
+          <h2 class="text-2xl font-bold text-white text-center">
+            Featured Project Previews
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
+          </h2>
+        </div>
+        <div class="h-80 overflow-hidden">
           <div class="h-10"></div>
           <div class="marquee-container">
             <div class="marquee marquee-landing">
@@ -275,7 +222,7 @@ const landingPagesLoop = [...landingPages, ...landingPages];
                         class="rounded-xl shadow-2xl"
                       />
                       <div class="marquee-overlay glass-card">
-                        <span class="text-lg font-medium">{item.name}</span>
+                        <span class="text-lg font-medium text-white">{item.name}</span>
                       </div>
                     </div>
                   </a>
@@ -285,632 +232,113 @@ const landingPagesLoop = [...landingPages, ...landingPages];
           </div>
         </div>
       </section>
-      <!-- How It Works Section -->
-      <section id="how-it-works" class="py-16 text-white animate-fade">
-        <div class="container mx-auto text-center">
-          <h2
-            class="text-3xl font-bold mb-4 relative inline-block pb-2 text-white"
-          >
-            How It Works
-            <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
-            ></span>
+
+      <!-- Projects Grid -->
+      <section class="py-12">
+        <div class="relative mb-8">
+          <h2 class="text-2xl font-bold text-white text-center">
+            Featured Projects
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
           </h2>
-          <div
-            class="flex flex-col sm:flex-row justify-center items-stretch gap-6"
-          >
-            <!-- Step 1: Choose Your Plan -->
-            <div class="glass-card-service p-6 rounded-2xl flex-1">
-              <div class="flex items-center justify-center mb-4">
-                <div
-                  class="w-16 h-16 rounded-full bg-orange-600 flex items-center justify-center text-xl font-bold"
-                >
-                  01
-                </div>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Choose Your Plan</h3>
-              <p class="text-gray-300 text-sm">
-                Select the package that fits your vision and budget.
-              </p>
-            </div>
-            <!-- Step 2: Rapid Build -->
-            <div class="glass-card-service p-6 rounded-2xl flex-1">
-              <div class="flex items-center justify-center mb-4">
-                <div
-                  class="w-16 h-16 rounded-full bg-pink-600 flex items-center justify-center text-xl font-bold"
-                >
-                  02
-                </div>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Rapid Build</h3>
-              <p class="text-gray-300 text-sm">
-                I’ll develop a robust MVP in just 14 days—ready for investors or
-                user testing.
-              </p>
-            </div>
-            <!-- Step 3: Iterate & Perfect -->
-            <div class="glass-card-service p-6 rounded-2xl flex-1">
-              <div class="flex items-center justify-center mb-4">
-                <div
-                  class="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center text-xl font-bold"
-                >
-                  03
-                </div>
-              </div>
-              <h3 class="text-xl font-bold mb-2">Iterate & Perfect</h3>
-              <p class="text-gray-300 text-sm">
-                We refine and optimize until your MVP is truly market-ready.
-              </p>
-            </div>
-          </div>
         </div>
-      </section>
-
-      <section id="vision" class="py-16 text-white animate-fade">
-        <div class="container mx-auto text-center">
-          <h2
-            class="text-3xl font-bold mb-4 relative inline-block pb-2 text-white"
-          >
-            Our Vision for Your Success
-            <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
-            ></span>
-          </h2>
-          <!-- Vision Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-            <!-- MVP Card -->
-            <div class="glass-card-service p-8">
-              <div class="flex items-center gap-3 mb-4">
-                <Rocket size={24} class="text-blue-400" />
-                <h3 class="text-2xl font-bold text-white">MVP in 14 Days</h3>
-              </div>
-              <p class="text-gray-300">
-                Launch a battle-tested MVP fast—ideal for pitching to investors
-                or testing with users.
-              </p>
-            </div>
-
-            <!-- Full-Stack Card -->
-            <div class="glass-card-service p-8">
-              <div class="flex items-center gap-3 mb-4">
-                <Layout size={24} class="text-blue-400" />
-                <h3 class="text-2xl font-bold text-white">
-                  Full-Stack Excellence
-                </h3>
-              </div>
-              <p class="text-gray-300">
-                From a sleek landing page to a scalable app, get a complete
-                digital product. (AI Integration available)
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="why-work-with-me" class="py-16 animate-fade">
-        <div class="container mx-auto text-center">
-          <h2
-            class="text-3xl font-bold mb-4 relative inline-block pb-2 text-white"
-          >
-            What You'll Love
-            <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
-            ></span>
-          </h2>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
-          >
-            <!-- Benefit 1: Fixed Pricing -->
-            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
-              <div class="flex justify-center mb-2">
-                <DollarSign class="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">Fixed Pricing</h3>
-              <p class="text-gray-300 text-sm">
-                Transparent, flat fees with no hidden costs.
-              </p>
-            </div>
-            <!-- Benefit 2: Two-Week Turnaround -->
-            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
-              <div class="flex justify-center mb-2">
-                <Clock class="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">
-                Two-Week Turnaround
-              </h3>
-              <p class="text-gray-300 text-sm">
-                Your MVP delivered in just 14 days—fast and efficient.
-              </p>
-            </div>
-            <!-- Benefit 3: Production-Ready Prototype -->
-            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
-              <div class="flex justify-center mb-2">
-                <Monitor class="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">
-                Production-Ready Prototype
-              </h3>
-              <p class="text-gray-300 text-sm">
-                A complete mobile or web app with a high-converting landing
-                page—ready for launch.
-              </p>
-            </div>
-            <!-- Benefit 4: Full-Stack Expertise -->
-            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
-              <div class="flex justify-center mb-2">
-                <Code class="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">
-                Full-Stack Expertise
-              </h3>
-              <p class="text-gray-300 text-sm">
-                A digital product built from the ground up, both beautiful and
-                robust.
-              </p>
-            </div>
-            <!-- Benefit 5: AI Integration -->
-            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
-              <div class="flex justify-center mb-2">
-                <Brain class="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">AI Integration</h3>
-              <p class="text-gray-300 text-sm">
-                Optional smart features to give your product that competitive
-                edge.
-              </p>
-            </div>
-            <!-- Benefit 6: No Fluff, Just Results -->
-            <div class="glass-card-service p-6 rounded-2xl backdrop-blur-3xl">
-              <div class="flex justify-center mb-2">
-                <CheckCircle class="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">
-                No Fluff, Just Results
-              </h3>
-              <p class="text-gray-300 text-sm">
-                Focused work that delivers real, measurable impact.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Featured Work Section -->
-      <section id="featured-work" class="py-24 animate-fade">
-        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-          Recent Projects
-        </h2>
-
-        <div class="grid grid-cols-1 lg:grid-cols-1 gap-16">
+        <div class="grid grid-cols-1 gap-16">
           {
             projectsData.map((projectPair) => (
               <div class="project-showcase">
-                <h3 class="text-3xl font-bold text-white mb-4">
+                <h3 class="text-3xl font-bold text-white mb-8">
                   {projectPair.name}
                 </h3>
-
-                <div class="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 gap-4">
-                  {projectPair.projects.map((project) => (
-                    <div class="glass-card-project">
-                      <div class="flex flex-col h-full">
-                        {/* Project Info */}
-                        <div class="text-left mb-4">
-                          <div class="flex justify-between items-center mb-2">
-                            <h4 class="text-xl font-semibold text-white">
-                              {project.title}
-                            </h4>
-                            <a
-                              href={project.landingPageUrl}
-                              target="_blank"
-                              class="glass-button-sm primary"
-                            >
-                              Open Project →
-                            </a>
-                          </div>
-                          <div class="min-h-[3rem]">
-                            {project.description && (
-                              <p class="text-gray-300 text-sm line-clamp-2">
-                                {project.description}
-                              </p>
-                            )}
-                          </div>
+                {projectPair.projects.map((project) => (
+                  <div class="glass-card-lg p-8 rounded-3xl hover:scale-[1.01] transition-transform mb-8">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                      <div class="lg:w-1/2">
+                        <h4 class="text-2xl font-semibold mb-4 text-white">
+                          {project.title}
+                        </h4>
+                        {project.description && (
+                          <p class="text-gray-300 mb-6">{project.description}</p>
+                        )}
+                        <div class="flex flex-wrap gap-2 mb-6">
+                          {project.categories.map((category) => (
+                            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm text-blue-300">
+                              {category}
+                            </span>
+                          ))}
                         </div>
-
-                        {/* Project Screenshots or Video */}
-                        <div class="project-screenshots">
-                          <div
-                            class={`screenshot-container ${project.type === "mobile" ? "mobile-screenshots" : "web-screenshots"}`}
+                        <div class="flex gap-4">
+                          <a
+                            href={project.landingPageUrl}
+                            target="_blank"
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 rounded-full transition-colors"
                           >
-                            {project.videoUrl ? (
-                              // YouTube Video Embed
-                              <div class="web-shot glass-card relative">
-                                <iframe
-                                  width="100%"
-                                  height="315"
-                                  src={`https://www.youtube.com/embed/${getYouTubeVideoId(project.videoUrl)}`}
-                                  title={`${project.title} demo video`}
-                                  frameborder="0"
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowfullscreen
-                                  class="rounded-lg relative z-10"
-                                  style="pointer-events: auto;"
-                                />
-                              </div>
-                            ) : project.type === "mobile" ? (
-                              // Mobile app view
-                              <div class="mobile-app-container">
-                                {project.screenshots.map(
-                                  (screenshot, index) => (
-                                    <div class="mobile-shot">
-                                      <img
-                                        src={screenshot}
-                                        alt={`${project.title} screenshot ${index + 1}`}
-                                        class="mobile-image"
-                                        style={
-                                          project.imageOpacity
-                                            ? `opacity: ${project.imageOpacity / 100}`
-                                            : ""
-                                        }
-                                      />
-                                    </div>
-                                  ),
-                                )}
-                              </div>
-                            ) : (
-                              // Web project view - show landing page
-                              <div class="web-shot glass-card">
-                                <div class="relative w-full h-0 pb-[56.25%]">
-                                  <img
-                                    src={project.screenshots[0]}
-                                    alt={`${project.title} landing page`}
-                                    class="web-image absolute top-0 left-0 w-full h-full object-contain"
-                                    style={
-                                      project.imageOpacity
-                                        ? `opacity: ${project.imageOpacity / 100}`
-                                        : ""
-                                    }
-                                  />
-                                </div>
-                              </div>
-                            )}
-                          </div>
+                            <Icon name="ri:external-link-line" class="w-4 h-4" />
+                            View Project
+                          </a>
+                          {project.videoUrl && (
+                            <a
+                              href={project.videoUrl}
+                              target="_blank"
+                              class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 rounded-full transition-colors"
+                            >
+                              <Icon name="ri:youtube-line" class="w-4 h-4" />
+                              Watch Demo
+                            </a>
+                          )}
                         </div>
                       </div>
+                      <div class="lg:w-1/2">
+                        {project.type === 'mobile' ? (
+                          <div class="max-w-[300px] mx-auto p-4">
+                            <div class="relative aspect-[9/19] rounded-3xl overflow-hidden ">
+                              <img
+                                src={project.screenshots[0]}
+                                alt={project.title}
+                                class="w-full h-full object-contain"
+                                style={`opacity: ${project.imageOpacity || 1}`}
+                              />
+                            </div>
+                          </div>
+                        ) : (
+                          <div class="relative aspect-video rounded-xl overflow-hidden">
+                            <img
+                              src={project.screenshots[0]}
+                              alt={project.title}
+                              class="w-full h-full object-cover"
+                              style={`opacity: ${project.imageOpacity || 1}`}
+                            />
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             ))
           }
         </div>
       </section>
 
-      <section id="expertise-about-card" class="py-16 animate-fade">
-        <div class="container mx-auto">
-          <div class="glass-card-lg backdrop-blur-md p-8 rounded-3xl">
-            <!-- About Me Section with Headshot -->
-            <h3 class="text-2xl font-bold text-white text-center mb-4">
-              Hi, I'm Akhil
-            </h3>
-            <img
-              src="/me.jpeg"
-              alt="Akhil headshot"
-              class="mx-auto rounded-full w-24 h-24 mb-4"
-            />
-            <p class="text-lg text-gray-300 text-center mb-6">
-              I'm a US-based software engineer and entrepreneur with over 7 years of experience crafting innovative digital solutions. I've contributed to the success of industry giants like Microsoft and several dynamic startups, transforming complex challenges into elegant, scalable products.
-            </p>
-            <!-- Specialized Expertise Intro -->
-            <p class="text-lg text-gray-300 text-center mb-6">
-              I specialize in full-service digital solutions—from high-converting landing pages and robust MVP builds to comprehensive branding, app design, and AI integration—empowering businesses to launch market-ready products with confidence.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-              <button class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white">
-                Landing Pages
-              </button>
-              <button class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white">
-                MVP Build
-              </button>
-              <button class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white">
-                Branding
-              </button>
-              <button class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white">
-                App Design
-              </button>
-              <button class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white">
-                AI Integration
-              </button>
-              <button class="glass-button-sm border border-white/20 rounded-xl px-4 py-2 hover:bg-white/10 transition text-white">Custom Built Pro</button>
-            </div>
-            <!-- About Link -->
-            <div class="text-center">
-              <a href="/about" class="text-blue-400 hover:text-blue-300 underline">
-                See my journey →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Contact Section -->
-      <section id="contact" class="py-24">
-        <div class="glass-card-lg max-w-3xl mx-auto p-12">
-          <h2
-            class="text-4xl md:text-5xl font-bold text-white text-center mb-6"
-          >
-            Let's Make <GradientText>History</GradientText>
-          </h2>
-          <p class="text-xl text-gray-300 text-center mb-12">
-            Cut through the noise. Tell me your vision, and I'll show you
-            exactly how we'll bring it to life. No fluff, just results.
-          </p>
-
-          <form id="contact-form" class="space-y-8">
-            <!-- Name field -->
-            <div>
-              <label for="name" class="block text-white mb-2 font-medium"
-                >Your Name</label
-              >
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="glass-input w-full"
-                placeholder="John Doe"
-              />
-            </div>
-
-            <!-- Email field -->
-            <div>
-              <label for="email" class="block text-white mb-2 font-medium"
-                >Email</label
-              >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="glass-input w-full"
-                placeholder="john@example.com"
-              />
-            </div>
-
-            <!-- Project Type -->
-            <div>
-              <label class="block text-white mb-4 font-medium"
-                >What are you building?</label
-              >
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <label class="glass-radio">
-                  <input
-                    type="checkbox"
-                    name="project-type"
-                    value="ai-product"
-                  />
-                  <span>AI Product</span>
-                </label>
-                <label class="glass-radio">
-                  <input type="checkbox" name="project-type" value="web-app" />
-                  <span>Web App</span>
-                </label>
-                <label class="glass-radio">
-                  <input
-                    type="checkbox"
-                    name="project-type"
-                    value="mobile-app"
-                  />
-                  <span>Mobile App</span>
-                </label>
-                <label class="glass-radio">
-                  <input
-                    type="checkbox"
-                    name="project-type"
-                    value="landing-page"
-                  />
-                  <span>Landing Page</span>
-                </label>
+      <!-- Other Projects -->
+      <section class="py-12">
+        <h2 class="text-3xl font-bold text-white mb-8">Other Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {otherProjects.map((project) => (
+            <a
+              href={project.link}
+              target="_blank"
+              class="glass-card-lg p-6 rounded-xl hover:scale-[1.02] transition-transform"
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <Icon name={project.icon} class="w-6 h-6 text-blue-400" />
+                <h3 class="text-xl font-semibold text-white">{project.title}</h3>
               </div>
-            </div>
-
-            <!-- Budget -->
-            <div>
-              <label for="budget" class="block text-white mb-2 font-medium"
-                >Investment Range</label
-              >
-              <select
-                id="budget"
-                name="budget"
-                required
-                class="glass-input w-full"
-              >
-                <option value="">Select a range</option>
-                <option value="5k-10k">$5K - $10K (MVP)</option>
-                <option value="10k-20k">$10K - $20K (Full Product)</option>
-                <option value="20k+">$20K+ (Complex System)</option>
-                <option value="other">Custom Range</option>
-              </select>
-              <input
-                type="text"
-                id="other-budget"
-                name="other-budget"
-                class="glass-input w-full mt-4 hidden"
-                placeholder="Specify your budget range"
-              />
-            </div>
-
-            <!-- Timeline -->
-            <div>
-              <label for="timeline" class="block text-white mb-2 font-medium"
-                >When do you need this?</label
-              >
-              <select
-                id="timeline"
-                name="timeline"
-                required
-                class="glass-input w-full"
-              >
-                <option value="">Select timeline</option>
-                <option value="2-weeks">Next 2 Weeks</option>
-                <option value="month">Within a Month</option>
-                <option value="quarter">This Quarter</option>
-                <option value="flexible">Flexible</option>
-              </select>
-            </div>
-
-            <!-- Message -->
-            <div>
-              <label for="message" class="block text-white mb-2 font-medium"
-                >Tell me about your project</label
-              >
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                class="glass-input w-full"
-                placeholder="What problem are you solving? Who is it for? What's your vision?"
-                required></textarea>
-            </div>
-
-            <button type="submit" class="glass-button primary w-full">
-              Send It →
-            </button>
-          </form>
+              <p class="text-gray-300 mb-4">{project.description}</p>
+              <div class="text-sm text-blue-300">{project.tech}</div>
+            </a>
+          ))}
         </div>
       </section>
 
-      <script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-      ></script>
-
-      <script>
-        (function () {
-          emailjs.init("vS3CR-R0Bjl5BLllJ");
-        })();
-
-        const form = document.getElementById("contact-form");
-
-        // Handle "Other" option visibility
-        document
-          .querySelector('input[value="other"].other-checkbox')
-          .addEventListener("change", function (e) {
-            const otherInput = document.getElementById(this.dataset.target);
-            otherInput.classList.toggle("hidden", !this.checked);
-            if (this.checked) {
-              otherInput.required = true;
-            } else {
-              otherInput.required = false;
-              otherInput.value = "";
-            }
-          });
-
-        // Handle budget "Other" option
-        document
-          .getElementById("budget")
-          .addEventListener("change", function (e) {
-            const otherBudgetInput = document.getElementById("other-budget");
-            otherBudgetInput.classList.toggle("hidden", this.value !== "other");
-            if (this.value === "other") {
-              otherBudgetInput.required = true;
-            } else {
-              otherBudgetInput.required = false;
-              otherBudgetInput.value = "";
-            }
-          });
-
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          const button = form.querySelector('button[type="submit"]');
-          const originalContent = button.innerHTML;
-          button.disabled = true;
-          button.innerHTML =
-            '<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
-
-          const formData = {
-            name: form.querySelector("#name").value,
-            email: form.querySelector("#email").value,
-            projectType: Array.from(
-              form.querySelectorAll('input[name="project-type"]:checked'),
-            ).map((input) => {
-              if (input.value === "other") {
-                return `Other: ${form.querySelector("#other-project-type").value}`;
-              }
-              return input.value;
-            }),
-            budget:
-              form.querySelector("#budget").value === "other"
-                ? `Other: ${form.querySelector("#other-budget").value}`
-                : form.querySelector("#budget").value,
-            timeline: form.querySelector("#timeline").value,
-            message: form.querySelector("#message").value,
-          };
-
-          try {
-            const response = await emailjs.send(
-              "service_lh7iqlh",
-              "template_r1vw5j2",
-              {
-                from_name: formData.name,
-                from_email: formData.email,
-                project_type: formData.projectType.join(", "),
-                budget: formData.budget,
-                timeline: formData.timeline,
-                message: formData.message,
-                to_name: "Akhil",
-                to_email: "akhil@modrnmagic.app",
-              },
-            );
-
-            if (response.status === 200) {
-              // Show success message
-              const successMessage = document.createElement("div");
-              successMessage.className =
-                "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
-              successMessage.innerHTML = `
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Thanks! I'll get back to you shortly.</span>
-                        </div>
-                    `;
-              document.body.appendChild(successMessage);
-
-              setTimeout(() => {
-                successMessage.style.transform = "translateY(-100%)";
-                setTimeout(() => successMessage.remove(), 500);
-              }, 5000);
-
-              form.reset();
-            }
-          } catch (error) {
-            console.error("Error:", error);
-            const errorMessage = document.createElement("div");
-            errorMessage.className =
-              "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
-            errorMessage.innerHTML = `
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                        <span>Oops! Something went wrong. Please try again.</span>
-                    </div>
-                `;
-            document.body.appendChild(errorMessage);
-
-            setTimeout(() => {
-              errorMessage.style.transform = "translateY(-100%)";
-              setTimeout(() => errorMessage.remove(), 500);
-            }, 5000);
-          } finally {
-            // Restore the original button content and enable it
-            button.innerHTML = originalContent;
-            button.disabled = false;
-          }
-        });
-      </script>
     </div>
   </div>
 </BasicLayout>
