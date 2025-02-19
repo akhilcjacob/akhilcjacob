@@ -874,14 +874,9 @@ const pageDescription = "Transform your ideas into reality with my 2-week MVP de
                 "service_lh7iqlh",
                 "template_r1vw5j2",
                 {
-                  from_name: formData.name,
-                  from_email: formData.email,
-                  project_type: formData.projectType.join(", "),
-                  budget: formData.budget,
-                  timeline: formData.timeline,
-                  message: formData.message,
+                  ...formData,
                   to_name: "Akhil",
-                  to_email: "akhil@modrnmagic.app",
+                  to_email: "akhil@modrnmagic.app"
                 }
               );
 
