@@ -4,7 +4,7 @@ import { LINKS } from "../lib/constants";
 interface Props {
   title: string;
   description: string;
-  page?: "travel" | "blog" | "projects"; 
+  page?: "travel" | "blog" | "projects" | "mvp";
   slug?: string | undefined;
   pubDate?: string;
 }
@@ -16,33 +16,47 @@ const image =
     : `${Astro.url.origin}/og-image.png`;
 
 const schema = {
-        "@context": "http://schema.org",
-        "@type": "Person",
+  "@context": "http://schema.org",
+  "@type": "Person",
   name: "Akhil Jacob",
-        url: Astro.url.origin,
-        sameAs: [LINKS.linkedin, LINKS.github],
-        image: `${Astro.url.origin}/og-image.png`,
+  url: Astro.url.origin,
+  sameAs: [LINKS.linkedin, LINKS.github],
+  image: `${Astro.url.origin}/og-image.png`,
   jobTitle: "Software Engineer",
-        worksFor: {
-          "@type": "Organization",
-          name: "Self-Employed",
-          address: {
-            "@type": "PostalAddress",
+  worksFor: {
+    "@type": "Organization",
+    name: "Self-Employed",
+    address: {
+      "@type": "PostalAddress",
       addressLocality: "San Diego",
       addressRegion: "California",
       addressCountry: "US",
-          },
-        },
-        nationality: {
-          "@type": "Country",
+    },
+  },
+  nationality: {
+    "@type": "Country",
     name: "United States",
   },
-      };
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-11433083364"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-11433083364");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -75,7 +89,10 @@ const schema = {
       )
     }
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    <script is:inline src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"
+    ></script>
   </head>
   <body
     class="bg-darkslate-700 md:h-screen flex flex-col justify-center items-center"
@@ -83,118 +100,118 @@ const schema = {
     <slot name="loader" />
     <slot />
     <script is:inline>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         if (window.particlesJS) {
           const particlesConfig = {
-            "particles": {
-              "number": {
-                "value": 100,
-                "density": {
-                  "enable": true,
-                  "value_area": 800
-                }
-              },
-              "color": {
-                "value": "#ffffff"
-              },
-              "shape": {
-                "type": "circle",
-                "stroke": {
-                  "width": 0,
-                  "color": "#000000"
+            particles: {
+              number: {
+                value: 100,
+                density: {
+                  enable: true,
+                  value_area: 800,
                 },
-                "polygon": {
-                  "nb_sides": 5
-                }
               },
-              "opacity": {
-                "value": 0.5602948255589136,
-                "random": true,
-                "anim": {
-                  "enable": false,
-                  "speed": 1,
-                  "opacity_min": 0.1,
-                  "sync": false
-                }
+              color: {
+                value: "#ffffff",
               },
-              "size": {
-                "value": 3.945738208161363,
-                "random": true,
-                "anim": {
-                  "enable": false,
-                  "speed": 40,
-                  "size_min": 0.1,
-                  "sync": false
-                }
+              shape: {
+                type: "circle",
+                stroke: {
+                  width: 0,
+                  color: "#000000",
+                },
+                polygon: {
+                  nb_sides: 5,
+                },
               },
-              "line_linked": {
-                "enable": true,
-                "distance": 142.0465754938091,
-                "color": "#ffffff",
-                "opacity": 0.4,
-                "width": 1
+              opacity: {
+                value: 0.5602948255589136,
+                random: true,
+                anim: {
+                  enable: false,
+                  speed: 1,
+                  opacity_min: 0.1,
+                  sync: false,
+                },
               },
-              "move": {
-                "enable": true,
-                "speed": 4,
-                "direction": "none",
-                "random": true,
-                "straight": false,
-                "out_mode": "out",
-                "bounce": false,
-                "attract": {
-                  "enable": false,
-                  "rotateX": 600,
-                  "rotateY": 1200
-                }
-              }
+              size: {
+                value: 3.945738208161363,
+                random: true,
+                anim: {
+                  enable: false,
+                  speed: 40,
+                  size_min: 0.1,
+                  sync: false,
+                },
+              },
+              line_linked: {
+                enable: true,
+                distance: 142.0465754938091,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1,
+              },
+              move: {
+                enable: true,
+                speed: 4,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: {
+                  enable: false,
+                  rotateX: 600,
+                  rotateY: 1200,
+                },
+              },
             },
-            "interactivity": {
-              "detect_on": "window",
-              "events": {
-                "onhover": {
-                  "enable": true,
-                  "mode": "repulse"
+            interactivity: {
+              detect_on: "window",
+              events: {
+                onhover: {
+                  enable: true,
+                  mode: "repulse",
                 },
-                "onclick": {
-                  "enable": true,
-                  "mode": "push"
+                onclick: {
+                  enable: true,
+                  mode: "push",
                 },
-                "resize": true
+                resize: true,
               },
-              "modes": {
-                "grab": {
-                  "distance": 400,
-                  "line_linked": {
-                    "opacity": 1
-                  }
+              modes: {
+                grab: {
+                  distance: 400,
+                  line_linked: {
+                    opacity: 1,
+                  },
                 },
-                "bubble": {
-                  "distance": 400,
-                  "size": 40,
-                  "duration": 2,
-                  "opacity": 8,
-                  "speed": 3
+                bubble: {
+                  distance: 400,
+                  size: 40,
+                  duration: 2,
+                  opacity: 8,
+                  speed: 3,
                 },
-                "repulse": {
-                  "distance": 200,
-                  "duration": 0.4
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
                 },
-                "push": {
-                  "particles_nb": 4
+                push: {
+                  particles_nb: 4,
                 },
-                "remove": {
-                  "particles_nb": 2
-                }
-              }
+                remove: {
+                  particles_nb: 2,
+                },
+              },
             },
-            "retina_detect": true
+            retina_detect: true,
           };
 
-          window.particlesJS('particles-js', particlesConfig);
-          console.log('Particles.js initialized successfully');
+          window.particlesJS("particles-js", particlesConfig);
+          console.log("Particles.js initialized successfully");
         } else {
-          console.error('Particles.js not loaded');
+          console.error("Particles.js not loaded");
         }
       });
     </script>

@@ -203,6 +203,7 @@ const pageDescription = "Transform your ideas into reality with my 2-week MVP de
   description={pageDescription}
   page="mvp"
 >
+
   <div class="relative min-h-screen w-full overflow-y-auto">
     <!-- Background effect -->
     <div class="fixed inset-0 z-0">
@@ -810,7 +811,7 @@ const pageDescription = "Transform your ideas into reality with my 2-week MVP de
           });
 
         // Handle budget "Other" option
-        document
+            document
           .getElementById("budget")
           .addEventListener("change", function (e) {
             const otherBudgetInput = document.getElementById("other-budget");
