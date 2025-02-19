@@ -790,130 +790,146 @@ const pageDescription = "Transform your ideas into reality with my 2-week MVP de
       ></script>
 
       <script>
-        (function () {
+        document.addEventListener('DOMContentLoaded', function() {
           emailjs.init("vS3CR-R0Bjl5BLllJ");
-        })();
 
-        const form = document.getElementById("contact-form");
+          const form = document.getElementById("contact-form");
+          if (!form) {
+            console.error("Contact form not found");
+            return;
+          }
 
-        // Handle "Other" option visibility
-        document
-          .querySelector('input[value="other"].other-checkbox')
-          .addEventListener("change", function (e) {
-            const otherInput = document.getElementById(this.dataset.target);
-            otherInput.classList.toggle("hidden", !this.checked);
-            if (this.checked) {
-              otherInput.required = true;
-            } else {
-              otherInput.required = false;
-              otherInput.value = "";
-            }
-          });
-
-        // Handle budget "Other" option
-            document
-          .getElementById("budget")
-          .addEventListener("change", function (e) {
-            const otherBudgetInput = document.getElementById("other-budget");
-            otherBudgetInput.classList.toggle("hidden", this.value !== "other");
-            if (this.value === "other") {
-              otherBudgetInput.required = true;
-            } else {
-              otherBudgetInput.required = false;
-              otherBudgetInput.value = "";
-            }
-          });
-
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          const button = form.querySelector('button[type="submit"]');
-          const originalContent = button.innerHTML;
-          button.disabled = true;
-          button.innerHTML =
-            '<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
-
-          const formData = {
-            name: form.querySelector("#name").value,
-            email: form.querySelector("#email").value,
-            projectType: Array.from(
-              form.querySelectorAll('input[name="project-type"]:checked'),
-            ).map((input) => {
-              if (input.value === "other") {
-                return `Other: ${form.querySelector("#other-project-type").value}`;
+          // Handle "Other" option visibility
+          const otherCheckbox = document.querySelector('input[value="other"].other-checkbox');
+          if (otherCheckbox) {
+            otherCheckbox.addEventListener("change", function (e) {
+              const otherInput = document.getElementById(this.dataset.target);
+              if (otherInput) {
+                otherInput.classList.toggle("hidden", !this.checked);
+                otherInput.required = this.checked;
+                if (!this.checked) {
+                  otherInput.value = "";
+                }
               }
-              return input.value;
-            }),
-            budget:
-              form.querySelector("#budget").value === "other"
-                ? `Other: ${form.querySelector("#other-budget").value}`
-                : form.querySelector("#budget").value,
-            timeline: form.querySelector("#timeline").value,
-            message: form.querySelector("#message").value,
-          };
+            });
+          }
 
-          try {
-            const response = await emailjs.send(
-              "service_lh7iqlh",
-              "template_r1vw5j2",
-              {
-                from_name: formData.name,
-                from_email: formData.email,
-                project_type: formData.projectType.join(", "),
-                budget: formData.budget,
-                timeline: formData.timeline,
-                message: formData.message,
-                to_name: "Akhil",
-                to_email: "akhil@modrnmagic.app",
-              },
-            );
+          // Handle budget "Other" option
+          const budgetSelect = document.getElementById("budget");
+          if (budgetSelect) {
+            budgetSelect.addEventListener("change", function (e) {
+              const otherBudgetInput = document.getElementById("other-budget");
+              if (otherBudgetInput) {
+                otherBudgetInput.classList.toggle("hidden", this.value !== "other");
+                otherBudgetInput.required = this.value === "other";
+                if (this.value !== "other") {
+                  otherBudgetInput.value = "";
+                }
+              }
+            });
+          }
 
-            if (response.status === 200) {
-              // Show success message
-              const successMessage = document.createElement("div");
-              successMessage.className =
-                "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
-              successMessage.innerHTML = `
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Thanks! I'll get back to you shortly.</span>
-                        </div>
-                    `;
-              document.body.appendChild(successMessage);
+          form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const button = form.querySelector('button[type="submit"]');
+            if (!button) return;
+
+            const originalContent = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML =
+              '<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+
+            try {
+              const nameInput = form.querySelector("#name");
+              const emailInput = form.querySelector("#email");
+              const projectTypeInputs = form.querySelectorAll('input[name="project-type"]:checked');
+              const budgetInput = form.querySelector("#budget");
+              const timelineInput = form.querySelector("#timeline");
+              const messageInput = form.querySelector("#message");
+
+              if (!nameInput || !emailInput || !budgetInput || !timelineInput || !messageInput) {
+                throw new Error("Required form fields not found");
+              }
+
+              const formData = {
+                name: nameInput.value,
+                email: emailInput.value,
+                projectType: Array.from(projectTypeInputs).map((input) => {
+                  if (input.value === "other") {
+                    const otherInput = form.querySelector("#other-project-type");
+                    return otherInput ? `Other: ${otherInput.value}` : "Other";
+                  }
+                  return input.value;
+                }),
+                budget:
+                  budgetInput.value === "other"
+                    ? `Other: ${form.querySelector("#other-budget")?.value || ''}`
+                    : budgetInput.value,
+                timeline: timelineInput.value,
+                message: messageInput.value,
+              };
+
+              const response = await emailjs.send(
+                "service_lh7iqlh",
+                "template_r1vw5j2",
+                {
+                  from_name: formData.name,
+                  from_email: formData.email,
+                  project_type: formData.projectType.join(", "),
+                  budget: formData.budget,
+                  timeline: formData.timeline,
+                  message: formData.message,
+                  to_name: "Akhil",
+                  to_email: "akhil@modrnmagic.app",
+                }
+              );
+
+              if (response.status === 200) {
+                const successMessage = document.createElement("div");
+                successMessage.className =
+                  "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
+                successMessage.innerHTML = `
+                  <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Thanks! I'll get back to you shortly.</span>
+                  </div>
+                `;
+                document.body.appendChild(successMessage);
+
+                setTimeout(() => {
+                  successMessage.style.transform = "translateY(-100%)";
+                  setTimeout(() => successMessage.remove(), 500);
+                }, 5000);
+
+                form.reset();
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              const errorMessage = document.createElement("div");
+              errorMessage.className =
+                "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
+              errorMessage.innerHTML = `
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                  <span>Oops! Something went wrong. Please try again.</span>
+                </div>
+              `;
+              document.body.appendChild(errorMessage);
 
               setTimeout(() => {
-                successMessage.style.transform = "translateY(-100%)";
-                setTimeout(() => successMessage.remove(), 500);
+                errorMessage.style.transform = "translateY(-100%)";
+                setTimeout(() => errorMessage.remove(), 500);
               }, 5000);
-
-              form.reset();
+            } finally {
+              button.innerHTML = originalContent;
+              button.disabled = false;
             }
-          } catch (error) {
-            console.error("Error:", error);
-            const errorMessage = document.createElement("div");
-            errorMessage.className =
-              "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 translate-y-0 z-50";
-            errorMessage.innerHTML = `
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                        <span>Oops! Something went wrong. Please try again.</span>
-                    </div>
-                `;
-            document.body.appendChild(errorMessage);
-
-            setTimeout(() => {
-              errorMessage.style.transform = "translateY(-100%)";
-              setTimeout(() => errorMessage.remove(), 500);
-            }, 5000);
-          } finally {
-            // Restore the original button content and enable it
-            button.innerHTML = originalContent;
-            button.disabled = false;
-          }
+          });
         });
       </script>
     </div>
