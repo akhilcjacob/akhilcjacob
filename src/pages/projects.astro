@@ -147,13 +147,15 @@ const landingPages = [
 const landingPagesLoop = [...landingPages, ...landingPages];
 
 const pageTitle = "Projects & Portfolio - Akhil Jacob";
-const pageDescription = "Explore my portfolio of software engineering projects, including web applications, mobile apps, and innovative solutions. See how I've applied my expertise in full-stack development, AI, and scalable systems.";
+const pageDescription = "Discover my latest projects and innovations in software engineering, showcasing expertise in full-stack development, AI, and scalable systems.";
+const pageKeywords = "software engineering, full-stack development, AI projects, portfolio, Akhil Jacob";
 
 ---
 
 <BasicLayout 
   title={pageTitle}
   description={pageDescription}
+  keywords={pageKeywords}
   page="projects"
 >
   <div class="relative min-h-screen w-full overflow-y-auto">

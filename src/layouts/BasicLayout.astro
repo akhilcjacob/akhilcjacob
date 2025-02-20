@@ -4,12 +4,13 @@ import { LINKS } from "../lib/constants";
 interface Props {
   title: string;
   description: string;
+  keywords?: string;
   page?: "travel" | "blog" | "projects" | "mvp";
   slug?: string | undefined;
   pubDate?: string;
 }
 
-const { title, description, page, slug, pubDate } = Astro.props;
+const { title, description, keywords, page, slug, pubDate } = Astro.props;
 const image =
   page === "travel"
     ? `${Astro.url.origin}/globe_preview.webp"`
@@ -63,6 +64,7 @@ const schema = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
     <meta name="robots" content="index, follow" />
     <!-- Basic OG tags for sharing your website's content on platforms like Facebook and LinkedIn -->
     <meta property="og:title" content={title} />
