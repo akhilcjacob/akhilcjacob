@@ -373,19 +373,19 @@ const pageKeywords = "MVP development, 0 to 1, rapid prototyping, software engin
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
             <!-- MVP Card -->
             <div class="glass-card-service p-8">
-              <div class="flex items-center gap-3 mb-4">
+              <div class="flex items-center justify-center gap-3 mb-4">
                 <Rocket size={24} class="text-blue-400" />
-                <h3 class="text-2xl font-bold text-white">MVP in 14 Days</h3>
+                <h3 class="text-2xl font-bold text-white">More than an MVP in 14 Days</h3>
               </div>
               <p class="text-gray-300">
-                Launch a battle-tested MVP fast—ideal for pitching to investors
-                or testing with users.
+                More than an MVP, a V1 solution: Launch a battle-tested product fast—ideal for 
+                pitching to investors or validating with real users.
               </p>
             </div>
 
             <!-- Full-Stack Card -->
             <div class="glass-card-service p-8">
-              <div class="flex items-center gap-3 mb-4">
+              <div class="flex items-center justify-center gap-3 mb-4">
                 <Layout size={24} class="text-blue-400" />
                 <h3 class="text-2xl font-bold text-white">
                   Full-Stack Excellence
@@ -530,13 +530,12 @@ const pageKeywords = "MVP development, 0 to 1, rapid prototyping, software engin
                         </div>
 
                         {/* Project Screenshots or Video */}
-                        <div class="project-screenshots">
+                        <div class="project-screenshots h-full flex items-center justify-center my-auto">
                           <div
                             class={`screenshot-container ${project.type === "mobile" ? "mobile-screenshots" : "web-screenshots"}`}
                           >
                             {project.videoUrl ? (
-                              // YouTube Video Embed
-                              <div class="web-shot glass-card relative">
+                              <div class="web-shot glass-card relative aspect-video">
                                 <iframe
                                   width="100%"
                                   height="315"
@@ -545,45 +544,31 @@ const pageKeywords = "MVP development, 0 to 1, rapid prototyping, software engin
                                   frameborder="0"
                                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                   allowfullscreen
-                                  class="rounded-lg relative z-10"
+                                  class="rounded-lg w-full h-full"
                                   style="pointer-events: auto;"
                                 />
                               </div>
                             ) : project.type === "mobile" ? (
-                              // Mobile app view
-                              <div class="mobile-app-container">
-                                {project.screenshots.map(
-                                  (screenshot, index) => (
+                              <div class="mobile-app-container flex justify-center">
+                                {project.screenshots.map((screenshot, index) => (
                                     <div class="mobile-shot">
                                       <img
                                         src={screenshot}
                                         alt={`${project.title} screenshot ${index + 1}`}
-                                        class="mobile-image"
-                                        style={
-                                          project.imageOpacity
-                                            ? `opacity: ${project.imageOpacity / 100}`
-                                            : ""
-                                        }
+                                      class="mobile-image h-full object-contain"
+                                      style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
                                       />
                                     </div>
-                                  ),
-                                )}
+                                ))}
                               </div>
                             ) : (
-                              // Web project view - show landing page
-                              <div class="web-shot glass-card">
-                                <div class="relative w-full h-0 pb-[56.25%]">
+                              <div class="web-shot glass-card flex items-center justify-center">
                                   <img
                                     src={project.screenshots[0]}
                                     alt={`${project.title} landing page`}
-                                    class="web-image absolute top-0 left-0 w-full h-full object-contain"
-                                    style={
-                                      project.imageOpacity
-                                        ? `opacity: ${project.imageOpacity / 100}`
-                                        : ""
-                                    }
+                                  class="web-image max-w-full max-h-full object-contain"
+                                  style={project.imageOpacity ? `opacity: ${project.imageOpacity / 100}` : ""}
                                   />
-                                </div>
                               </div>
                             )}
                           </div>

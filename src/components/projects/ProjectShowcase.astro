@@ -69,11 +69,11 @@ const { projectsData } = Astro.props;
                       />
                     </div>
                   ) : (
-                    <div class="web-shot rounded-xl overflow-hidden shadow-2xl">
+                    <div class="web-shot rounded-xl overflow-hidden shadow-2xl flex items-center justify-center h-full">
                       <img
                         src={project.screenshots[0]}
                         alt={`${project.title} Screenshot`}
-                        class="w-full h-full object-cover"
+                        class="w-full object-contain"
                         style={project.imageOpacity ? `opacity: ${project.imageOpacity}` : ''}
                         loading="lazy"
                       />
