@@ -64,12 +64,6 @@ export default defineConfig({
   },
   presets: [
     presetUno(),
-    presetWebFonts({
-      provider: "fontshare",
-      fonts: {
-        sans: ["Cabinet Grotesk", "Satoshi"],
-        serif: "Zodiak",
-      },
-    }),
+    presetWebFonts(),
   ],
 });
