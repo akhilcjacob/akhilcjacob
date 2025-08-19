@@ -1,0 +1,20 @@
+---
+import Card from "./Card/index.astro";
+
+const { class: className } = Astro.props;
+---
+
+<Card 
+  colSpan="col-span-1" 
+  rowSpan="row-span-1" 
+  href="https://engineering.akhilcjacob.com"
+  class={`min-h-[10px] md:min-h-0 ${className}`}
+>
+  <div class="flex flex-col items-center justify-center h-full">
+    <p class="text-xs text-white/50 mb-2 tracking-wider">LATEST POST</p>
+    <h4 class="text-white/90 font-bold text-center text-sm mb-1 leading-tight">
+      Building InboxHiiv
+    </h4>
+    <span class="text-xs text-white/40">Engineering Notes</span>
+  </div>
+</Card>
